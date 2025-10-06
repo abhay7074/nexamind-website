@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Disclaimer - NexaMind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #FF006E;
+            --secondary: #8338EC;
+            --accent: #FB5607;
+            --success: #06D6A0;
+            --dark: #0F0F1E;
+            --dark-2: #1A1A2E;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(255,0,110,0.3);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .tagline {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+        
+        .back-home {
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        
+        .back-home:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .last-updated {
+            background: linear-gradient(135deg, rgba(255,0,110,0.1), rgba(131,56,236,0.1));
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .section h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .section p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .section ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .section li {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .important-box {
+            background: linear-gradient(135deg, rgba(255,0,110,0.08), rgba(131,56,236,0.08));
+            border-left: 4px solid var(--primary);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .important-box strong {
+            color: var(--primary);
+        }
+        
+        .fb-disclaimer-box {
+            background: linear-gradient(135deg, #1877F2 0%, #0e5bb5 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(24,119,242,0.3);
+        }
+        
+        .fb-disclaimer-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .fb-disclaimer-box p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: white;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, var(--dark), var(--dark-2));
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .contact-box a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px 20px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div>
+                <a href="index.html" class="logo">NexaMind</a>
+                <div class="tagline">Think Ahead with AI™</div>
+            </div>
+            <a href="index.html" class="back-home">Back to Home</a>
+        </div>
+    </header>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Facebook & Meta Disclaimer</h1>
+        <p>Important information about our relationship with Facebook and Meta</p>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="last-updated">
+            Last Updated: January 2025
+        </div>
+        
+        <!-- Official Disclaimer -->
+        <div class="fb-disclaimer-box">
+            <h3>⚠️ OFFICIAL DISCLAIMER</h3>
+            <p><strong>This website is not a part of the Facebook website or Facebook Inc.</strong></p>
+            <p style="margin-top: 15px;"><strong>Additionally, this site is NOT endorsed by Facebook in any way.</strong></p>
+            <p style="margin-top: 15px; font-size: 1rem; opacity: 0.95;">FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+        </div>
+        
+        <!-- Independent Business -->
+        <div class="section">
+            <h2>1. Independent Business Operation</h2>
+            
+            <p>NexaMind operates as an independent business entity. We are not affiliated with, partnered with, sponsored by, or officially connected to:</p>
+            
+            <ul>
+                <li>Facebook, Inc.</li>
+                <li>Meta Platforms, Inc.</li>
+                <li>Instagram</li>
+                <li>WhatsApp</li>
+                <li>Any other Meta-owned properties or subsidiaries</li>
+            </ul>
+            
+            <p>Any reference to Facebook, Meta, Instagram, or related platforms on this website is for descriptive and informational purposes only.</p>
+        </div>
+        
+        <!-- No Endorsement -->
+        <div class="section">
+            <h2>2. No Endorsement or Affiliation</h2>
+            
+            <h3>2.1 Not Endorsed by Facebook/Meta</h3>
+            <p>Facebook and Meta Platforms, Inc. have not:</p>
+            
+            <ul>
+                <li>Reviewed, approved, or endorsed our product</li>
+                <li>Verified any claims made on this website</li>
+                <li>Participated in the creation of our content</li>
+                <li>Sponsored or promoted our business in any way</li>
+            </ul>
+            
+            <h3>2.2 No Partnership Claims</h3>
+            <p>We do not claim to be:</p>
+            
+            <ul>
+                <li>Official representatives of Facebook or Meta</li>
+                <li>Partners or affiliates of Facebook or Meta</li>
+                <li>Certified or authorized by Facebook or Meta</li>
+                <li>Acting on behalf of Facebook or Meta in any capacity</li>
+            </ul>
+        </div>
+        
+        <!-- Facebook Ads Usage -->
+        <div class="section">
+            <h2>3. Use of Facebook Advertising Platform</h2>
+            
+            <h3>3.1 Advertising Relationship</h3>
+            <p>We utilize Facebook's advertising platform (Facebook Ads) as a paid service to promote our products. This is a standard commercial relationship available to any business or individual who chooses to advertise on Facebook.</p>
+            
+            <h3>3.2 Advertiser Status</h3>
+            <p>Our use of Facebook Ads:</p>
+            
+            <ul>
+                <li>Does NOT constitute an official partnership with Facebook</li>
+                <li>Does NOT imply Facebook's endorsement of our product</li>
+                <li>Does NOT mean Facebook has verified our claims</li>
+                <li>Is a paid advertising service available to the public</li>
+            </ul>
+            
+            <h3>3.3 Compliance</h3>
+            <p>We strive to comply with all Facebook Advertising Policies and Community Standards. However, Facebook's approval of our ads for display does not constitute endorsement of our product or business.</p>
+        </div>
+        
+        <!-- Data and Privacy -->
+        <div class="section">
+            <h2>4. Data Collection and Privacy</h2>
+            
+            <h3>4.1 Facebook Pixel</h3>
+            <p>This website uses the Facebook Pixel, a tool provided by Facebook that allows us to:</p>
+            
+            <ul>
+                <li>Measure the effectiveness of our advertising</li>
+                <li>Understand how visitors interact with our website</li>
+                <li>Build audiences for future advertising</li>
+                <li>Optimize ad delivery to interested users</li>
+            </ul>
+            
+            <h3>4.2 Data Handling</h3>
+            <p>When you visit our website:</p>
+            
+            <ul>
+                <li>Facebook may collect certain data through the Pixel</li>
+                <li>This data is subject to Facebook's own Data Policy</li>
+                <li>We do not have access to all data Facebook collects</li>
+                <li>We use aggregated data for advertising purposes only</li>
+            </ul>
+            
+            <h3>4.3 Your Privacy Rights</h3>
+            <p>For information about how Facebook handles your data, please review:</p>
+            
+            <ul>
+                <li>Facebook's Data Policy: <a href="https://www.facebook.com/privacy/explanation" target="_blank" style="color: var(--primary); font-weight: 600;">facebook.com/privacy</a></li>
+                <li>Facebook's Cookie Policy: <a href="https://www.facebook.com/policies/cookies" target="_blank" style="color: var(--primary); font-weight: 600;">facebook.com/policies/cookies</a></li>
+            </ul>
+        </div>
+        
+        <!-- Trademark Notice -->
+        <div class="section">
+            <h2>5. Trademark and Intellectual Property</h2>
+            
+            <h3>5.1 Facebook Trademarks</h3>
+            <p>The following are registered trademarks of their respective owners:</p>
+            
+            <ul>
+                <li><strong>FACEBOOK®</strong> - Trademark of Facebook, Inc.</li>
+                <li><strong>META®</strong> - Trademark of Meta Platforms, Inc.</li>
+                <li><strong>INSTAGRAM®</strong> - Trademark of Instagram, LLC</li>
+                <li><strong>WHATSAPP®</strong> - Trademark of WhatsApp Inc.</li>
+            </ul>
+            
+            <h3>5.2 Fair Use</h3>
+            <p>Any use of Facebook or Meta trademarks on this website is for:</p>
+            
+            <ul>
+                <li>Descriptive purposes only</li>
+                <li>Identifying the advertising platform we use</li>
+                <li>Explaining our business operations</li>
+                <li>Providing transparency to visitors</li>
+            </ul>
+            
+            <p>Such use constitutes fair use under applicable trademark law and does not imply any affiliation or endorsement.</p>
+        </div>
+        
+        <!-- No Guarantee Claims -->
+        <div class="section">
+            <h2>6. No Guarantee of Ad Approval or Account Status</h2>
+            
+            <p>We do not guarantee that:</p>
+            
+            <ul>
+                <li>Our products will help you get Facebook ads approved</li>
+                <li>Following our methods will prevent Facebook account restrictions</li>
+                <li>Our techniques comply with future changes to Facebook's policies</li>
+                <li>Facebook will not reject or disable your ads or account</li>
+            </ul>
+            
+            <div class="important-box">
+                <p><strong>Important:</strong> Facebook's advertising policies and platform features change frequently and are beyond our control. We are not responsible for Facebook's policy decisions or enforcement actions.</p>
+            </div>
+        </div>
+        
+        <!-- Third-Party Platform Disclaimer -->
+        <div class="section">
+            <h2>7. Third-Party Platform Disclaimer</h2>
+            
+            <h3>7.1 Platform Changes</h3>
+            <p>Facebook, Meta, and related platforms:</p>
+            
+            <ul>
+                <li>Are third-party services we do not control</li>
+                <li>May change features, policies, or availability at any time</li>
+                <li>May discontinue services or impose restrictions</li>
+                <li>Operate according to their own terms of service</li>
+            </ul>
+            
+            <h3>7.2 No Liability for Platform Issues</h3>
+            <p>We are not responsible for:</p>
+            
+            <ul>
+                <li>Facebook platform outages or technical issues</li>
+                <li>Changes to Facebook's advertising policies</li>
+                <li>Account suspensions or restrictions by Facebook</li>
+                <li>Facebook's enforcement of its community standards</li>
+                <li>Any actions taken by Facebook regarding your account</li>
+            </ul>
+        </div>
+        
+        <!-- User Responsibility -->
+        <div class="section">
+            <h2>8. User Responsibility</h2>
+            
+            <h3>8.1 Compliance with Facebook Policies</h3>
+            <p>If you choose to use Facebook for business or advertising purposes, you are solely responsible for:</p>
+            
+            <ul>
+                <li>Complying with Facebook's Terms of Service</li>
+                <li>Following Facebook's Advertising Policies</li>
+                <li>Adhering to Facebook's Community Standards</li>
+                <li>Understanding and following all applicable Facebook rules</li>
+            </ul>
+            
+            <h3>8.2 Your Own Research</h3>
+            <p>Before using Facebook for business purposes, you should:</p>
+            
+            <ul>
+                <li>Read Facebook's official policies and guidelines</li>
+                <li>Understand the platform's terms of service</li>
+                <li>Stay updated on policy changes</li>
+                <li>Consult Facebook's official help resources</li>
+            </ul>
+            
+            <p>We encourage all users to conduct their own research and due diligence regarding Facebook's platform and policies.</p>
+        </div>
+        
+        <!-- AI Tools Disclaimer -->
+        <div class="section">
+            <h2>9. AI Platform References</h2>
+            
+            <p>In addition to Facebook, our product may reference other AI platforms and tools including but not limited to:</p>
+            
+            <ul>
+                <li><strong>ChatGPT</strong> - Trademark of OpenAI</li>
+                <li><strong>Claude</strong> - Trademark of Anthropic</li>
+                <li><strong>Gemini</strong> - Trademark of Google LLC</li>
+                <li>Other AI tools and platforms</li>
+            </ul>
+            
+            <p>The same disclaimers apply: We are not affiliated with, endorsed by, or officially connected to any of these platforms. References are for educational and descriptive purposes only.</p>
+        </div>
+        
+        <!-- Contact and Support -->
+        <div class="section">
+            <h2>10. Support and Questions</h2>
+            
+            <h3>10.1 For Questions About NexaMind</h3>
+            <p>If you have questions about our product, services, or this disclaimer:</p>
+            
+            <p><strong>Contact NexaMind:</strong><br>
+            Email: nexamindai707@gmail.com<br>
+            WhatsApp: +91 7703078859</p>
+            
+            <h3>10.2 For Questions About Facebook</h3>
+            <p>For questions about Facebook's platform, policies, or services:</p>
+            
+            <p><strong>Contact Facebook Directly:</strong><br>
+            Facebook Help Center: <a href="https://www.facebook.com/help" target="_blank" style="color: var(--primary); font-weight: 600;">facebook.com/help</a><br>
+            Business Help Center: <a href="https://www.facebook.com/business/help" target="_blank" style="color: var(--primary); font-weight: 600;">facebook.com/business/help</a></p>
+            
+            <div class="important-box">
+                <p><strong>Important:</strong> We cannot provide official support for Facebook products or services. For Facebook-specific issues, please contact Facebook directly through their official support channels.</p>
+            </div>
+        </div>
+        
+        <!-- Accuracy of Information -->
+        <div class="section">
+            <h2>11. Accuracy of Platform Information</h2>
+            
+            <p>Any information provided about Facebook, Meta, or other platforms on this website or in our products:</p>
+            
+            <ul>
+                <li>Is based on publicly available information at the time of writing</li>
+                <li>May become outdated as platforms evolve</li>
+                <li>Should be verified through official platform resources</li>
+                <li>Is provided for educational purposes only</li>
+            </ul>
+            
+            <p>We make reasonable efforts to provide accurate information, but we cannot guarantee that all platform-related information remains current or accurate.</p>
+        </div>
+        
+        <!-- Legal Compliance -->
+        <div class="section">
+            <h2>12. Legal Compliance</h2>
+            
+            <h3>12.1 Advertising Standards</h3>
+            <p>Our use of Facebook Ads complies with:</p>
+            
+            <ul>
+                <li>Facebook's Advertising Policies</li>
+                <li>Indian advertising standards and regulations</li>
+                <li>Applicable consumer protection laws</li>
+                <li>Truth in advertising principles</li>
+            </ul>
+            
+            <h3>12.2 Transparent Advertising</h3>
+            <p>We clearly disclose:</p>
+            
+            <ul>
+                <li>When content is advertising or promotional</li>
+                <li>Our use of Facebook Pixel for tracking</li>
+                <li>The nature of our product (digital educational content)</li>
+                <li>Our refund policy and purchase terms</li>
+            </ul>
+        </div>
+        
+        <!-- Changes to Disclaimer -->
+        <div class="section">
+            <h2>13. Changes to This Disclaimer</h2>
+            
+            <p>We reserve the right to update this Facebook Disclaimer at any time to reflect:</p>
+            
+            <ul>
+                <li>Changes in our use of Facebook's platform</li>
+                <li>Updates to Facebook's policies or branding</li>
+                <li>Legal or regulatory requirements</li>
+                <li>Best practices for transparency</li>
+            </ul>
+            
+            <p>Changes will be effective immediately upon posting to our website. The "Last Updated" date at the top of this page indicates when the most recent changes were made.</p>
+        </div>
+        
+        <!-- Summary -->
+        <div class="section">
+            <h2>14. Summary</h2>
+            
+            <p><strong>In plain language, here's what you need to know:</strong></p>
+            
+            <div class="important-box">
+                <ul style="margin: 0;">
+                    <li>✓ We are an independent business, not affiliated with Facebook or Meta</li>
+                    <li>✓ Facebook has not endorsed our product or business</li>
+                    <li>✓ We use Facebook Ads as a paid advertising service</li>
+                    <li>✓ Facebook Pixel may collect data when you visit our site</li>
+                    <li>✓ All Facebook trademarks belong to Facebook/Meta</li>
+                    <li>✓ We cannot guarantee Facebook ad approval or account status</li>
+                    <li>✓ You are responsible for complying with Facebook's policies</li>
+                    <li>✓ For Facebook support, contact Facebook directly</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Final Contact Box -->
+        <div class="contact-box">
+            <h3>Questions About This Disclaimer?</h3>
+            <p>If you have any questions or concerns about this Facebook Disclaimer or our relationship with Facebook/Meta platforms:</p>
+            <p style="margin-top: 20px;">
+                📧 Email: <a href="mailto:nexamindai707@gmail.com">nexamindai707@gmail.com</a><br>
+                💬 WhatsApp: <a href="https://wa.me/917703078859" target="_blank">+91 7703078859</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.95rem; opacity: 0.9;">We typically respond within 24 hours</p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="disclaimer.html">Disclaimer</a>
+                <a href="refund-policy.html">Refund Policy</a>
+                <a href="facebook-disclaimer.html">Facebook Disclaimer</a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 NexaMind. All rights reserved.</p>
+                <p style="margin-top: 10px;">Think Ahead with AI™</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

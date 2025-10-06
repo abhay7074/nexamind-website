@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer - NexaMind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #FF006E;
+            --secondary: #8338EC;
+            --accent: #FB5607;
+            --success: #06D6A0;
+            --dark: #0F0F1E;
+            --dark-2: #1A1A2E;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(255,0,110,0.3);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .tagline {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+        
+        .back-home {
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        
+        .back-home:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .last-updated {
+            background: linear-gradient(135deg, rgba(255,0,110,0.1), rgba(131,56,236,0.1));
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .section h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .section p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .section ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .section li {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .important-box {
+            background: linear-gradient(135deg, rgba(255,0,110,0.08), rgba(131,56,236,0.08));
+            border-left: 4px solid var(--primary);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .important-box strong {
+            color: var(--primary);
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, var(--dark), var(--dark-2));
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .contact-box a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px 20px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div>
+                <a href="index.html" class="logo">NexaMind</a>
+                <div class="tagline">Think Ahead with AI™</div>
+            </div>
+            <a href="index.html" class="back-home">Back to Home</a>
+        </div>
+    </header>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Disclaimer</h1>
+        <p>Important information about the use and limitations of our products</p>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="last-updated">
+            Last Updated: January 2025
+        </div>
+        
+        <!-- General Disclaimer -->
+        <div class="section">
+            <h2>1. General Disclaimer</h2>
+            
+            <p>The information provided by NexaMind ("we," "us," or "our") in the "Advanced Prompt Engineering Mastery" eBook and on the website trynexamind.com is for general informational and educational purposes only.</p>
+            
+            <p>All information in the eBook is provided in good faith. However, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information in the product.</p>
+            
+            <div class="important-box">
+                <p><strong>Important:</strong> Under no circumstances shall we have any liability to you for any loss or damage of any kind incurred as a result of the use of the eBook or reliance on any information provided therein.</p>
+            </div>
+        </div>
+        
+        <!-- Results Disclaimer -->
+        <div class="section">
+            <h2>2. Results and Performance Disclaimer</h2>
+            
+            <h3>2.1 No Guaranteed Results</h3>
+            <p>While we teach proven methods for improving AI interactions and prompt engineering skills, we make absolutely no guarantee that you will achieve any particular results or outcomes from using our product.</p>
+            
+            <h3>2.2 Individual Results Vary</h3>
+            <p>Results from applying the methods taught in "Advanced Prompt Engineering Mastery" will vary based on numerous factors including but not limited to:</p>
+            
+            <ul>
+                <li>Your current skill level and experience with AI tools</li>
+                <li>The amount of time and effort you invest in learning and practice</li>
+                <li>Your specific use cases and applications</li>
+                <li>The AI platforms and tools you use</li>
+                <li>Your industry, niche, and professional context</li>
+                <li>External market conditions and technological changes</li>
+            </ul>
+            
+            <h3>2.3 Testimonials and Examples</h3>
+            <p>Any testimonials, examples, or success stories presented on our website or in our marketing materials represent individual experiences and results. These examples are not typical, and your results may differ significantly.</p>
+            
+            <p>We do not guarantee that you will achieve similar results, and you accept the risk that your results may be better or worse than those presented.</p>
+            
+            <div class="important-box">
+                <p><strong>Earnings Disclaimer:</strong> References to income, revenue increases, or business growth are illustrative examples only. We make no claims that you will earn any money or increase your income by using our product.</p>
+            </div>
+        </div>
+        
+        <!-- Educational Purpose -->
+        <div class="section">
+            <h2>3. Educational Purpose Only</h2>
+            
+            <p>The "Advanced Prompt Engineering Mastery" eBook is designed for educational purposes. It teaches methods and techniques for improving AI prompt engineering skills.</p>
+            
+            <p>This product is not a guarantee of success, and the methods taught require practice, adaptation, and consistent application to be effective.</p>
+            
+            <h3>3.1 Not a Substitute for Professional Development</h3>
+            <p>This eBook supplements but does not replace formal education, professional training, or hands-on experience in your field.</p>
+        </div>
+        
+        <!-- Professional Advice Disclaimer -->
+        <div class="section">
+            <h2>4. No Professional Advice</h2>
+            
+            <h3>4.1 Not Professional, Legal, or Financial Advice</h3>
+            <p>The content in our eBook does not constitute professional advice of any kind, including but not limited to:</p>
+            
+            <ul>
+                <li>Business consulting or strategy advice</li>
+                <li>Legal advice or guidance</li>
+                <li>Financial or investment advice</li>
+                <li>Career counseling or job placement services</li>
+                <li>Technical support for specific software or platforms</li>
+            </ul>
+            
+            <h3>4.2 Consult Appropriate Professionals</h3>
+            <p>Before making any business, legal, financial, or career decisions, you should consult with qualified professionals who can provide advice tailored to your specific circumstances.</p>
+        </div>
+        
+        <!-- AI Technology Disclaimer -->
+        <div class="section">
+            <h2>5. AI Technology and Platform Changes</h2>
+            
+            <h3>5.1 Evolving Technology</h3>
+            <p>Artificial Intelligence is a rapidly evolving field. AI platforms, tools, and their capabilities change frequently. While the core principles taught in our eBook are designed to be platform-agnostic and timeless, specific features, interfaces, or behaviors of AI tools may change.</p>
+            
+            <h3>5.2 Platform Independence</h3>
+            <p>We are not affiliated with, endorsed by, or officially connected to OpenAI (ChatGPT), Anthropic (Claude), Google (Gemini), or any other AI platform mentioned in our materials.</p>
+            
+            <p>The methods taught are designed to work across multiple AI platforms, but we cannot guarantee compatibility with all current or future AI tools.</p>
+            
+            <h3>5.3 No Technical Support for Third-Party Platforms</h3>
+            <p>We do not provide technical support for ChatGPT, Claude, Gemini, or any other third-party AI platforms. For technical issues with these tools, please contact their respective support teams.</p>
+        </div>
+        
+        <!-- Ethical Use -->
+        <div class="section">
+            <h2>6. Ethical Use and Responsibility</h2>
+            
+            <h3>6.1 User Responsibility</h3>
+            <p>You are solely responsible for how you use the methods and techniques taught in our eBook. We encourage ethical, legal, and responsible use of AI tools.</p>
+            
+            <h3>6.2 Prohibited Applications</h3>
+            <p>Our methods should not be used for:</p>
+            
+            <ul>
+                <li>Creating misleading, deceptive, or fraudulent content</li>
+                <li>Violating intellectual property rights or plagiarism</li>
+                <li>Generating harmful, illegal, or unethical content</li>
+                <li>Circumventing AI platform terms of service</li>
+                <li>Academic dishonesty or cheating</li>
+            </ul>
+            
+            <p>We disclaim all liability for misuse of the techniques taught in our product.</p>
+        </div>
+        
+        <!-- Third-Party Links -->
+        <div class="section">
+            <h2>7. Third-Party Links and Resources</h2>
+            
+            <p>Our eBook and website may contain links to third-party websites, tools, or resources. These links are provided for your convenience only.</p>
+            
+            <p>We have no control over the content, privacy policies, or practices of third-party sites and assume no responsibility for them. We do not endorse the products, services, or content of any third-party websites.</p>
+            
+            <p>You access third-party websites at your own risk and should review their terms and privacy policies.</p>
+        </div>
+        
+        <!-- Accuracy of Information -->
+        <div class="section">
+            <h2>8. Accuracy and Updates</h2>
+            
+            <h3>8.1 Information Accuracy</h3>
+            <p>While we strive to provide accurate and up-to-date information, we make no warranties about the completeness, reliability, or accuracy of the information in our eBook.</p>
+            
+            <p>The AI industry evolves rapidly, and some specific details or examples may become outdated over time, even though the core principles remain valid.</p>
+            
+            <h3>8.2 Right to Update</h3>
+            <p>We reserve the right to update, modify, or correct the eBook content at any time without prior notice. However, we are under no obligation to provide updates.</p>
+        </div>
+        
+        <!-- Limitation of Liability -->
+        <div class="section">
+            <h2>9. Limitation of Liability</h2>
+            
+            <p>To the fullest extent permitted by applicable law, NexaMind shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, revenue, data, or goodwill arising from:</p>
+            
+            <ul>
+                <li>Your use or inability to use the eBook</li>
+                <li>Any errors or omissions in the content</li>
+                <li>Any implementation of the methods taught</li>
+                <li>Any business decisions made based on the information provided</li>
+                <li>Changes in AI platform features or capabilities</li>
+            </ul>
+            
+            <p>Our total liability shall not exceed the amount you paid for the product (₹799).</p>
+        </div>
+        
+        <!-- User Assumption of Risk -->
+        <div class="section">
+            <h2>10. Assumption of Risk</h2>
+            
+            <p>By purchasing and using "Advanced Prompt Engineering Mastery," you acknowledge and accept that:</p>
+            
+            <ul>
+                <li>Learning any new skill requires time, effort, and practice</li>
+                <li>Results depend on your individual implementation and circumstances</li>
+                <li>AI technology continues to evolve and change</li>
+                <li>You are responsible for compliance with AI platform terms of service</li>
+                <li>You assume all risks associated with using AI tools professionally</li>
+            </ul>
+        </div>
+        
+        <!-- Fair Use and Copyright -->
+        <div class="section">
+            <h2>11. Copyright and Fair Use</h2>
+            
+            <p>When using AI tools with the methods taught in our eBook, you are responsible for ensuring your use complies with copyright laws, fair use principles, and intellectual property rights.</p>
+            
+            <p>We do not provide legal advice on copyright, fair use, or intellectual property matters. Consult a qualified attorney if you have questions about these issues.</p>
+        </div>
+        
+        <!-- Changes to Disclaimer -->
+        <div class="section">
+            <h2>12. Changes to This Disclaimer</h2>
+            
+            <p>We reserve the right to modify this Disclaimer at any time. Changes will be effective immediately upon posting to our website.</p>
+            
+            <p>Your continued use of the product after changes constitutes acceptance of the modified disclaimer.</p>
+        </div>
+        
+        <!-- Contact -->
+        <div class="contact-box">
+            <h3>Questions About This Disclaimer?</h3>
+            <p>If you have any questions or concerns about this Disclaimer, please contact us:</p>
+            <p style="margin-top: 20px;">
+                📧 Email: <a href="mailto:nexamindai707@gmail.com">nexamindai707@gmail.com</a><br>
+                💬 WhatsApp: <a href="https://wa.me/917703078859" target="_blank">+91 7703078859</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.95rem; opacity: 0.9;">We typically respond within 24 hours</p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="disclaimer.html">Disclaimer</a>
+                <a href="refund-policy.html">Refund Policy</a>
+                <a href="facebook-disclaimer.html">Facebook Disclaimer</a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 NexaMind. All rights reserved.</p>
+                <p style="margin-top: 10px;">Think Ahead with AI™</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stop getting garbage from ChatGPT. Master the 5 proven methods Indian professionals use to get expert-level AI results in minutes, not hours. Complete system for just ₹799.">
+    <title>Stop Wasting Hours Editing Bad AI Content | NexaMind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF006E;
+            --secondary: #8338EC;
+            --accent: #FB5607;
+            --success: #06D6A0;
+            --dark: #0F0F1E;
+            --dark-2: #1A1A2E;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(255,0,110,0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .tagline {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+        
+        .cta-header {
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(251,86,7,0.4);
+        }
+        
+        .cta-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(251,86,7,0.5);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            color: white;
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,0,110,0.2), transparent);
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .hero-subheadline {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            font-weight: 500;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+        
+        .hero-pain {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 30px auto;
+            max-width: 700px;
+            padding: 25px;
+            background: rgba(255,0,110,0.15);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+        
+        .hero-cta {
+            margin-top: 40px;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(255,0,110,0.4);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255,0,110,0.5);
+        }
+        
+        .price-tag {
+            display: block;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        /* Problem Section */
+        .problem {
+            background: #f8f9fa;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(255,0,110,0.15);
+        }
+        
+        .problem-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        
+        .problem-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Solution Section */
+        .solution {
+            background: white;
+        }
+        
+        .solution-intro {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #444;
+            text-align: center;
+        }
+        
+        /* Methods Section */
+        .methods {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .methods::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(131,56,236,0.2), transparent);
+            bottom: -200px;
+            left: -200px;
+            border-radius: 50%;
+        }
+        
+        .section-title.white {
+            color: white;
+        }
+        
+        .section-subtitle.white {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .method-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,0,110,0.3);
+            transition: all 0.3s;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255,0,110,0.3);
+            background: rgba(255,255,255,0.15);
+            border-color: var(--primary);
+        }
+        
+        .method-number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .method-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .method-card p {
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+        
+        .method-result {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255,0,110,0.2);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255,0,110,0.3);
+        }
+        
+        /* Offer Section */
+        .offer {
+            background: #f8f9fa;
+        }
+        
+        .offer-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .offer-main {
+            background: white;
+            border-radius: 16px;
+            padding: 50px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            margin-bottom: 40px;
+        }
+        
+        .offer-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .offer-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .offer-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        
+        .value-stack {
+            margin: 30px 0;
+        }
+        
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .checkmark {
+            color: #10b981;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .value-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        
+        .value-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .value-price {
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 5px;
+        }
+        
+        /* Bonus Section */
+        .bonus-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 30px rgba(255,0,110,0.3);
+        }
+        
+        .bonus-banner h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .bonus-category {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: left;
+        }
+        
+        .bonus-category h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .bonus-category ul {
+            list-style: none;
+        }
+        
+        .bonus-category li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        .bonus-category li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+        
+        /* Price Section */
+        .price-section {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            color: white;
+            border-radius: 16px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-section::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,0,110,0.15), transparent);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+        
+        .price-comparison {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .old-price {
+            font-size: 2rem;
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        
+        .arrow {
+            font-size: 2rem;
+        }
+        
+        .new-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-shadow: 0 0 30px rgba(255,0,110,0.5);
+        }
+        
+        .price-subtext {
+            font-size: 1.1rem;
+            margin-top: 15px;
+            opacity: 0.95;
+        }
+        
+        .savings-badge {
+            display: inline-block;
+            background: var(--accent);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 700;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(251,86,7,0.4);
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background: white;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+        
+        .faq-answer {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Guarantee Section */
+        .guarantee {
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .guarantee-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .guarantee-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .guarantee h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .guarantee p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(131,56,236,0.2), transparent);
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+        }
+        
+        .final-cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+        
+        .final-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        
+        .urgency-text {
+            font-size: 1rem;
+            margin-top: 25px;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 50px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subheadline {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-button {
+                padding: 18px 35px;
+                font-size: 1.1rem;
+            }
+            
+            .new-price {
+                font-size: 2.5rem;
+            }
+            
+            .offer-main {
+                padding: 30px 20px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <a href="#" class="logo">NexaMind</a>
+                    <div class="tagline">Think Ahead with AI™</div>
+                </div>
+                <a href="#offer" class="cta-header">Get Started for ₹799</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>You're Spending 3 Hours on ChatGPT... Getting Results a Junior Could Write in 30 Minutes</h1>
+                
+                <p class="hero-subheadline">While your competitors are directing AI like seasoned professionals—getting expert-level content in minutes—you're stuck editing mediocre outputs that sound like a robot wrote them.</p>
+                
+                <div class="hero-pain">
+                    <strong>Sound familiar?</strong> You type a careful prompt into ChatGPT... wait... and get back something so generic you could've found it on Wikipedia. You spend the next 2 hours trying to "fix it" with follow-up questions. Frustrated. Exhausted. Wondering why everyone else seems to get perfect results while you're drowning in edits.
+                </div>
+                
+                <p class="hero-subheadline">Here's the truth most people won't tell you: <strong>It's not ChatGPT's fault. And it's definitely not yours.</strong></p>
+                
+                <p class="hero-subheadline">You just haven't learned the 5 methods professionals use to transform AI from a clumsy assistant into a precision tool that delivers expert-level work on the first try.</p>
+                
+                <div class="hero-cta">
+                    <button class="cta-button" onclick="initializePayment()">
+                        Yes! Show Me How to Master AI in 30 Days
+                        <span class="price-tag">Complete System - Just ₹799 (One-Time)</span>
+                    </button>
+                </div>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">✓ Instant Download</div>
+                    <div class="trust-badge">✓ Works on Mobile/Desktop</div>
+                    <div class="trust-badge">✓ 100% Indian Payment (UPI/Cards)</div>
+                    <div class="trust-badge">✓ 500+ Indian Professionals Transformed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Your AI Results Are Disappointing (And It's Not What You Think)</h2>
+                <p class="section-subtitle">The problem isn't your creativity or intelligence. It's that nobody taught you the system behind professional prompts.</p>
+            </div>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>😤 Generic, Robotic Outputs</h3>
+                    <p>You ask for marketing copy and get bland text that sounds like every other AI-generated piece. No personality. No punch. Nothing you can actually use without heavy editing.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>⏰ Hours Wasted in Revision Cycles</h3>
+                    <p>First draft is garbage. Second attempt is slightly better. Third try... still not right. By the time you get something usable, you could've written it yourself faster.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>🎯 Missing the Mark Completely</h3>
+                    <p>You ask for one thing, AI gives you something completely different. It's like it doesn't understand what you actually need, no matter how you phrase it.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>📉 Falling Behind Competitors</h3>
+                    <p>While you struggle with basic AI tasks, others in your field are cranking out professional-grade content, strategies, and analysis at 10x speed. The gap is widening every day.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>💸 Wasting Money on "Solutions"</h3>
+                    <p>You've bought prompt libraries. Watched YouTube tutorials. Tried random templates. Nothing gives you consistent, reliable results you can count on.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>🤯 Information Overload</h3>
+                    <p>Everyone has a "secret trick" or "magic prompt." But scattered tips don't add up to a system. You're drowning in random advice with no clear path forward.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What If You Could Direct AI Like a Pro Director Guides a Team?</h2>
+            </div>
+            
+            <div class="solution-intro">
+                <p>Imagine opening ChatGPT tomorrow and, instead of hoping for decent results, you <strong>know exactly what to do</strong> to get expert-level output on the first attempt.</p>
+                
+                <p>Imagine cutting your content creation time by 70%. Imagine getting marketing strategies that sound like they came from a ₹50,000/month consultant. Imagine never again staring at bland AI responses wondering "how do I fix this?"</p>
+                
+                <p><strong>That's not a fantasy. That's what happens when you master the 5 proven methods professional prompt engineers use every single day.</strong></p>
+                
+                <p>These aren't random tricks or gimmicks. They're systematic approaches that transform AI from a mediocre assistant into a precision tool that delivers exactly what you need, formatted exactly how you want it, ready to use immediately.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methods Section -->
+    <section class="methods">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title white">The 5 Methods That Separate AI Amateurs from AI Directors</h2>
+                <p class="section-subtitle white">Master these once, use them forever. Each method solves a specific frustration you're experiencing right now.</p>
+            </div>
+            
+            <div class="methods-grid">
+                <div class="method-card">
+                    <div class="method-number">1</div>
+                    <h3>The PTCF Framework</h3>
+                    <p>Stop throwing random questions at AI and hoping for the best. The PTCF Framework (Persona, Task, Context, Format) gives you a foolproof structure that works every single time.</p>
+                    <p>You'll learn exactly which 4 elements every professional prompt must contain, and how to craft each one in under 2 minutes.</p>
+                    <div class="method-result">
+                        ✓ Result: 50-70% reduction in revision time. First drafts become usable drafts.
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-number">2</div>
+                    <h3>The "Act As" Method</h3>
+                    <p>Generic AI gives generic answers. But when you activate AI's specialized knowledge through strategic role assignment, everything changes.</p>
+                    <p>Transform ChatGPT into a senior marketing strategist, an expert copywriter, or a seasoned business consultant in seconds.</p>
+                    <div class="method-result">
+                        ✓ Result: Responses jump from amateur to expert-level. Credibility you can actually use.
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-number">3</div>
+                    <h3>The "Ask Me Questions" Method</h3>
+                    <p>You don't know what you don't know. This method flips the script—AI becomes your strategic partner, asking YOU exactly what it needs to deliver exceptional results.</p>
+                    <p>No more guessing what information to include. AI tells you exactly what would make the biggest difference.</p>
+                    <div class="method-result">
+                        ✓ Result: Outputs feel custom-built for your exact situation, not generic templates.
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-number">4</div>
+                    <h3>The Primer Method</h3>
+                    <p>Context is everything. Learn how to "load" AI with exactly the right information—your brand voice, your industry knowledge, your specific situation—so every response aligns perfectly with your needs.</p>
+                    <p>This is how professionals get AI to match their exact style and tone every time.</p>
+                    <div class="method-result">
+                        ✓ Result: AI sounds like YOU, not like a robot. Brand consistency without effort.
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-number">5</div>
+                    <h3>The "Break It Down" Method</h3>
+                    <p>Complex projects used to mean hours of work. Not anymore. Learn the systematic approach to breaking down any project—reports, strategies, complete content systems—into manageable pieces that maintain quality throughout.</p>
+                    <p>This is how professionals create 5,000-word documents that read like senior experts wrote them.</p>
+                    <div class="method-result">
+                        ✓ Result: Handle complex projects with surgical precision. Quality never drops.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="offer" id="offer">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Here's Everything You Get When You Join Today</h2>
+                <p class="section-subtitle">Not just theory. Not just tips. A complete, systematic approach to AI mastery—plus 700+ ready-made prompts you can use immediately.</p>
+            </div>
+            
+            <div class="offer-container">
+                <div class="offer-main">
+                    <div class="offer-header">
+                        <span class="offer-badge">Complete AI Mastery System</span>
+                        <h3 class="offer-title">Advanced Prompt Engineering Mastery</h3>
+                        <p>Your complete 30-day roadmap from AI frustration to AI mastery</p>
+                    </div>
+                    
+                    <div class="value-stack">
+                        <div class="value-item">
+                            <div class="checkmark">✓</div>
+                            <div class="value-content">
+                                <h4>The Complete 64-Page Mastery Guide</h4>
+                                <p>Step-by-step instruction on all 5 methods, with real examples from Indian professionals. Every technique explained in simple language with immediate practice exercises.</p>
+                                <p class="value-price">Value: ₹1,499</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-item">
+                            <div class="checkmark">✓</div>
+                            <div class="value-content">
+                                <h4>Your 30-Day Mastery Roadmap</h4>
+                                <p>Exact daily plan telling you what to practice, how to measure progress, and when you've achieved mastery. No guesswork—just follow the system.</p>
+                                <p class="value-price">Value: ₹999</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-item">
+                            <div class="checkmark">✓</div>
+                            <div class="value-content">
+                                <h4>Template Library for Every Method</h4>
+                                <p>Copy-paste templates for PTCF Framework, Act As roles, context primers, and more. Start getting better results in the next 5 minutes.</p>
+                                <p class="value-price">Value: ₹799</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-item">
+                            <div class="checkmark">✓</div>
+                            <div class="value-content">
+                                <h4>Troubleshooting Guide</h4>
+                                <p>What to do when prompts don't work. How to diagnose problems. How to fix them in 60 seconds. Never get stuck again.</p>
+                                <p class="value-price">Value: ₹499</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-item">
+                            <div class="checkmark">✓</div>
+                            <div class="value-content">
+                                <h4>Instant Mobile & Desktop Access</h4>
+                                <p>Read on your phone during commute. Practice on laptop at work. PDF format works everywhere—no special apps needed.</p>
+                                <p class="value-price">Value: Priceless for busy professionals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bonus Section -->
+                <div class="bonus-banner">
+                    <h3>🎁 PLUS: 700+ Ready-Made Professional Prompts</h3>
+                    <p style="margin-bottom: 25px; font-size: 1.1rem;">These alone are worth more than what you're paying. Use them immediately while you master the methods.</p>
+                    
+                    <div class="bonus-grid">
+                        <div class="bonus-category">
+                            <h4>📱 Social Media Mastery</h4>
+                            <ul>
+                                <li>Instagram Marketing</li>
+                                <li>Facebook Strategy</li>
+                                <li>LinkedIn Professional</li>
+                                <li>Twitter Engagement</li>
+                                <li>TikTok Content</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bonus-category">
+                            <h4>💰 Advertising & Sales</h4>
+                            <ul>
+                                <li>Facebook Ads Copy</li>
+                                <li>Google Ads Mastery</li>
+                                <li>Email Marketing</li>
+                                <li>Sales Funnels</li>
+                                <li>Landing Pages</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bonus-category">
+                            <h4>✍️ Content Creation</h4>
+                            <ul>
+                                <li>YouTube Scripts</li>
+                                <li>Blog Writing</li>
+                                <li>Copywriting</li>
+                                <li>SEO Content</li>
+                                <li>Article Writing</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bonus-category">
+                            <h4>💼 Business Growth</h4>
+                            <ul>
+                                <li>Customer Service</li>
+                                <li>E-commerce</li>
+                                <li>Business Strategy</li>
+                                <li>Marketing Plans</li>
+                                <li>Sales Scripts</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bonus-category">
+                            <h4>🚀 Advanced Tools</h4>
+                            <ul>
+                                <li>ChatGPT Mastery</li>
+                                <li>Excel Automation</li>
+                                <li>Productivity Hacks</li>
+                                <li>Video Marketing</li>
+                                <li>AI Tool Guide</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bonus-category">
+                            <h4>📊 Professional Skills</h4>
+                            <ul>
+                                <li>Prompt Engineering</li>
+                                <li>Data Analysis</li>
+                                <li>Report Writing</li>
+                                <li>Presentation Skills</li>
+                                <li>Research Methods</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 30px; font-size: 1.2rem; font-weight: 700;">Total Bonus Value: ₹4,999</p>
+                </div>
+                
+                <!-- Price Section -->
+                <div class="price-section">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Total Value of Everything You're Getting:</h3>
+                    
+                    <div class="price-comparison">
+                        <div class="old-price">₹6,796</div>
+                        <div class="arrow">→</div>
+                        <div class="new-price">₹799</div>
+                    </div>
+                    
+                    <div class="savings-badge">You Save: ₹5,997 (88% OFF)</div>
+                    
+                    <p class="price-subtext">One-time payment. Lifetime access. No subscriptions. No hidden fees.</p>
+                    
+                    <div style="margin-top: 40px;">
+                        <button class="cta-button" onclick="initializePayment()">
+                            Get Instant Access Now for ₹799
+                        </button>
+                        <p style="margin-top: 20px; font-size: 0.95rem; opacity: 0.9;">
+                            ✓ Instant download via email<br>
+                            ✓ Pay via UPI, Cards, or Net Banking<br>
+                            ✓ 100% secure Indian payment through Razorpay
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Transformation Section -->
+    <section class="solution">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Changes When You Master These 5 Methods?</h2>
+                <p class="section-subtitle">Real transformations from Indian professionals who implemented this system</p>
+            </div>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>From 8 Hours → 90 Minutes</h3>
+                    <p>"I was spending entire days creating content calendars. Now I use the PTCF Framework and get a month's worth of content planned in 90 minutes. Game-changer for my agency."</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: var(--primary);">— Priya S., Digital Marketing Agency Owner, Bangalore</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>From Rejected → Approved First Draft</h3>
+                    <p>"Client used to reject my first 2-3 email drafts every time. After learning the 'Act As' method, my first drafts get approved 90% of the time. Clients think I hired a copywriter."</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: var(--primary);">— Rahul M., Freelance Writer, Mumbai</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>From ₹25K → ₹60K Monthly</h3>
+                    <p>"I doubled my freelance income because I can take on twice as many clients. What used to take me 2 days now takes 4 hours. My hourly rate effectively tripled."</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: var(--primary);">— Anjali K., Content Strategist, Delhi</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>From Frustrated → Confident</h3>
+                    <p>"I used to avoid ChatGPT for important work because results were unpredictable. Now I trust it for everything—proposals, strategies, presentations. It's like having a senior consultant on call 24/7."</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: var(--primary);">— Vikram R., Startup Founder, Pune</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>From Generic → Professional</h3>
+                    <p>"The Primer Method changed everything. Now my AI outputs match my brand voice perfectly. No more editing for hours to make it sound like 'me'."</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: var(--primary);">— Sneha P., Social Media Manager, Hyderabad</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>From Overwhelmed → Systematic</h3>
+                    <p>"I was drowning in random ChatGPT tips from YouTube. This gave me ONE system that works for everything. Now I know exactly what to do, every time."</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: var(--primary);">— Arjun T., E-commerce Entrepreneur, Chennai</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Questions You Might Be Asking Right Now</h2>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Q: I'm not tech-savvy. Will this be too complicated for me?</div>
+                    <div class="faq-answer">Not at all. If you can type a message in WhatsApp, you can use these methods. Everything is explained in simple language with step-by-step examples. No technical jargon, no coding required. Just practical techniques anyone can use immediately.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: I've tried other ChatGPT courses. How is this different?</div>
+                    <div class="faq-answer">Most courses give you random tips and prompt collections. This gives you a SYSTEM—5 proven methods that work together to handle any AI task you'll ever face. Plus, you're learning the thinking behind effective prompts, not just memorizing templates.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Will this work with ChatGPT, Claude, Gemini, and other AI tools?</div>
+                    <div class="faq-answer">Yes! These methods are platform-agnostic. They work with any text-based AI because they're based on how AI actually processes language, not specific to one tool. Master these once, use them everywhere.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: How long will it take to see results?</div>
+                    <div class="faq-answer">You'll see immediate improvement from Day 1. The templates alone will upgrade your results in the next 10 minutes. Full mastery? The 30-day roadmap ensures you're competent by week 2, proficient by week 3, and expert-level by day 30.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Is this just for marketers and content creators?</div>
+                    <div class="faq-answer">No! These methods work for anyone who uses AI: entrepreneurs, consultants, students, professionals, freelancers, business owners. The principles apply whether you're writing emails, creating strategies, analyzing data, or solving problems.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: What if I don't have time to read a 64-page book?</div>
+                    <div class="faq-answer">Each method takes 15-20 minutes to learn. You can read one method per day and be done in a week. Or use the templates immediately and learn the theory gradually. It's designed for busy professionals—you decide the pace.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Is ₹799 a one-time payment or monthly subscription?</div>
+                    <div class="faq-answer">One-time payment. Period. You pay ₹799 once and own everything forever. No recurring charges, no hidden fees, no upsells. Download immediately and access whenever you want, as many times as you want.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Can I access this on my mobile phone?</div>
+                    <div class="faq-answer">Absolutely! It's a PDF that works on any device—phone, tablet, laptop, desktop. Read during your commute, practice at your desk, reference on your phone. Learn anywhere, anytime.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: What if these methods don't work for me?</div>
+                    <div class="faq-answer">These methods are used by professionals worldwide and based on proven AI principles. However, since this is a digital product, we cannot offer refunds. That's why we've priced it at just ₹799—less than two movie tickets for a skill that will save you hundreds of hours. The risk is minimal, the potential gain is massive.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Will I get updates when AI tools change?</div>
+                    <div class="faq-answer">The methods themselves are timeless—they work based on how AI processes language, which doesn't change. That said, if we create major updates, existing customers get them free. You're investing in a skill, not just a document.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Credibility Section -->
+    <section class="problem">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Trust NexaMind?</h2>
+                <p class="section-subtitle">We're not just teaching theory. This is the result of thousands of hours testing what actually works.</p>
+            </div>
+            
+            <div class="solution-intro">
+                <p><strong>Here's our story:</strong> We spent months frustrated with AI, just like you. Getting mediocre results. Wasting hours on revisions. Wondering why our outputs looked nothing like the examples we saw online.</p>
+                
+                <p>So we did what any obsessed learners would do: <strong>we tested everything.</strong> Hundreds of different prompting approaches. Thousands of iterations. Documenting what worked and what didn't.</p>
+                
+                <p>We discovered that professional results weren't about "magic prompts" or "secret tricks." They came from systematic methods that anyone could learn.</p>
+                
+                <p><strong>These 5 methods emerged as the core of everything that works.</strong> We refined them. Tested them with Indian professionals. Simplified the explanations. Created templates. Built the 30-day roadmap.</p>
+                
+                <p>Now over 500 Indian professionals use these exact methods daily. Some have doubled their freelance income. Others have cut their content creation time by 70%. Many have finally achieved the AI mastery they thought was impossible.</p>
+                
+                <p><strong>This isn't theory from someone who's never used AI professionally. This is battle-tested methodology that works in the real world, with real deadlines, with real client expectations.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Two Paths Forward. You Choose.</h2>
+            
+            <p><strong>Path 1:</strong> Keep struggling with ChatGPT the way you have been. Spending hours on mediocre outputs. Watching competitors pull ahead while you edit AI garbage. Wondering if you'll ever "get it."</p>
+            
+            <p><strong>Path 2:</strong> Invest 30 days and ₹799 to master the system professionals use. Start getting expert-level results tomorrow. Cut your content creation time by 70%. Finally feel confident with AI.</p>
+            
+            <p style="font-size: 1.5rem; font-weight: 700; margin: 40px 0 30px;">The question isn't "Is this worth ₹799?"</p>
+            
+            <p style="font-size: 1.3rem; margin-bottom: 40px;">The question is: "How much is your time worth? How much longer can you afford to struggle with AI while others race ahead?"</p>
+            
+            <button class="cta-button" onclick="initializePayment()">
+                Yes! I'm Ready to Master AI in 30 Days
+                <span class="price-tag">Get Instant Access - Just ₹799</span>
+            </button>
+            
+            <div class="urgency-text">
+                <p>⚡ Instant download after payment • 🇮🇳 100% Indian payment via Razorpay • 📱 Works on all devices</p>
+                <p style="margin-top: 15px;">Join 500+ Indian professionals who've already transformed their AI skills</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>NexaMind</h3>
+                    <p style="color: rgba(255,255,255,0.7); margin-top: 15px;">Think Ahead with AI™</p>
+                    <p style="color: rgba(255,255,255,0.7); margin-top: 10px;">Transforming Indian professionals into AI directors.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                        <li><a href="facebook-disclaimer.html">Facebook Disclaimer</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li>Email: <a href="mailto:nexamindai707@gmail.com">nexamindai707@gmail.com</a></li>
+                        <li>WhatsApp: <a href="https://wa.me/917703078859" target="_blank">+91 7703078859</a></li>
+                        <li>Response time: Within 24 hours</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+                        Digital product. No refunds. Results may vary based on implementation. For educational purposes only.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 NexaMind. All rights reserved.</p>
+                <p style="margin-top: 10px; font-size: 0.85rem;">Made with ❤️ for Indian professionals ready to master AI</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Razorpay Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        // Razorpay Configuration
+        const RAZORPAY_KEY = "rzp_test_YOUR_KEY_HERE"; // Replace with your actual Razorpay key
+        
+        function initializePayment() {
+            // Fire Facebook Pixel InitiateCheckout event (fires once per session)
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    value: 799.00,
+                    currency: 'INR',
+                    content_name: 'Advanced Prompt Engineering Mastery',
+                    content_type: 'product'
+                });
+                console.log('Facebook Pixel: InitiateCheckout event fired');
+            }
+            
+            const options = {
+                key: RAZORPAY_KEY,
+                amount: 79900, // Amount in paise (₹799.00)
+                currency: "INR",
+                name: "NexaMind",
+                description: "Advanced Prompt Engineering Mastery",
+                image: "https://via.placeholder.com/200x200/667eea/ffffff?text=NexaMind",
+                handler: function (response) {
+                    // Payment successful - redirect to thank you page
+                    window.location.href = "thank-you.html";
+                },
+                prefill: {
+                    name: "",
+                    email: "",
+                    contact: ""
+                },
+                notes: {
+                    product: "Advanced Prompt Engineering Mastery eBook",
+                    version: "1.0"
+                },
+                theme: {
+                    color: "#FF006E"
+                },
+                modal: {
+                    ondismiss: function() {
+                        console.log('Payment cancelled by user');
+                    }
+                }
+            };
+            
+            const rzp = new Razorpay(options);
+            
+            rzp.on('payment.failed', function (response) {
+                alert('Payment failed. Please try again or contact support at nexamindai707@gmail.com');
+                console.error('Payment failed:', response.error);
+            });
+            
+            rzp.open();
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Facebook Pixel - 90% Scroll Tracking (fires once per session)
+        var scrolled90 = false;
+        window.addEventListener('scroll', function() {
+            var scrollPercent = (window.scrollY + window.innerHeight) / document.body.offsetHeight * 100;
+            if (!scrolled90 && scrollPercent >= 90) {
+                fbq('track', 'Lead');
+                scrolled90 = true;
+                console.log('Facebook Pixel: Lead event fired (90% scroll)');
+            }
+        });
+        
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.problem-card, .method-card, .value-item, .faq-item');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

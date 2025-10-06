@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - NexaMind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #FF006E;
+            --secondary: #8338EC;
+            --accent: #FB5607;
+            --success: #06D6A0;
+            --dark: #0F0F1E;
+            --dark-2: #1A1A2E;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(255,0,110,0.3);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .tagline {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+        
+        .back-home {
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        
+        .back-home:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .last-updated {
+            background: linear-gradient(135deg, rgba(255,0,110,0.1), rgba(131,56,236,0.1));
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .section h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .section p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .section ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .section li {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .important-box {
+            background: linear-gradient(135deg, rgba(255,0,110,0.08), rgba(131,56,236,0.08));
+            border-left: 4px solid var(--primary);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .important-box strong {
+            color: var(--primary);
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, var(--dark), var(--dark-2));
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .contact-box a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px 20px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div>
+                <a href="index.html" class="logo">NexaMind</a>
+                <div class="tagline">Think Ahead with AI™</div>
+            </div>
+            <a href="index.html" class="back-home">Back to Home</a>
+        </div>
+    </header>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Terms & Conditions</h1>
+        <p>Please read these terms carefully before purchasing or using our products</p>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="last-updated">
+            Last Updated: January 2025
+        </div>
+        
+        <!-- Introduction -->
+        <div class="section">
+            <h2>1. Agreement to Terms</h2>
+            <p>By purchasing, downloading, or using the "Advanced Prompt Engineering Mastery" eBook or any other products from NexaMind ("we," "us," or "our"), you agree to be bound by these Terms & Conditions.</p>
+            
+            <p>If you do not agree to these terms, please do not purchase or use our products.</p>
+        </div>
+        
+        <!-- License -->
+        <div class="section">
+            <h2>2. License to Use</h2>
+            
+            <h3>2.1 Personal Use License</h3>
+            <p>Upon purchase, you are granted a non-exclusive, non-transferable, personal license to use the eBook and associated materials for your own personal and professional development.</p>
+            
+            <h3>2.2 Permitted Uses</h3>
+            <ul>
+                <li>Read and study the content on multiple devices you own</li>
+                <li>Apply the methods taught in your professional work</li>
+                <li>Print one copy for personal use</li>
+                <li>Save backup copies for personal archival purposes</li>
+            </ul>
+            
+            <h3>2.3 Prohibited Uses</h3>
+            <ul>
+                <li>Share, distribute, or resell the eBook or its content</li>
+                <li>Upload to file-sharing platforms or torrent sites</li>
+                <li>Copy or reproduce substantial portions for public distribution</li>
+                <li>Create derivative works for commercial sale</li>
+                <li>Share your download link with others</li>
+                <li>Use the content to create competing products or services</li>
+            </ul>
+            
+            <div class="important-box">
+                <p><strong>Important:</strong> This is a single-user license. Sharing this product with others is a violation of copyright and these terms.</p>
+            </div>
+        </div>
+        
+        <!-- Intellectual Property -->
+        <div class="section">
+            <h2>3. Intellectual Property Rights</h2>
+            
+            <p>All content in the "Advanced Prompt Engineering Mastery" eBook, including but not limited to text, images, methods, frameworks, templates, and examples, are the intellectual property of NexaMind and are protected by Indian and international copyright laws.</p>
+            
+            <p>The following are trademarks of NexaMind:</p>
+            <ul>
+                <li>"NexaMind"</li>
+                <li>"Think Ahead with AI™"</li>
+                <li>"Advanced Prompt Engineering Mastery"</li>
+            </ul>
+        </div>
+        
+        <!-- User Responsibilities -->
+        <div class="section">
+            <h2>4. User Responsibilities</h2>
+            
+            <h3>4.1 Account Security</h3>
+            <p>You are responsible for maintaining the confidentiality of your download link and any login credentials. Any use of the product under your account is your responsibility.</p>
+            
+            <h3>4.2 Compliance</h3>
+            <p>You agree to use the product in compliance with all applicable Indian and international laws and regulations.</p>
+            
+            <h3>4.3 Ethical Use</h3>
+            <p>You agree to use the AI prompting methods taught in this eBook ethically and responsibly, respecting intellectual property rights and avoiding deceptive or harmful applications.</p>
+        </div>
+        
+        <!-- Payment Terms -->
+        <div class="section">
+            <h2>5. Payment Terms</h2>
+            
+            <h3>5.1 Pricing</h3>
+            <p>The current price for "Advanced Prompt Engineering Mastery" is ₹799 INR (Indian Rupees). Prices are subject to change without notice, though existing purchases are honored at the price paid.</p>
+            
+            <h3>5.2 Payment Processing</h3>
+            <p>Payments are processed through Razorpay, a secure payment gateway. We do not store your payment card information.</p>
+            
+            <h3>5.3 One-Time Payment</h3>
+            <p>This is a one-time payment for lifetime access. There are no subscriptions, recurring charges, or hidden fees.</p>
+        </div>
+        
+        <!-- Delivery -->
+        <div class="section">
+            <h2>6. Product Delivery</h2>
+            
+            <h3>6.1 Instant Access</h3>
+            <p>Upon successful payment, you will be redirected to a thank-you page containing a download link to access the eBook immediately via Google Drive.</p>
+            
+            <h3>6.2 Download Issues</h3>
+            <p>If you experience any issues accessing your purchase, please contact us at nexamindai707@gmail.com or WhatsApp +91 7703078859 within 48 hours of purchase.</p>
+            
+            <h3>6.3 File Format</h3>
+            <p>The eBook is delivered as a PDF file compatible with all devices (desktop, mobile, tablet).</p>
+        </div>
+        
+        <!-- Refund Policy -->
+        <div class="section">
+            <h2>7. No Refund Policy</h2>
+            
+            <div class="important-box">
+                <p><strong>Important:</strong> Due to the digital nature of this product and instant delivery, all sales are final. We do not offer refunds, exchanges, or cancellations.</p>
+            </div>
+            
+            <p>By completing your purchase, you acknowledge and accept this no-refund policy.</p>
+            
+            <p>For detailed information, please review our separate <a href="refund-policy.html" style="color: var(--primary); font-weight: 600;">Refund Policy</a>.</p>
+        </div>
+        
+        <!-- Disclaimers -->
+        <div class="section">
+            <h2>8. Disclaimers and Limitations</h2>
+            
+            <h3>8.1 Educational Product</h3>
+            <p>This eBook is provided for educational purposes only. Results from applying the methods taught may vary based on individual implementation, effort, and circumstances.</p>
+            
+            <h3>8.2 No Guaranteed Results</h3>
+            <p>While we teach proven methods for improving AI interactions, we make no guarantees about specific business outcomes, income levels, or professional results.</p>
+            
+            <h3>8.3 No Professional Advice</h3>
+            <p>This product does not constitute professional, legal, financial, or career advice. Consult appropriate professionals for specific guidance related to your situation.</p>
+            
+            <h3>8.4 Product "As Is"</h3>
+            <p>The eBook is provided "as is" without warranties of any kind, either express or implied, including but not limited to warranties of merchantability or fitness for a particular purpose.</p>
+        </div>
+        
+        <!-- Limitation of Liability -->
+        <div class="section">
+            <h2>9. Limitation of Liability</h2>
+            
+            <p>To the maximum extent permitted by law, NexaMind shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses resulting from:</p>
+            
+            <ul>
+                <li>Your use or inability to use the product</li>
+                <li>Any unauthorized access to or use of our servers</li>
+                <li>Any bugs, viruses, or similar harmful components transmitted through the product</li>
+                <li>Any errors or omissions in the content</li>
+                <li>Any results or lack of results from applying the methods taught</li>
+            </ul>
+            
+            <p>Our total liability shall not exceed the amount you paid for the product (₹799).</p>
+        </div>
+        
+        <!-- Updates and Changes -->
+        <div class="section">
+            <h2>10. Product Updates</h2>
+            
+            <p>While the core methods taught are timeless, AI technology continues to evolve. If we create significant updates to the eBook content, existing customers will receive them at no additional charge.</p>
+            
+            <p>However, we are under no obligation to provide updates, and the lack of updates does not constitute a breach of these terms.</p>
+        </div>
+        
+        <!-- Governing Law -->
+        <div class="section">
+            <h2>11. Governing Law and Jurisdiction</h2>
+            
+            <p>These Terms & Conditions are governed by and construed in accordance with the laws of India.</p>
+            
+            <p>Any disputes arising from these terms or your use of the product shall be subject to the exclusive jurisdiction of the courts in Lucknow, Uttar Pradesh, India.</p>
+        </div>
+        
+        <!-- Modifications -->
+        <div class="section">
+            <h2>12. Changes to Terms</h2>
+            
+            <p>We reserve the right to modify these Terms & Conditions at any time. Changes will be effective immediately upon posting to our website.</p>
+            
+            <p>Your continued use of the product after changes constitutes acceptance of the modified terms. However, changes will not apply retroactively to purchases made before the modification.</p>
+        </div>
+        
+        <!-- Severability -->
+        <div class="section">
+            <h2>13. Severability</h2>
+            
+            <p>If any provision of these Terms & Conditions is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that these terms will otherwise remain in full force and effect.</p>
+        </div>
+        
+        <!-- Entire Agreement -->
+        <div class="section">
+            <h2>14. Entire Agreement</h2>
+            
+            <p>These Terms & Conditions, along with our Refund Policy, Disclaimer, and Privacy practices, constitute the entire agreement between you and NexaMind regarding the use of this product.</p>
+        </div>
+        
+        <!-- Contact -->
+        <div class="contact-box">
+            <h3>Questions About These Terms?</h3>
+            <p>If you have any questions or concerns about these Terms & Conditions, please contact us:</p>
+            <p style="margin-top: 20px;">
+                📧 Email: <a href="mailto:nexamindai707@gmail.com">nexamindai707@gmail.com</a><br>
+                💬 WhatsApp: <a href="https://wa.me/917703078859" target="_blank">+91 7703078859</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.95rem; opacity: 0.9;">We typically respond within 24 hours</p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="disclaimer.html">Disclaimer</a>
+                <a href="refund-policy.html">Refund Policy</a>
+                <a href="facebook-disclaimer.html">Facebook Disclaimer</a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 NexaMind. All rights reserved.</p>
+                <p style="margin-top: 10px;">Think Ahead with AI™</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

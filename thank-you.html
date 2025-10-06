@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to NexaMind - Download Your AI Mastery System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '800223819266035');
+        fbq('track', 'Purchase', {
+            value: 799.00,
+            currency: 'INR'
+        });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=800223819266035&ev=Purchase&noscript=1"
+    /></noscript>
+    
+    <style>
+        :root {
+            --primary: #FF006E;
+            --secondary: #8338EC;
+            --accent: #FB5607;
+            --success: #06D6A0;
+            --dark: #0F0F1E;
+            --dark-2: #1A1A2E;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,0,110,0.15), transparent);
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+        }
+        
+        .container {
+            max-width: 800px;
+            background: rgba(255,255,255,0.98);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(255,0,110,0.3);
+            padding: 60px 40px;
+            text-align: center;
+            animation: slideUp 0.8s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 50px;
+            animation: scaleIn 0.6s ease-out 0.3s backwards;
+            box-shadow: 0 8px 30px rgba(6,214,160,0.4);
+        }
+        
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #444;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(255,0,110,0.1), rgba(131,56,236,0.1));
+            border-left: 4px solid var(--primary);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .highlight-box h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .highlight-box p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, var(--dark), var(--dark-2));
+            padding: 40px;
+            border-radius: 16px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,0,110,0.2), transparent);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+        
+        .download-section h2 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 20px 50px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(255,0,110,0.4);
+            transition: all 0.3s;
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255,0,110,0.5);
+        }
+        
+        .download-note {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .next-steps {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 16px;
+            margin: 40px 0;
+            text-align: left;
+        }
+        
+        .next-steps h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+        
+        .step {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .step-content h4 {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .step-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .what-you-got {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid rgba(255,0,110,0.2);
+            margin: 30px 0;
+        }
+        
+        .what-you-got h3 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .what-you-got ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .what-you-got li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .what-you-got li:last-child {
+            border-bottom: none;
+        }
+        
+        .what-you-got li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .support-section {
+            background: linear-gradient(135deg, rgba(255,0,110,0.05), rgba(131,56,236,0.05));
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        
+        .support-section h3 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .support-section p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            color: #999;
+            font-size: 0.85rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .download-button {
+                padding: 18px 35px;
+                font-size: 1.1rem;
+            }
+            
+            .step {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">✓</div>
+        
+        <h1>🎉 Welcome to Your AI Mastery Journey!</h1>
+        
+        <p class="subtitle">Payment successful! You're now one of the elite professionals who've chosen to master AI instead of just using it.</p>
+        
+        <div class="highlight-box">
+            <h3>Here's What Just Happened:</h3>
+            <p>✓ Your payment of ₹799 has been processed successfully</p>
+            <p>✓ You now have lifetime access to the complete AI mastery system</p>
+            <p>✓ Everything is ready for immediate download below</p>
+            <p>✓ No subscriptions, no hidden fees - you own this forever</p>
+        </div>
+        
+        <!-- Download Section -->
+        <div class="download-section">
+            <h2>📥 Download Your Complete AI Mastery Package</h2>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 25px;">Click the button below to access your eBook and all bonuses instantly:</p>
+            
+            <a href="https://drive.google.com/file/d/1oQrfYB6w4xzaYwJoZNS_i2_3Z6d4s26Q/view?usp=sharing" class="download-button" target="_blank">
+                📥 Download Everything Now
+            </a>
+            
+            <p class="download-note">💾 Pro Tip: Save the file to your device immediately and bookmark this page for easy access anytime!</p>
+        </div>
+        
+        <!-- What You Got -->
+        <div class="what-you-got">
+            <h3>🎁 What You Just Unlocked:</h3>
+            <ul>
+                <li><strong>Advanced Prompt Engineering Mastery</strong> - The complete 64-page guide (Value: ₹1,499)</li>
+                <li><strong>5 Proven Methods</strong> - PTCF Framework, Act As, Ask Me Questions, Primer, Break It Down</li>
+                <li><strong>30-Day Mastery Roadmap</strong> - Exact daily plan for systematic skill building (Value: ₹999)</li>
+                <li><strong>Template Library</strong> - Copy-paste templates for instant results (Value: ₹799)</li>
+                <li><strong>700+ Ready-Made Prompts</strong> - Across 21 categories for immediate use (Value: ₹4,999)</li>
+                <li><strong>Troubleshooting Guide</strong> - Fix any prompt problem in 60 seconds (Value: ₹499)</li>
+                <li><strong>Lifetime Access</strong> - Keep forever, access anywhere, on any device</li>
+            </ul>
+            <p style="margin-top: 20px; font-size: 1.1rem; color: var(--primary); font-weight: 700;">
+                Total Value: ₹6,796 → You Paid: ₹799 (You Saved ₹5,997!)
+            </p>
+        </div>
+        
+        <!-- Next Steps -->
+        <div class="next-steps">
+            <h3>🚀 Your Next Steps (Start Right Now!):</h3>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Download & Save (Next 2 Minutes)</h4>
+                    <p>Click the download button above, save the PDF to your device. Open it on your phone, tablet, or laptop - works on everything!</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Read Chapter 1 (Next 15 Minutes)</h4>
+                    <p>Start with the PTCF Framework. It's the foundation of everything. Follow the examples, try one prompt yourself. You'll see the difference immediately.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Use a Template (Today!)</h4>
+                    <p>Jump to the Template Library section. Pick any template that matches your work. Copy it, customize it, use it. Get your first professional-grade AI output today.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Follow the 30-Day Roadmap (Starting Tomorrow)</h4>
+                    <p>Turn to Chapter 7. This is your exact plan - what to practice each day, how to measure progress, when you've achieved mastery. Just follow the system.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Track Your Transformation</h4>
+                    <p>Notice how your AI outputs improve. Watch revision time drop. See quality skyrocket. In 30 days, you'll wonder how you ever worked without this.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Support Section -->
+        <div class="support-section">
+            <h3>💬 Need Help? We've Got You!</h3>
+            <p>Having trouble downloading? Questions about the methods? Want clarification on anything? We're here to help you succeed.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    📧 Email: <a href="mailto:nexamindai707@gmail.com">nexamindai707@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    💬 WhatsApp: <a href="https://wa.me/917703078859" target="_blank">+91 7703078859</a>
+                </div>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 0.95rem;">We typically respond within 24 hours. Your success is our success!</p>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="about.html">About Us</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="disclaimer.html">Disclaimer</a>
+                <a href="refund-policy.html">Refund Policy</a>
+                <a href="facebook-disclaimer.html">Facebook Disclaimer</a>
+            </div>
+            
+            <p class="copyright">&copy; 2024 NexaMind. All rights reserved.<br>Think Ahead with AI™</p>
+        </footer>
+    </div>
+</body>
+</html>
