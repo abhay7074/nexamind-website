@@ -19,11 +19,43 @@
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '800223819266035');
-        fbq('track', 'Purchase', {
-            value: 799.00,
-            currency: 'INR'
-        });
-    </script>
+
+// Browser Pixel Purchase Event
+fbq('track', 'Purchase', {
+    value: 799.00,
+    currency: 'INR'
+});
+
+// Get Facebook cookies
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+}
+
+// Send to Conversion API (Server-Side)
+fetch('/.netlify/functions/facebook-conversion', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        event_source_url: window.location.href,
+        fbp: getCookie('_fbp'),
+        fbc: getCookie('_fbc'),
+        email: null,
+        phone: null
+    })
+})
+.then(response => response.json())
+.then(data => {
+    console.log('Conversion API Success:', data);
+})
+.catch(error => {
+    console.error('Conversion API Error:', error);
+});
+</script>
     <noscript><img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=800223819266035&ev=Purchase&noscript=1"
     /></noscript>
