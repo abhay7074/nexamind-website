@@ -1,0 +1,8 @@
+{
+  "name": "nexamind-netlify-functions",
+  "version": "1.0.0",
+  "description": "Backend functions for NexaMind payment processing",
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}
