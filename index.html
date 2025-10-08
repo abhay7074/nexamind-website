@@ -1304,14 +1304,21 @@
         </div>
     </footer>
 
-    <!-- Razorpay Script -->
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script>
-        // Razorpay Configuration
-        const RAZORPAY_KEY = "rzp_test_YOUR_KEY_HERE"; // Replace with your actual Razorpay key
-        
-        function initializePayment() {
-            // Fire Facebook Pixel InitiateCheckout event (fires once per session)
+   <!-- Cashfree Payment Gateway Script -->
+<script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+<script>
+    // Cashfree Configuration - TEST MODE
+    const CASHFREE_APP_ID = "TEST10829674c7101a07ac618d63fff347692801";
+    const CASHFREE_ENV = "TEST"; // "TEST" for testing, "PROD" for production
+    
+    // Initialize Cashfree SDK
+    const cashfree = Cashfree({
+        mode: CASHFREE_ENV
+    });
+    
+    async function initializePayment() {
+        try {
+            // Fire Facebook Pixel InitiateCheckout event
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'InitiateCheckout', {
                     value: 799.00,
@@ -1322,70 +1329,141 @@
                 console.log('Facebook Pixel: InitiateCheckout event fired');
             }
             
-            const options = {
-                key: RAZORPAY_KEY,
-                amount: 79900, // Amount in paise (₹799.00)
-                currency: "INR",
-                name: "NexaMind",
-                description: "Advanced Prompt Engineering Mastery",
-                image: "https://via.placeholder.com/200x200/667eea/ffffff?text=NexaMind",
-                handler: function (response) {
-                    // Payment successful - redirect to thank you page
-                    window.location.href = "thank-you.html";
-                },
-                prefill: {
-                    name: "",
-                    email: "",
-                    contact: ""
-                },
-                notes: {
-                    product: "Advanced Prompt Engineering Mastery eBook",
-                    version: "1.0"
-                },
-                theme: {
-                    color: "#FF006E"
-                },
-                modal: {
-                    ondismiss: function() {
-                        console.log('Payment cancelled by user');
-                    }
-                }
+            // Create payment session on backend (we'll use server endpoint)
+            // For now, we'll use Cashfree's test session token
+            const sessionToken = await createPaymentSession();
+            
+            if (!sessionToken) {
+                alert('Unable to initiate payment. Please try again or contact support.');
+                return;
+            }
+            
+            // Cashfree checkout options
+            const checkoutOptions = {
+                paymentSessionId: sessionToken,
+                returnUrl: window.location.origin + "/thank-you.html",
+                notifyUrl: window.location.origin + "/payment-webhook", // Optional webhook
             };
             
-            const rzp = new Razorpay(options);
-            
-            rzp.on('payment.failed', function (response) {
-                alert('Payment failed. Please try again or contact support at nexamindai707@gmail.com');
-                console.error('Payment failed:', response.error);
-            });
-            
-            rzp.open();
-        }
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+            // Open Cashfree checkout
+            cashfree.checkout(checkoutOptions).then((result) => {
+                if (result.error) {
+                    console.error('Payment error:', result.error);
+                    alert('Payment failed. Please try again or contact support at nexamindai707@gmail.com');
+                }
+                if (result.redirect) {
+                    console.log('Payment will redirect');
+                }
+                if (result.paymentDetails) {
+                    console.log('Payment completed:', result.paymentDetails);
+                    // Redirect handled by returnUrl
                 }
             });
-        });
+            
+        } catch (error) {
+            console.error('Payment initialization error:', error);
+            alert('Payment initialization failed. Please contact support at nexamindai707@gmail.com');
+        }
+    }
+    
+    // Create payment session (this needs backend API)
+    async function createPaymentSession() {
+        // TEMPORARY: For testing, we'll create session on frontend
+        // In production, this MUST be done on backend for security
         
-        // Facebook Pixel - 90% Scroll Tracking (fires once per session)
-        var scrolled90 = false;
-        window.addEventListener('scroll', function() {
-            var scrollPercent = (window.scrollY + window.innerHeight) / document.body.offsetHeight * 100;
-            if (!scrolled90 && scrollPercent >= 90) {
-                fbq('track', 'Lead');
-                scrolled90 = true;
-                console.log('Facebook Pixel: Lead event fired (90% scroll)');
+        try {
+            const response = await fetch('https://sandbox.cashfree.com/pg/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-client-id': CASHFREE_APP_ID,
+                    'x-client-secret': 'cfsk_ma_test_3ab5459ac409903b04dc880b64fe81ab_72fdf4c2', // NEVER do this in production!
+                    'x-api-version': '2023-08-01'
+                },
+                body: JSON.stringify({
+                    order_amount: 799.00,
+                    order_currency: 'INR',
+                    order_id: 'ORDER_' + Date.now(), // Unique order ID
+                    customer_details: {
+                        customer_id: 'CUST_' + Date.now(),
+                        customer_phone: '9999999999', // Customer will enter during checkout
+                        customer_email: 'customer@example.com' // Customer will enter during checkout
+                    },
+                    order_meta: {
+                        return_url: window.location.origin + '/thank-you.html',
+                        notify_url: window.location.origin + '/payment-webhook'
+                    },
+                    order_note: 'Advanced Prompt Engineering Mastery - NexaMind'
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.payment_session_id) {
+                console.log('Payment session created:', data.order_id);
+                return data.payment_session_id;
+            } else {
+                console.error('Session creation failed:', data);
+                return null;
+            }
+            
+        } catch (error) {
+            console.error('Error creating session:', error);
+            return null;
+        }
+    }
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
+    });
+    
+    // Facebook Pixel - 90% Scroll Tracking (fires once per session)
+    var scrolled90 = false;
+    window.addEventListener('scroll', function() {
+        var scrollPercent = (window.scrollY + window.innerHeight) / document.body.offsetHeight * 100;
+        if (!scrolled90 && scrollPercent >= 90) {
+            fbq('track', 'Lead');
+            scrolled90 = true;
+            console.log('Facebook Pixel: Lead event fired (90% scroll)');
+        }
+    });
+    
+    // Fade-in animation on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    document.addEventListener('DOMContentLoaded', function() {
+        const animatedElements = document.querySelectorAll('.problem-card, .method-card, .value-item, .faq-item');
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    });
+</script>
         
         // Fade-in animation on scroll
         const observerOptions = {
