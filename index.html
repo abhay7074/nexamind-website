@@ -1332,7 +1332,39 @@
             // Create payment session on backend (we'll use server endpoint)
             // For now, we'll use Cashfree's test session token
             const sessionToken = await // Create payment session via backend
+async function // Create payment session via backend
 async function createPaymentSession() {
+    try {
+        console.log('Creating payment session via backend...');
+        
+        // Call Netlify function
+        const response = await fetch('/.netlify/functions/create-order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                customer_name: '',
+                customer_email: '',
+                customer_phone: ''
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success && data.payment_session_id) {
+            console.log('Payment session created:', data.order_id);
+            return data.payment_session_id;
+        } else {
+            console.error('Failed to create session:', data);
+            throw new Error(data.message || 'Session creation failed');
+        }
+        
+    } catch (error) {
+        console.error('Error creating payment session:', error);
+        return null;
+    }
+} {
     try {
         console.log('Creating payment session via backend...');
         
