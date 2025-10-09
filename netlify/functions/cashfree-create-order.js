@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
     // Cashfree credentials from environment variables
     const appId = process.env.CASHFREE_APP_ID;
     const secretKey = process.env.CASHFREE_SECRET_KEY;
-    const environment = process.env.CASHFREE_ENV || 'TEST'; // TEST or PROD
+    const environment = process.env.CASHFREE_ENV || 'TEST';
     
     // Determine API endpoint based on environment
     const apiUrl = environment === 'PROD' 
@@ -25,10 +25,6 @@ exports.handler = async (event, context) => {
     // Generate unique order ID
     const orderId = 'ORDER_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     const customerId = 'CUST_' + Date.now();
-    
-    // Get origin from headers
-    const origin = event.headers.origin || event.headers.referer || 'https://trynexamind.com';
-    const baseUrl = origin.replace(/\/$/, ''); // Remove trailing slash
     
     // Order payload
     const orderPayload = {
@@ -42,15 +38,15 @@ exports.handler = async (event, context) => {
         customer_name: data.customer_name || 'Customer'
       },
       order_meta: {
-        return_url: `${baseUrl}/thank-you.html?order_id=${orderId}`,
-        notify_url: `${baseUrl}/.netlify/functions/cashfree-webhook`
+        return_url: `${event.headers.origin}/payment-verify.html?order_id=${orderId}`,
+        notify_url: `${event.headers.origin}/.netlify/functions/cashfree-webhook`
       },
       order_note: 'Advanced Prompt Engineering Mastery - NexaMind'
     };
     
     console.log('Creating order:', orderId);
     
-    // Call Cashfree API using native fetch
+    // Call Cashfree API
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
