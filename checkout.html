@@ -1,68 +1,513 @@
-// FIND THIS CODE IN YOUR index.html (around line 1050-1100):
-
-// OLD CODE - REMOVE THIS:
-async function initializePayment() {
-    try {
-        // Fire Facebook Pixel InitiateCheckout event
-        if (typeof fbq !== 'undefined') {
-            fbq('track', 'InitiateCheckout', {
-                value: 799.00,
-                currency: 'INR',
-                content_name: 'Advanced Prompt Engineering Mastery',
-                content_type: 'product'
-            });
-            console.log('Facebook Pixel: InitiateCheckout fired');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete your purchase - NexaMind AI Mastery">
+    <title>Checkout - NexaMind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '800223819266035');
+    fbq('track', 'PageView');
+    fbq('track', 'InitiateCheckout', {
+        value: 799.00,
+        currency: 'INR',
+        content_name: 'Advanced Prompt Engineering Mastery',
+        content_type: 'product'
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=800223819266035&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
+    <style>
+        :root {
+            --primary: #FF006E;
+            --secondary: #8338EC;
+            --accent: #FB5607;
+            --success: #06D6A0;
+            --dark: #0F0F1E;
+            --dark-2: #1A1A2E;
         }
         
-        // Call Netlify function to create order
-        const response = await fetch('/.netlify/functions/cashfree-create-order', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                customer_name: '',
-                customer_email: '',
-                customer_phone: ''
-            })
-        });
-        
-        const data = await response.json();
-        
-        if (!data.success || !data.payment_session_id) {
-            throw new Error(data.message || 'Failed to create payment session');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        console.log('Payment session created:', data.order_id);
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: white;
+        }
         
-        // Cashfree checkout options
-        const checkoutOptions = {
-            paymentSessionId: data.payment_session_id,
-            returnUrl: window.location.origin + "/payment-verify.html?order_id=" + data.order_id
-        };
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
         
-        // Open Cashfree checkout
-        cashfree.checkout(checkoutOptions).then((result) => {
-            if (result.error) {
-                console.error('Payment error:', result.error);
-                alert('Payment failed. Please try again or contact support.');
+        .checkout-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            color: #1a1a1a;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .product-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        
+        .product-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .required {
+            color: var(--primary);
+        }
+        
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255,0,110,0.1);
+        }
+        
+        input.error {
+            border-color: #ef4444;
+        }
+        
+        .error-message {
+            color: #ef4444;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(255,0,110,0.4);
+        }
+        
+        .submit-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(255,0,110,0.5);
+        }
+        
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .security-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+            padding: 15px;
+            background: #f0fdf4;
+            border-radius: 8px;
+            border: 1px solid #86efac;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .back-link:hover {
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .checkout-card {
+                padding: 25px;
             }
-            if (result.paymentDetails) {
-                console.log('Payment completed:', result.paymentDetails);
+            
+            .product-price {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="checkout-card">
+            <div class="header">
+                <div class="logo">NexaMind</div>
+                <p style="color: #666; font-size: 0.95rem;">Complete Your Purchase</p>
+            </div>
+            
+            <div class="product-info">
+                <div class="product-name">Advanced Prompt Engineering Mastery</div>
+                <div style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">
+                    Complete 64-page guide + 700+ ready-made prompts
+                </div>
+                <div class="product-price">₹799</div>
+                <div style="color: #666; font-size: 0.85rem; margin-top: 5px;">
+                    One-time payment • Lifetime access • Instant download
+                </div>
+            </div>
+            
+            <form id="checkoutForm">
+                <div class="form-section">
+                    <div class="section-title">Your Details</div>
+                    
+                    <div class="form-group">
+                        <label>
+                            Full Name <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="customerName" 
+                            name="customerName" 
+                            placeholder="Enter your full name"
+                            required
+                        >
+                        <div class="error-message" id="nameError">Please enter your full name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            Email Address <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="email" 
+                            id="customerEmail" 
+                            name="customerEmail" 
+                            placeholder="your@email.com"
+                            required
+                        >
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            Mobile Number <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="customerPhone" 
+                            name="customerPhone" 
+                            placeholder="10-digit mobile number"
+                            maxlength="10"
+                            required
+                        >
+                        <div class="error-message" id="phoneError">Please enter a valid 10-digit mobile number</div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-button" id="submitButton">
+                    Proceed to Payment →
+                </button>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">✓ Secure Checkout</div>
+                    <div class="trust-badge">✓ UPI / Cards / Net Banking</div>
+                    <div class="trust-badge">✓ Instant Access</div>
+                </div>
+                
+                <div class="security-note">
+                    🔒 Your information is secure and will only be used to deliver your purchase
+                </div>
+            </form>
+            
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Cashfree SDK -->
+    <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+    
+    <script>
+        // Initialize Cashfree
+        const cashfree = Cashfree({
+            mode: "sandbox" // Change to "production" when going live
+        });
+        
+        // Form validation
+        const form = document.getElementById('checkoutForm');
+        const submitButton = document.getElementById('submitButton');
+        
+        // Validate name
+        function validateName(name) {
+            return name.trim().length >= 3;
+        }
+        
+        // Validate email
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // Validate phone (10 digits, Indian mobile)
+        function validatePhone(phone) {
+            const re = /^[6-9]\d{9}$/;
+            return re.test(phone);
+        }
+        
+        // Show error
+        function showError(inputId, errorId, message) {
+            document.getElementById(inputId).classList.add('error');
+            const errorEl = document.getElementById(errorId);
+            errorEl.textContent = message;
+            errorEl.classList.add('show');
+        }
+        
+        // Clear error
+        function clearError(inputId, errorId) {
+            document.getElementById(inputId).classList.remove('error');
+            document.getElementById(errorId).classList.remove('show');
+        }
+        
+        // Real-time validation
+        document.getElementById('customerName').addEventListener('input', function() {
+            if (this.value.trim().length > 0) {
+                clearError('customerName', 'nameError');
             }
         });
         
-    } catch (error) {
-        console.error('Payment initialization error:', error);
-        alert('Unable to initiate payment. Please try again or contact support at nexamindai707@gmail.com');
-    }
-}
+        document.getElementById('customerEmail').addEventListener('input', function() {
+            if (validateEmail(this.value)) {
+                clearError('customerEmail', 'emailError');
+            }
+        });
+        
+        document.getElementById('customerPhone').addEventListener('input', function() {
+            // Only allow numbers
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (validatePhone(this.value)) {
+                clearError('customerPhone', 'phoneError');
+            }
+        });
+        
+        // Form submission
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get values
+            const name = document.getElementById('customerName').value.trim();
+            const email = document.getElementById('customerEmail').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            
+            // Clear all errors
+            clearError('customerName', 'nameError');
+            clearError('customerEmail', 'emailError');
+            clearError('customerPhone', 'phoneError');
+            
+            // Validate
+            let isValid = true;
+            
+            if (!validateName(name)) {
+                showError('customerName', 'nameError', 'Please enter your full name (at least 3 characters)');
+                isValid = false;
+            }
+            
+            if (!validateEmail(email)) {
+                showError('customerEmail', 'emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            if (!validatePhone(phone)) {
+                showError('customerPhone', 'phoneError', 'Please enter a valid 10-digit mobile number');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                return;
+            }
+            
+            // Disable button
+            submitButton.disabled = true;
+            submitButton.textContent = 'Processing...';
+            
+            try {
+                // Create payment order with customer details
+                const response = await fetch('/.netlify/functions/cashfree-create-order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        customer_name: name,
+                        customer_email: email,
+                        customer_phone: phone
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (!data.success || !data.payment_session_id) {
+                    throw new Error(data.message || 'Failed to create payment session');
+                }
+                
+                console.log('Payment session created:', data.order_id);
+                
+                // Cashfree checkout options
+                const checkoutOptions = {
+                    paymentSessionId: data.payment_session_id,
+                    returnUrl: window.location.origin + "/payment-verify.html?order_id=" + data.order_id
+                };
+                
+                // Open Cashfree checkout
+                cashfree.checkout(checkoutOptions).then((result) => {
+                    if (result.error) {
+                        console.error('Payment error:', result.error);
+                        alert('Payment failed. Please try again or contact support.');
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Proceed to Payment →';
+                    }
+                });
+                
+            } catch (error) {
+                console.error('Payment initialization error:', error);
+                alert('Unable to initiate payment. Please try again or contact support at nexamindai707@gmail.com');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Proceed to Payment →';
+            }
+        });
+    </script>
+    
+    <!-- Facebook CAPI Script -->
+    <script>
+        window.addEventListener('load', function() {
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+                return null;
+            }
 
-// ===================================
-// REPLACE WITH THIS NEW CODE:
-// ===================================
-
-function initializePayment() {
-    // Redirect to checkout page
-    window.location.href = '/checkout.html';
-}
+            setTimeout(function() {
+                fetch('/.netlify/functions/facebook-pageview', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        event_source_url: window.location.href,
+                        fbp: getCookie('_fbp'),
+                        fbc: getCookie('_fbc'),
+                        email: null,
+                        phone: null
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('PageView CAPI Success:', data);
+                })
+                .catch(error => {
+                    console.error('PageView CAPI Error:', error);
+                });
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
