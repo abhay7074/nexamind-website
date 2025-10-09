@@ -1701,5 +1701,196 @@
             }, 1000);
         });
     </script>
+    <!-- Social Proof Notification Popup -->
+<style>
+    .social-proof-popup {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background: white;
+        padding: 15px 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        max-width: 350px;
+        z-index: 9999;
+        transform: translateX(-400px);
+        opacity: 0;
+        transition: all 0.5s ease-out;
+        cursor: pointer;
+    }
+    
+    .social-proof-popup.show {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+    .social-proof-popup:hover {
+        box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+        transform: translateX(0) translateY(-2px);
+    }
+    
+    .social-proof-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #FF006E, #FB5607);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+    }
+    
+    .social-proof-content {
+        flex: 1;
+    }
+    
+    .social-proof-name {
+        font-weight: 700;
+        color: #1a1a1a;
+        font-size: 0.95rem;
+        margin-bottom: 3px;
+    }
+    
+    .social-proof-location {
+        color: #666;
+        font-size: 0.85rem;
+    }
+    
+    .social-proof-time {
+        color: #999;
+        font-size: 0.8rem;
+        margin-top: 3px;
+    }
+    
+    .social-proof-close {
+        color: #999;
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 5px;
+        line-height: 1;
+        transition: color 0.3s;
+    }
+    
+    .social-proof-close:hover {
+        color: #333;
+    }
+    
+    @media (max-width: 768px) {
+        .social-proof-popup {
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            max-width: none;
+            padding: 12px 15px;
+        }
+        
+        .social-proof-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+        
+        .social-proof-name {
+            font-size: 0.9rem;
+        }
+        
+        .social-proof-location {
+            font-size: 0.8rem;
+        }
+    }
+</style>
+
+<div class="social-proof-popup" id="socialProofPopup">
+    <div class="social-proof-icon">🎉</div>
+    <div class="social-proof-content">
+        <div class="social-proof-name" id="proofName"></div>
+        <div class="social-proof-location" id="proofLocation"></div>
+        <div class="social-proof-time" id="proofTime"></div>
+    </div>
+    <div class="social-proof-close" onclick="closeSocialProof()">×</div>
+</div>
+
+<script>
+    // Social proof notifications data
+    const socialProofData = [
+        { name: "Rajesh Kumar", city: "Mumbai", product: "AI Mastery Guide" },
+        { name: "Priya Sharma", city: "Delhi", product: "Complete System" },
+        { name: "Amit Patel", city: "Bangalore", product: "AI Mastery Guide" },
+        { name: "Sneha Reddy", city: "Hyderabad", product: "Complete System" },
+        { name: "Vikram Singh", city: "Pune", product: "AI Mastery Guide" },
+        { name: "Anjali Gupta", city: "Chennai", product: "Complete System" },
+        { name: "Rohit Mehta", city: "Ahmedabad", product: "AI Mastery Guide" },
+        { name: "Kavya Iyer", city: "Kochi", product: "Complete System" },
+        { name: "Arjun Verma", city: "Lucknow", product: "AI Mastery Guide" },
+        { name: "Neha Desai", city: "Surat", product: "Complete System" },
+        { name: "Sanjay Rao", city: "Jaipur", product: "AI Mastery Guide" },
+        { name: "Divya Nair", city: "Kolkata", product: "Complete System" },
+        { name: "Karthik Menon", city: "Chandigarh", product: "AI Mastery Guide" },
+        { name: "Pooja Agarwal", city: "Indore", product: "Complete System" },
+        { name: "Rahul Joshi", city: "Nagpur", product: "AI Mastery Guide" }
+    ];
+    
+    let currentProofIndex = 0;
+    let proofTimeout;
+    let proofInterval;
+    
+    function getRandomMinutes() {
+        const options = [2, 3, 5, 7, 10, 12, 15, 18, 20, 25, 30];
+        return options[Math.floor(Math.random() * options.length)];
+    }
+    
+    function showSocialProof() {
+        const popup = document.getElementById('socialProofPopup');
+        const data = socialProofData[currentProofIndex];
+        const minutes = getRandomMinutes();
+        
+        // Update content
+        document.getElementById('proofName').textContent = data.name;
+        document.getElementById('proofLocation').textContent = `from ${data.city} purchased ${data.product}`;
+        document.getElementById('proofTime').textContent = `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+        
+        // Show popup
+        popup.classList.add('show');
+        
+        // Hide after 8 seconds
+        proofTimeout = setTimeout(() => {
+            popup.classList.remove('show');
+        }, 8000);
+        
+        // Move to next proof
+        currentProofIndex = (currentProofIndex + 1) % socialProofData.length;
+    }
+    
+    function closeSocialProof() {
+        const popup = document.getElementById('socialProofPopup');
+        popup.classList.remove('show');
+        clearTimeout(proofTimeout);
+    }
+    
+    // Start showing proofs after page loads
+    window.addEventListener('load', function() {
+        // Show first proof after 5 seconds
+        setTimeout(() => {
+            showSocialProof();
+            
+            // Then show every 15 seconds
+            proofInterval = setInterval(() => {
+                showSocialProof();
+            }, 15000);
+        }, 5000);
+    });
+    
+    // Click popup to close
+    document.getElementById('socialProofPopup').addEventListener('click', function(e) {
+        if (!e.target.classList.contains('social-proof-close')) {
+            closeSocialProof();
+        }
+    });
+</script>
 </body>
 </html>
