@@ -1604,18 +1604,9 @@
         });
         
         // Payment initialization function
-        async function initializePayment() {
-            try {
-                // Fire Facebook Pixel InitiateCheckout event
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', 'InitiateCheckout', {
-                        value: 799.00,
-                        currency: 'INR',
-                        content_name: 'Advanced Prompt Engineering Mastery',
-                        content_type: 'product'
-                    });
-                    console.log('Facebook Pixel: InitiateCheckout fired');
-                }
+        function initializePayment() {
+       window.location.href = '/checkout.html';
+   }
                 
                 // Call Netlify function to create order
                 const response = await fetch('/.netlify/functions/cashfree-create-order', {
