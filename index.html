@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Stop getting garbage from ChatGPT. Master the 5 proven methods Indian professionals use to get expert-level AI results in minutes, not hours. Complete system for just ₹799.">
     <title>Stop Wasting Hours Editing Bad AI Content | NexaMind</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <!-- Meta Pixel Code -->
+    
+    <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -26,7 +30,7 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=800223819266035&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
+    <!-- End Facebook Pixel Code -->
     
     <style>
         :root {
@@ -49,6 +53,7 @@
             line-height: 1.6;
             color: #1a1a1a;
             background: #fff;
+            overflow-x: hidden;
         }
         
         .container {
@@ -57,7 +62,7 @@
             padding: 0 20px;
         }
         
-        /* Header */
+        /* Header - Desktop */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             padding: 20px 0;
@@ -84,6 +89,7 @@
             font-size: 0.9rem;
             color: rgba(255,255,255,0.9);
             font-weight: 500;
+            margin-top: 2px;
         }
         
         .cta-header {
@@ -95,6 +101,7 @@
             font-weight: 700;
             transition: all 0.3s;
             box-shadow: 0 4px 15px rgba(251,86,7,0.4);
+            white-space: nowrap;
         }
         
         .cta-header:hover {
@@ -106,7 +113,7 @@
         .hero {
             background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
             color: white;
-            padding: 80px 0 100px;
+            padding: 60px 0 80px;
             position: relative;
             overflow: hidden;
         }
@@ -300,6 +307,10 @@
             text-align: center;
         }
         
+        .solution-intro p {
+            margin-bottom: 20px;
+        }
+        
         /* Methods Section */
         .methods {
             background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
@@ -332,6 +343,8 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 50px;
+            position: relative;
+            z-index: 1;
         }
         
         .method-card {
@@ -371,6 +384,7 @@
         .method-card p {
             line-height: 1.7;
             opacity: 0.95;
+            margin-bottom: 10px;
         }
         
         .method-result {
@@ -539,6 +553,11 @@
             border-radius: 50%;
         }
         
+        .price-section > * {
+            position: relative;
+            z-index: 1;
+        }
+        
         .price-comparison {
             display: flex;
             justify-content: center;
@@ -611,35 +630,6 @@
             line-height: 1.7;
         }
         
-        /* Guarantee Section */
-        .guarantee {
-            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-        
-        .guarantee-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .guarantee-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-        }
-        
-        .guarantee h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .guarantee p {
-            font-size: 1.2rem;
-            line-height: 1.7;
-            opacity: 0.95;
-        }
-        
         /* Final CTA */
         .final-cta {
             background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
@@ -660,6 +650,11 @@
             left: 50%;
             transform: translateX(-50%);
             border-radius: 50%;
+        }
+        
+        .final-cta > * {
+            position: relative;
+            z-index: 1;
         }
         
         .final-cta h2 {
@@ -727,36 +722,330 @@
             color: rgba(255,255,255,0.6);
         }
         
-        /* Mobile Responsive */
+        /* ============================================
+           MOBILE OPTIMIZATIONS
+           ============================================ */
+        
         @media (max-width: 768px) {
+            /* Optimized Mobile Header */
+            header {
+                padding: 12px 0;
+            }
+            
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0;
+            }
+            
+            .logo {
+                font-size: 1.25rem;
+            }
+            
+            .tagline {
+                font-size: 0.75rem;
+                margin-top: 0;
+            }
+            
+            .cta-header {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+                border-radius: 6px;
+            }
+            
+            /* Mobile Hero */
+            .hero {
+                padding: 40px 0 60px;
+            }
+            
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.75rem;
+                line-height: 1.3;
+                margin-bottom: 20px;
             }
             
             .hero-subheadline {
-                font-size: 1.1rem;
+                font-size: 1rem;
+                line-height: 1.5;
+                margin-bottom: 15px;
+            }
+            
+            .hero-pain {
+                font-size: 0.95rem;
+                padding: 20px;
+                margin: 20px auto;
+            }
+            
+            /* Mobile CTA Button */
+            .cta-button {
+                padding: 16px 30px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .price-tag {
+                font-size: 0.9rem;
+                margin-top: 12px;
+            }
+            
+            /* Mobile Trust Badges */
+            .trust-badges {
+                gap: 15px;
+                margin-top: 30px;
+            }
+            
+            .trust-badge {
+                font-size: 0.85rem;
+                flex-basis: calc(50% - 8px);
+                justify-content: center;
+            }
+            
+            /* Mobile Sections */
+            section {
+                padding: 50px 0;
             }
             
             .section-title {
-                font-size: 1.8rem;
+                font-size: 1.75rem;
+                line-height: 1.3;
             }
             
-            .cta-button {
-                padding: 18px 35px;
+            .section-subtitle {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            /* Mobile Problem Grid */
+            .problem-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .problem-card {
+                padding: 25px;
+            }
+            
+            .problem-card h3 {
+                font-size: 1.15rem;
+            }
+            
+            .problem-card p {
+                font-size: 0.95rem;
+            }
+            
+            /* Mobile Solution */
+            .solution-intro {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+            
+            .solution-intro p {
+                margin-bottom: 15px;
+            }
+            
+            /* Mobile Methods Grid */
+            .methods-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .method-card {
+                padding: 25px;
+            }
+            
+            .method-card h3 {
+                font-size: 1.25rem;
+            }
+            
+            .method-card p {
+                font-size: 0.95rem;
+            }
+            
+            .method-result {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+            
+            /* Mobile Offer Section */
+            .offer-main {
+                padding: 30px 20px;
+            }
+            
+            .offer-title {
+                font-size: 1.5rem;
+            }
+            
+            .value-item {
+                padding: 15px;
+                gap: 12px;
+            }
+            
+            .checkmark {
+                font-size: 1.25rem;
+            }
+            
+            .value-content h4 {
+                font-size: 1rem;
+            }
+            
+            .value-content p {
+                font-size: 0.9rem;
+            }
+            
+            /* Mobile Bonus Section */
+            .bonus-banner {
+                padding: 30px 20px;
+            }
+            
+            .bonus-banner h3 {
+                font-size: 1.5rem;
+            }
+            
+            .bonus-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .bonus-category {
+                padding: 20px;
+            }
+            
+            .bonus-category h4 {
                 font-size: 1.1rem;
+            }
+            
+            .bonus-category li {
+                font-size: 0.9rem;
+            }
+            
+            /* Mobile Price Section */
+            .price-section {
+                padding: 35px 20px;
+                margin: 30px 0;
+            }
+            
+            .price-section h3 {
+                font-size: 1.35rem !important;
+            }
+            
+            .old-price {
+                font-size: 1.5rem;
             }
             
             .new-price {
                 font-size: 2.5rem;
             }
             
-            .offer-main {
-                padding: 30px 20px;
+            .arrow {
+                font-size: 1.5rem;
             }
             
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
+            .savings-badge {
+                font-size: 1rem;
+                padding: 8px 20px;
+            }
+            
+            .price-subtext {
+                font-size: 0.95rem;
+            }
+            
+            /* Mobile FAQ */
+            .faq-item {
+                padding: 20px;
+            }
+            
+            .faq-question {
+                font-size: 1.05rem;
+                line-height: 1.4;
+            }
+            
+            .faq-answer {
+                font-size: 0.95rem;
+            }
+            
+            /* Mobile Final CTA */
+            .final-cta {
+                padding: 50px 0;
+            }
+            
+            .final-cta h2 {
+                font-size: 1.75rem;
+                line-height: 1.3;
+            }
+            
+            .final-cta p {
+                font-size: 1rem;
+                line-height: 1.6;
+                margin-bottom: 25px;
+            }
+            
+            .final-cta p[style*="font-size: 1.5rem"] {
+                font-size: 1.15rem !important;
+            }
+            
+            .final-cta p[style*="font-size: 1.3rem"] {
+                font-size: 1rem !important;
+            }
+            
+            .urgency-text {
+                font-size: 0.9rem;
+            }
+            
+            .urgency-text p {
+                font-size: 0.9rem !important;
+            }
+            
+            /* Mobile Footer */
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+            
+            .footer-links {
+                text-align: center;
+            }
+        }
+        
+        /* Extra small phones */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .logo {
+                font-size: 1.1rem;
+            }
+            
+            .tagline {
+                font-size: 0.7rem;
+            }
+            
+            .cta-header {
+                padding: 7px 14px;
+                font-size: 0.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .trust-badge {
+                font-size: 0.75rem;
+                flex-basis: 100%;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .bonus-banner h3 {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -1092,7 +1381,7 @@
                         <p style="margin-top: 20px; font-size: 0.95rem; opacity: 0.9;">
                             ✓ Instant download via email<br>
                             ✓ Pay via UPI, Cards, or Net Banking<br>
-                            ✓ 100% secure Indian payment through Razorpay
+                            ✓ 100% secure Indian payment through Cashfree
                         </p>
                     </div>
                 </div>
@@ -1252,7 +1541,7 @@
             </button>
             
             <div class="urgency-text">
-                <p>⚡ Instant download after payment • 🇮🇳 100% Indian payment via Razorpay • 📱 Works on all devices</p>
+                <p>⚡ Instant download after payment • 🇮🇳 100% Indian payment via Cashfree • 📱 Works on all devices</p>
                 <p style="margin-top: 15px;">Join 500+ Indian professionals who've already transformed their AI skills</p>
             </div>
         </div>
@@ -1273,7 +1562,7 @@
                     <ul class="footer-links">
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="terms.html">Terms & Conditions</a></li>
-                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
                         <li><a href="disclaimer.html">Disclaimer</a></li>
                         <li><a href="refund-policy.html">Refund Policy</a></li>
                         <li><a href="facebook-disclaimer.html">Facebook Disclaimer</a></li>
@@ -1304,230 +1593,100 @@
         </div>
     </footer>
 
-   <!-- Cashfree Payment Gateway Script -->
-<script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
-<script>
-    // Cashfree Configuration - TEST MODE
-    const CASHFREE_APP_ID = "TEST10829674c7101a07ac618d63fff347692801";
-    const CASHFREE_ENV = "TEST"; // "TEST" for testing, "PROD" for production
+    <!-- Cashfree SDK -->
+    <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
     
-    // Initialize Cashfree SDK
-    const cashfree = Cashfree({
-        mode: CASHFREE_ENV
-    });
-    
-    async function initializePayment() {
-        try {
-            // Fire Facebook Pixel InitiateCheckout event
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'InitiateCheckout', {
-                    value: 799.00,
-                    currency: 'INR',
-                    content_name: 'Advanced Prompt Engineering Mastery',
-                    content_type: 'product'
+    <!-- Payment & Analytics Script -->
+    <script>
+        // Initialize Cashfree
+        const cashfree = Cashfree({
+            mode: "sandbox" // Use "production" when you go live
+        });
+        
+        // Payment initialization function
+        async function initializePayment() {
+            try {
+                // Fire Facebook Pixel InitiateCheckout event
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'InitiateCheckout', {
+                        value: 799.00,
+                        currency: 'INR',
+                        content_name: 'Advanced Prompt Engineering Mastery',
+                        content_type: 'product'
+                    });
+                    console.log('Facebook Pixel: InitiateCheckout fired');
+                }
+                
+                // Call Netlify function to create order
+                const response = await fetch('/.netlify/functions/cashfree-create-order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        customer_name: '',
+                        customer_email: '',
+                        customer_phone: ''
+                    })
                 });
-                console.log('Facebook Pixel: InitiateCheckout event fired');
-            }
-            
-            // Create payment session on backend (we'll use server endpoint)
-            // For now, we'll use Cashfree's test session token
-            const sessionToken = await // Create payment session via backend
-async function // Create payment session via backend
-async function createPaymentSession() {
-    try {
-        console.log('Creating payment session via backend...');
-        
-        // Call Netlify function
-        const response = await fetch('/.netlify/functions/create-order', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                customer_name: '',
-                customer_email: '',
-                customer_phone: ''
-            })
-        });
-        
-        const data = await response.json();
-        
-        if (data.success && data.payment_session_id) {
-            console.log('Payment session created:', data.order_id);
-            return data.payment_session_id;
-        } else {
-            console.error('Failed to create session:', data);
-            throw new Error(data.message || 'Session creation failed');
-        }
-        
-    } catch (error) {
-        console.error('Error creating payment session:', error);
-        return null;
-    }
-} {
-    try {
-        console.log('Creating payment session via backend...');
-        
-        // Call Netlify function
-        const response = await fetch('/.netlify/functions/create-order', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                customer_name: '',
-                customer_email: '',
-                customer_phone: ''
-            })
-        });
-        
-        const data = await response.json();
-        
-        if (data.success && data.payment_session_id) {
-            console.log('Payment session created:', data.order_id);
-            return data.payment_session_id;
-        } else {
-            console.error('Failed to create session:', data);
-            throw new Error(data.message || 'Session creation failed');
-        }
-        
-    } catch (error) {
-        console.error('Error creating payment session:', error);
-        return null;
-    }
-};
-            
-            if (!sessionToken) {
-                alert('Unable to initiate payment. Please try again or contact support.');
-                return;
-            }
-            
-            // Cashfree checkout options
-            const checkoutOptions = {
-                paymentSessionId: sessionToken,
-                returnUrl: window.location.origin + "/thank-you.html",
-                notifyUrl: window.location.origin + "/payment-webhook", // Optional webhook
-            };
-            
-            // Open Cashfree checkout
-            cashfree.checkout(checkoutOptions).then((result) => {
-                if (result.error) {
-                    console.error('Payment error:', result.error);
-                    alert('Payment failed. Please try again or contact support at nexamindai707@gmail.com');
+                
+                const data = await response.json();
+                
+                if (!data.success || !data.payment_session_id) {
+                    throw new Error(data.message || 'Failed to create payment session');
                 }
-                if (result.redirect) {
-                    console.log('Payment will redirect');
-                }
-                if (result.paymentDetails) {
-                    console.log('Payment completed:', result.paymentDetails);
-                    // Redirect handled by returnUrl
-                }
-            });
-            
-        } catch (error) {
-            console.error('Payment initialization error:', error);
-            alert('Payment initialization failed. Please contact support at nexamindai707@gmail.com');
-        }
-    }
-    
-    // Create payment session (this needs backend API)
-    async function createPaymentSession() {
-        // TEMPORARY: For testing, we'll create session on frontend
-        // In production, this MUST be done on backend for security
-        
-        try {
-            const response = await fetch('https://sandbox.cashfree.com/pg/orders', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'x-client-id': CASHFREE_APP_ID,
-                    'x-client-secret': 'cfsk_ma_test_3ab5459ac409903b04dc880b64fe81ab_72fdf4c2', // NEVER do this in production!
-                    'x-api-version': '2023-08-01'
-                },
-                body: JSON.stringify({
-                    order_amount: 799.00,
-                    order_currency: 'INR',
-                    order_id: 'ORDER_' + Date.now(), // Unique order ID
-                    customer_details: {
-                        customer_id: 'CUST_' + Date.now(),
-                        customer_phone: '9999999999', // Customer will enter during checkout
-                        customer_email: 'customer@example.com' // Customer will enter during checkout
-                    },
-                    order_meta: {
-                        return_url: window.location.origin + '/thank-you.html',
-                        notify_url: window.location.origin + '/payment-webhook'
-                    },
-                    order_note: 'Advanced Prompt Engineering Mastery - NexaMind'
-                })
-            });
-            
-            const data = await response.json();
-            
-            if (data.payment_session_id) {
+                
                 console.log('Payment session created:', data.order_id);
-                return data.payment_session_id;
-            } else {
-                console.error('Session creation failed:', data);
-                return null;
-            }
-            
-        } catch (error) {
-            console.error('Error creating session:', error);
-            return null;
-        }
-    }
-    
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                
+                // Cashfree checkout options
+                const checkoutOptions = {
+                    paymentSessionId: data.payment_session_id,
+                    returnUrl: window.location.origin + "/thank-you.html"
+                };
+                
+                // Open Cashfree checkout
+                cashfree.checkout(checkoutOptions).then((result) => {
+                    if (result.error) {
+                        console.error('Payment error:', result.error);
+                        alert('Payment failed. Please try again or contact support.');
+                    }
+                    if (result.paymentDetails) {
+                        console.log('Payment completed:', result.paymentDetails);
+                    }
                 });
+                
+            } catch (error) {
+                console.error('Payment initialization error:', error);
+                alert('Unable to initiate payment. Please try again or contact support at nexamindai707@gmail.com');
             }
-        });
-    });
-    
-    // Facebook Pixel - 90% Scroll Tracking (fires once per session)
-    var scrolled90 = false;
-    window.addEventListener('scroll', function() {
-        var scrollPercent = (window.scrollY + window.innerHeight) / document.body.offsetHeight * 100;
-        if (!scrolled90 && scrollPercent >= 90) {
-            fbq('track', 'Lead');
-            scrolled90 = true;
-            console.log('Facebook Pixel: Lead event fired (90% scroll)');
         }
-    });
-    
-    // Fade-in animation on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Facebook Pixel - 90% Scroll Tracking
+        let scrolled90 = false;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = (window.scrollY + window.innerHeight) / document.body.offsetHeight * 100;
+            if (!scrolled90 && scrollPercent >= 90) {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead');
+                    console.log('Facebook Pixel: Lead event fired (90% scroll)');
+                }
+                scrolled90 = true;
             }
         });
-    }, observerOptions);
-    
-    // Observe elements for animation
-    document.addEventListener('DOMContentLoaded', function() {
-        const animatedElements = document.querySelectorAll('.problem-card, .method-card, .value-item, .faq-item');
-        animatedElements.forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-            observer.observe(el);
-        });
-    });
-</script>
         
         // Fade-in animation on scroll
         const observerOptions = {
@@ -1553,6 +1712,45 @@ async function createPaymentSession() {
                 el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
                 observer.observe(el);
             });
+        });
+    </script>
+    
+    <!-- Facebook CAPI Script -->
+    <script>
+        // Wait for page to fully load
+        window.addEventListener('load', function() {
+            // Helper function to get Facebook cookies
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+                return null;
+            }
+
+            // Wait a bit for cookies to be set by FB pixel
+            setTimeout(function() {
+                // Send PageView to Conversion API (Server-Side)
+                fetch('/.netlify/functions/facebook-pageview', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        event_source_url: window.location.href,
+                        fbp: getCookie('_fbp'),
+                        fbc: getCookie('_fbc'),
+                        email: null,
+                        phone: null
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('PageView CAPI Success:', data);
+                })
+                .catch(error => {
+                    console.error('PageView CAPI Error:', error);
+                });
+            }, 1000);
         });
     </script>
 </body>
