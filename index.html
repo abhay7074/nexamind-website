@@ -1604,53 +1604,10 @@
         });
         
         // Payment initialization function
-        function initializePayment() {
-       window.location.href = '/checkout.html';
-   }
-                
-                // Call Netlify function to create order
-                const response = await fetch('/.netlify/functions/cashfree-create-order', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        customer_name: '',
-                        customer_email: '',
-                        customer_phone: ''
-                    })
-                });
-                
-                const data = await response.json();
-                
-                if (!data.success || !data.payment_session_id) {
-                    throw new Error(data.message || 'Failed to create payment session');
-                }
-                
-                console.log('Payment session created:', data.order_id);
-                
-                // Cashfree checkout options
-                const checkoutOptions = {
-                    paymentSessionId: data.payment_session_id,
-                    returnUrl: window.location.origin + "/thank-you.html"
-                };
-                
-                // Open Cashfree checkout
-                cashfree.checkout(checkoutOptions).then((result) => {
-                    if (result.error) {
-                        console.error('Payment error:', result.error);
-                        alert('Payment failed. Please try again or contact support.');
-                    }
-                    if (result.paymentDetails) {
-                        console.log('Payment completed:', result.paymentDetails);
-                    }
-                });
-                
-            } catch (error) {
-                console.error('Payment initialization error:', error);
-                alert('Unable to initiate payment. Please try again or contact support at nexamindai707@gmail.com');
-            }
-        }
+       function initializePayment() {
+    // Redirect to checkout page
+    window.location.href = '/checkout.html';
+}
         
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
