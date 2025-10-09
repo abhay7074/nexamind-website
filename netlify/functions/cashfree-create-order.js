@@ -1,128 +1,103 @@
-// Netlify Function - Create Cashfree Payment Session
-const fetch = require('node-fetch');
+const crypto = require('crypto');
 
 exports.handler = async (event, context) => {
-  // Handle CORS preflight
-  if (event.httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS'
-      },
-      body: ''
-    };
-  }
-
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json'
-      },
       body: JSON.stringify({ error: 'Method not allowed' })
     };
   }
 
-  // Get credentials from environment variables (SECURE!)
-  const CASHFREE_APP_ID = process.env.CASHFREE_APP_ID;
-  const CASHFREE_SECRET_KEY = process.env.CASHFREE_SECRET_KEY;
-  const CASHFREE_ENV = process.env.CASHFREE_ENV || 'TEST';
-
-  // Determine API URL
-  const CASHFREE_API_URL = CASHFREE_ENV === 'PROD'
-    ? 'https://api.cashfree.com/pg/orders'
-    : 'https://sandbox.cashfree.com/pg/orders';
-
   try {
-    // Parse request body (if any)
-    let requestData = {};
-    if (event.body) {
-      try {
-        requestData = JSON.parse(event.body);
-      } catch (e) {
-        console.log('No JSON body provided, using defaults');
-      }
-    }
-
-    // Generate unique IDs
+    const data = JSON.parse(event.body);
+    
+    // Cashfree credentials from environment variables
+    const appId = process.env.CASHFREE_APP_ID;
+    const secretKey = process.env.CASHFREE_SECRET_KEY;
+    const environment = process.env.CASHFREE_ENV || 'TEST'; // TEST or PROD
+    
+    // Determine API endpoint based on environment
+    const apiUrl = environment === 'PROD' 
+      ? 'https://api.cashfree.com/pg/orders'
+      : 'https://sandbox.cashfree.com/pg/orders';
+    
+    // Generate unique order ID
     const orderId = 'ORDER_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     const customerId = 'CUST_' + Date.now();
-
-    // Create order payload
-    const orderData = {
+    
+    // Get origin from headers
+    const origin = event.headers.origin || event.headers.referer || 'https://trynexamind.com';
+    const baseUrl = origin.replace(/\/$/, ''); // Remove trailing slash
+    
+    // Order payload
+    const orderPayload = {
+      order_id: orderId,
       order_amount: 799.00,
       order_currency: 'INR',
-      order_id: orderId,
       customer_details: {
         customer_id: customerId,
-        customer_phone: requestData.customer_phone || '9999999999',
-        customer_email: requestData.customer_email || 'customer@trynexamind.com',
-        customer_name: requestData.customer_name || 'NexaMind Customer'
+        customer_phone: data.customer_phone || '9999999999',
+        customer_email: data.customer_email || 'customer@example.com',
+        customer_name: data.customer_name || 'Customer'
       },
       order_meta: {
-        return_url: 'https://trynexamind.com/thank-you.html'
+        return_url: `${baseUrl}/thank-you.html?order_id=${orderId}`,
+        notify_url: `${baseUrl}/.netlify/functions/cashfree-webhook`
       },
-      order_note: 'Advanced Prompt Engineering Mastery - NexaMind eBook'
+      order_note: 'Advanced Prompt Engineering Mastery - NexaMind'
     };
-
-    console.log('Creating Cashfree order:', orderId);
-
-    // Call Cashfree API
-    const response = await fetch(CASHFREE_API_URL, {
+    
+    console.log('Creating order:', orderId);
+    
+    // Call Cashfree API using native fetch
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-client-id': CASHFREE_APP_ID,
-        'x-client-secret': CASHFREE_SECRET_KEY,
+        'x-client-id': appId,
+        'x-client-secret': secretKey,
         'x-api-version': '2023-08-01'
       },
-      body: JSON.stringify(orderData)
+      body: JSON.stringify(orderPayload)
     });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      console.error('Cashfree API error:', data);
-      throw new Error(data.message || 'Cashfree API returned error');
-    }
-
-    if (data.payment_session_id) {
-      console.log('Payment session created successfully:', data.order_id);
+    
+    const result = await response.json();
+    
+    if (result.payment_session_id) {
+      console.log('Order created successfully:', orderId);
       
-      // Success - return session ID
       return {
         statusCode: 200,
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
         body: JSON.stringify({
           success: true,
-          payment_session_id: data.payment_session_id,
-          order_id: data.order_id
+          order_id: orderId,
+          payment_session_id: result.payment_session_id,
+          message: 'Payment session created successfully'
         })
       };
     } else {
-      throw new Error('No payment_session_id received from Cashfree');
+      console.error('Cashfree API Error:', result);
+      
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          success: false,
+          message: result.message || 'Failed to create payment session',
+          error: result
+        })
+      };
     }
-
+    
   } catch (error) {
-    console.error('Function error:', error);
+    console.error('Error creating order:', error);
     
     return {
       statusCode: 500,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      },
       body: JSON.stringify({
         success: false,
-        error: 'Failed to create payment session',
-        message: error.message
+        message: 'Internal server error',
+        error: error.message
       })
     };
   }
