@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifying Payment - NexaMind</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0F0F1E 0%, #1A1A2E 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 500px;
+        }
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255,255,255,0.2);
+            border-top: 5px solid #FF006E;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 30px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid #ef4444;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .error h2 {
+            color: #ef4444;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF006E 0%, #FB5607 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,0,110,0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loader"></div>
+        <h1>Verifying Your Payment...</h1>
+        <p>Please wait while we confirm your payment status.</p>
+        <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 10px;">This will only take a moment.</p>
+    </div>
+
+    <script>
+        // Get order ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('order_id');
+        
+        if (!orderId) {
+            // No order ID found
+            document.querySelector('.container').innerHTML = `
+                <div class="error">
+                    <h2>⚠️ Invalid Payment Link</h2>
+                    <p>We couldn't find your order information.</p>
+                    <a href="/" class="button">Return to Home</a>
+                </div>
+            `;
+        } else {
+            // Verify payment status
+            verifyPayment(orderId);
+        }
+        
+        async function verifyPayment(orderId) {
+            try {
+                // Wait a bit for Cashfree to process
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Call verification function
+                const response = await fetch('/.netlify/functions/cashfree-verify-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        order_id: orderId
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success && data.payment_status === 'SUCCESS') {
+                    // Payment successful - redirect to thank you page
+                    window.location.href = `/thank-you.html?order_id=${orderId}`;
+                } else if (data.payment_status === 'PENDING') {
+                    // Payment still pending - wait and check again
+                    document.querySelector('.container').innerHTML = `
+                        <div class="loader"></div>
+                        <h1>Payment Processing...</h1>
+                        <p>Your payment is being processed. Please wait.</p>
+                    `;
+                    
+                    // Check again after 3 seconds
+                    setTimeout(() => verifyPayment(orderId), 3000);
+                } else {
+                    // Payment failed or canceled
+                    document.querySelector('.container').innerHTML = `
+                        <div class="error">
+                            <h2>❌ Payment ${data.payment_status === 'FAILED' ? 'Failed' : 'Canceled'}</h2>
+                            <p>Your payment was not completed successfully.</p>
+                            <p style="margin-top: 10px; font-size: 0.95rem;">
+                                ${data.payment_status === 'FAILED' 
+                                    ? 'There was an issue processing your payment. Please try again.' 
+                                    : 'You canceled the payment process.'}
+                            </p>
+                            <a href="/" class="button">Try Again</a>
+                        </div>
+                    `;
+                }
+                
+            } catch (error) {
+                console.error('Verification error:', error);
+                
+                // Show error message
+                document.querySelector('.container').innerHTML = `
+                    <div class="error">
+                        <h2>⚠️ Verification Error</h2>
+                        <p>We couldn't verify your payment status.</p>
+                        <p style="margin-top: 15px; font-size: 0.9rem;">
+                            Please contact support at:<br>
+                            <strong>nexamindai707@gmail.com</strong><br>
+                            WhatsApp: <strong>+91 7703078859</strong>
+                        </p>
+                        <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.7;">
+                            Order ID: ${orderId}
+                        </p>
+                        <a href="/" class="button">Return to Home</a>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
