@@ -20,42 +20,42 @@
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '800223819266035');
 
-// Browser Pixel Purchase Event
-fbq('track', 'Purchase', {
-    value: 799.00,
-    currency: 'INR'
-});
+        // Browser Pixel Purchase Event
+        fbq('track', 'Purchase', {
+            value: 799.00,
+            currency: 'INR'
+        });
 
-// Get Facebook cookies
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-    return null;
-}
+        // Get Facebook cookies
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        }
 
-// Send to Conversion API (Server-Side)
-fetch('/.netlify/functions/facebook-conversion', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-        event_source_url: window.location.href,
-        fbp: getCookie('_fbp'),
-        fbc: getCookie('_fbc'),
-        email: null,
-        phone: null
-    })
-})
-.then(response => response.json())
-.then(data => {
-    console.log('Conversion API Success:', data);
-})
-.catch(error => {
-    console.error('Conversion API Error:', error);
-});
-</script>
+        // Send to Conversion API (Server-Side)
+        fetch('/.netlify/functions/facebook-conversion', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                event_source_url: window.location.href,
+                fbp: getCookie('_fbp'),
+                fbc: getCookie('_fbc'),
+                email: null,
+                phone: null
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Conversion API Success:', data);
+        })
+        .catch(error => {
+            console.error('Conversion API Error:', error);
+        });
+    </script>
     <noscript><img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=800223819266035&ev=Purchase&noscript=1"
     /></noscript>
@@ -98,6 +98,7 @@ fetch('/.netlify/functions/facebook-conversion', {
             right: -200px;
             border-radius: 50%;
             animation: pulse 4s ease-in-out infinite;
+            pointer-events: none;
         }
         
         @keyframes pulse {
@@ -107,6 +108,7 @@ fetch('/.netlify/functions/facebook-conversion', {
         
         .container {
             max-width: 800px;
+            width: 100%;
             background: rgba(255,255,255,0.98);
             border-radius: 24px;
             box-shadow: 0 20px 60px rgba(255,0,110,0.3);
@@ -137,9 +139,15 @@ fetch('/.netlify/functions/facebook-conversion', {
             align-items: center;
             justify-content: center;
             margin: 0 auto 30px;
-            font-size: 50px;
             animation: scaleIn 0.6s ease-out 0.3s backwards;
             box-shadow: 0 8px 30px rgba(6,214,160,0.4);
+        }
+        
+        .success-icon::after {
+            content: '✓';
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
         }
         
         @keyframes scaleIn {
@@ -152,7 +160,7 @@ fetch('/.netlify/functions/facebook-conversion', {
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             font-weight: 800;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
@@ -162,8 +170,13 @@ fetch('/.netlify/functions/facebook-conversion', {
             line-height: 1.2;
         }
         
+        .emoji {
+            font-size: 1.2em;
+            vertical-align: middle;
+        }
+        
         .subtitle {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             color: #444;
             margin-bottom: 40px;
             line-height: 1.6;
@@ -179,7 +192,7 @@ fetch('/.netlify/functions/facebook-conversion', {
         }
         
         .highlight-box h3 {
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
             color: var(--primary);
             margin-bottom: 15px;
             font-weight: 700;
@@ -189,6 +202,16 @@ fetch('/.netlify/functions/facebook-conversion', {
             color: #555;
             line-height: 1.7;
             margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .highlight-box p::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
         }
         
         .download-section {
@@ -209,11 +232,12 @@ fetch('/.netlify/functions/facebook-conversion', {
             top: -100px;
             right: -100px;
             border-radius: 50%;
+            pointer-events: none;
         }
         
         .download-section h2 {
             color: white;
-            font-size: 1.8rem;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
             margin-bottom: 20px;
             position: relative;
             z-index: 1;
@@ -225,7 +249,7 @@ fetch('/.netlify/functions/facebook-conversion', {
             color: white;
             padding: 20px 50px;
             border-radius: 12px;
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             font-weight: 700;
             text-decoration: none;
             box-shadow: 0 8px 25px rgba(255,0,110,0.4);
@@ -233,11 +257,16 @@ fetch('/.netlify/functions/facebook-conversion', {
             margin: 20px 0;
             position: relative;
             z-index: 1;
+            cursor: pointer;
         }
         
         .download-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(255,0,110,0.5);
+        }
+        
+        .download-button:active {
+            transform: translateY(-1px);
         }
         
         .download-note {
@@ -246,6 +275,7 @@ fetch('/.netlify/functions/facebook-conversion', {
             margin-top: 15px;
             position: relative;
             z-index: 1;
+            line-height: 1.5;
         }
         
         .next-steps {
@@ -257,10 +287,11 @@ fetch('/.netlify/functions/facebook-conversion', {
         }
         
         .next-steps h3 {
-            font-size: 1.5rem;
+            font-size: clamp(1.3rem, 4vw, 1.5rem);
             color: var(--dark);
             margin-bottom: 25px;
             font-weight: 800;
+            text-align: center;
         }
         
         .step {
@@ -284,8 +315,12 @@ fetch('/.netlify/functions/facebook-conversion', {
             font-size: 1.1rem;
         }
         
+        .step-content {
+            flex: 1;
+        }
+        
         .step-content h4 {
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
             color: var(--dark);
             margin-bottom: 8px;
             font-weight: 700;
@@ -294,6 +329,7 @@ fetch('/.netlify/functions/facebook-conversion', {
         .step-content p {
             color: #666;
             line-height: 1.6;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
         
         .what-you-got {
@@ -305,7 +341,7 @@ fetch('/.netlify/functions/facebook-conversion', {
         }
         
         .what-you-got h3 {
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
             color: var(--dark);
             margin-bottom: 20px;
             font-weight: 800;
@@ -323,19 +359,35 @@ fetch('/.netlify/functions/facebook-conversion', {
             color: #555;
             line-height: 1.6;
             border-bottom: 1px solid #f0f0f0;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
         
         .what-you-got li:last-child {
             border-bottom: none;
         }
         
-        .what-you-got li:before {
+        .what-you-got li::before {
             content: "✓";
             position: absolute;
             left: 0;
             color: var(--success);
             font-weight: 700;
             font-size: 1.2rem;
+        }
+        
+        .value-highlight {
+            margin-top: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(255,0,110,0.05), rgba(131,56,236,0.05));
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .value-highlight p {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: var(--primary);
+            font-weight: 700;
+            margin: 0;
         }
         
         .support-section {
@@ -346,7 +398,7 @@ fetch('/.netlify/functions/facebook-conversion', {
         }
         
         .support-section h3 {
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
             color: var(--dark);
             margin-bottom: 15px;
             font-weight: 700;
@@ -372,6 +424,7 @@ fetch('/.netlify/functions/facebook-conversion', {
             gap: 8px;
             color: var(--primary);
             font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
         
         .contact-item a {
@@ -400,8 +453,9 @@ fetch('/.netlify/functions/facebook-conversion', {
         .footer-links a {
             color: #666;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             transition: color 0.3s;
+            padding: 5px;
         }
         
         .footer-links a:hover {
@@ -410,64 +464,199 @@ fetch('/.netlify/functions/facebook-conversion', {
         
         .copyright {
             color: #999;
-            font-size: 0.85rem;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
+            line-height: 1.5;
         }
         
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
-            .container {
-                padding: 40px 25px;
+            body {
+                padding: 10px;
             }
             
-            h1 {
-                font-size: 1.8rem;
+            body::before {
+                width: 400px;
+                height: 400px;
+                top: -150px;
+                right: -150px;
+            }
+            
+            .container {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+            
+            .success-icon {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 20px;
+            }
+            
+            .success-icon::after {
+                font-size: 40px;
             }
             
             .subtitle {
-                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+            
+            .highlight-box {
+                padding: 20px 15px;
+                margin: 20px 0;
+            }
+            
+            .highlight-box p {
+                font-size: 0.95rem;
+            }
+            
+            .download-section {
+                padding: 30px 20px;
+                margin: 30px 0;
             }
             
             .download-button {
-                padding: 18px 35px;
-                font-size: 1.1rem;
+                padding: 16px 35px;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .download-note {
+                font-size: 0.9rem;
+                padding: 0 10px;
+            }
+            
+            .next-steps {
+                padding: 30px 20px;
+                margin: 30px 0;
             }
             
             .step {
                 gap: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .step-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .what-you-got {
+                padding: 20px;
+                margin: 20px 0;
+            }
+            
+            .what-you-got li {
+                padding: 10px 0;
+                padding-left: 25px;
+            }
+            
+            .support-section {
+                padding: 25px 20px;
+                margin-top: 30px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 4px;
+            }
+            
+            footer {
+                margin-top: 40px;
+                padding-top: 25px;
+            }
+            
+            .footer-links {
+                gap: 10px;
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px 15px;
+            }
+            
+            .download-section {
+                padding: 25px 15px;
+            }
+            
+            .download-button {
+                font-size: 1rem;
+                padding: 14px 25px;
+            }
+            
+            .next-steps {
+                padding: 25px 15px;
+            }
+            
+            .what-you-got {
+                padding: 15px;
+            }
+            
+            .what-you-got li {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Hover effects for desktop only */
+        @media (hover: hover) {
+            .download-button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 12px 35px rgba(255,0,110,0.5);
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            body::before {
+                display: none;
+            }
+            
+            .container {
+                box-shadow: none;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="success-icon">✓</div>
+        <div class="success-icon"></div>
         
-        <h1>🎉 Welcome to Your AI Mastery Journey!</h1>
+        <h1><span class="emoji">🎉</span> Welcome to Your AI Mastery Journey!</h1>
         
         <p class="subtitle">Payment successful! You're now one of the elite professionals who've chosen to master AI instead of just using it.</p>
         
         <div class="highlight-box">
             <h3>Here's What Just Happened:</h3>
-            <p>✓ Your payment of ₹799 has been processed successfully</p>
-            <p>✓ You now have lifetime access to the complete AI mastery system</p>
-            <p>✓ Everything is ready for immediate download below</p>
-            <p>✓ No subscriptions, no hidden fees - you own this forever</p>
+            <p>Your payment of ₹799 has been processed successfully</p>
+            <p>You now have lifetime access to the complete AI mastery system</p>
+            <p>Everything is ready for immediate download below</p>
+            <p>No subscriptions, no hidden fees - you own this forever</p>
         </div>
         
         <!-- Download Section -->
         <div class="download-section">
-            <h2>📥 Download Your Complete AI Mastery Package</h2>
+            <h2><span class="emoji">📥</span> Download Your Complete AI Mastery Package</h2>
             <p style="color: rgba(255,255,255,0.9); margin-bottom: 25px;">Click the button below to access your eBook and all bonuses instantly:</p>
             
-            <a href="https://drive.google.com/file/d/1oQrfYB6w4xzaYwJoZNS_i2_3Z6d4s26Q/view?usp=sharing" class="download-button" target="_blank">
-                📥 Download Everything Now
+            <a href="https://drive.google.com/file/d/1oQrfYB6w4xzaYwJoZNS_i2_3Z6d4s26Q/view?usp=sharing" class="download-button" target="_blank" rel="noopener noreferrer">
+                <span class="emoji">📥</span> Download Everything Now
             </a>
             
-            <p class="download-note">💾 Pro Tip: Save the file to your device immediately and bookmark this page for easy access anytime!</p>
+            <p class="download-note"><span class="emoji">💾</span> Pro Tip: Save the file to your device immediately and bookmark this page for easy access anytime!</p>
         </div>
         
         <!-- What You Got -->
         <div class="what-you-got">
-            <h3>🎁 What You Just Unlocked:</h3>
+            <h3><span class="emoji">🎁</span> What You Just Unlocked:</h3>
             <ul>
                 <li><strong>Advanced Prompt Engineering Mastery</strong> - The complete 64-page guide (Value: ₹1,499)</li>
                 <li><strong>5 Proven Methods</strong> - PTCF Framework, Act As, Ask Me Questions, Primer, Break It Down</li>
@@ -477,14 +666,14 @@ fetch('/.netlify/functions/facebook-conversion', {
                 <li><strong>Troubleshooting Guide</strong> - Fix any prompt problem in 60 seconds (Value: ₹499)</li>
                 <li><strong>Lifetime Access</strong> - Keep forever, access anywhere, on any device</li>
             </ul>
-            <p style="margin-top: 20px; font-size: 1.1rem; color: var(--primary); font-weight: 700;">
-                Total Value: ₹6,796 → You Paid: ₹799 (You Saved ₹5,997!)
-            </p>
+            <div class="value-highlight">
+                <p>Total Value: ₹6,796 → You Paid: ₹799 (You Saved ₹5,997!)</p>
+            </div>
         </div>
         
         <!-- Next Steps -->
         <div class="next-steps">
-            <h3>🚀 Your Next Steps (Start Right Now!):</h3>
+            <h3><span class="emoji">🚀</span> Your Next Steps (Start Right Now!):</h3>
             
             <div class="step">
                 <div class="step-number">1</div>
@@ -529,15 +718,17 @@ fetch('/.netlify/functions/facebook-conversion', {
         
         <!-- Support Section -->
         <div class="support-section">
-            <h3>💬 Need Help? We've Got You!</h3>
+            <h3><span class="emoji">💬</span> Need Help? We've Got You!</h3>
             <p>Having trouble downloading? Questions about the methods? Want clarification on anything? We're here to help you succeed.</p>
             
             <div class="contact-info">
                 <div class="contact-item">
-                    📧 Email: <a href="mailto:nexamindai707@gmail.com">nexamindai707@gmail.com</a>
+                    <span class="emoji">📧</span>
+                    <a href="mailto:nexamindai707@gmail.com">nexamindai707@gmail.com</a>
                 </div>
                 <div class="contact-item">
-                    💬 WhatsApp: <a href="https://wa.me/917703078859" target="_blank">+91 7703078859</a>
+                    <span class="emoji">💬</span>
+                    <a href="https://wa.me/917703078859" target="_blank" rel="noopener noreferrer">+91 7703078859</a>
                 </div>
             </div>
             
