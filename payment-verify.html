@@ -1,302 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verifying Payment - NexaMind</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0F0F1E 0%, #1A1A2E 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            padding: 20px;
-        }
-        
-        .container {
-            text-align: center;
-            padding: 40px 20px;
-            max-width: 500px;
-            width: 100%;
-        }
-        
-        .loader {
-            width: 60px;
-            height: 60px;
-            border: 5px solid rgba(255,255,255,0.2);
-            border-top: 5px solid #FF006E;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 30px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        
-        p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-        
-        .error {
-            background: rgba(239, 68, 68, 0.1);
-            border: 2px solid #ef4444;
-            padding: 30px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-        
-        .error h2 {
-            color: #ef4444;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .success {
-            background: rgba(6, 214, 160, 0.1);
-            border: 2px solid #06D6A0;
-            padding: 30px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-        
-        .success h2 {
-            color: #06D6A0;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .button {
-            display: inline-block;
-            background: linear-gradient(135deg, #FF006E 0%, #FB5607 100%);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            margin-top: 20px;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-        }
-        
-        .button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255,0,110,0.4);
-        }
-        
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            
-            p {
-                font-size: 1rem;
-            }
-            
-            .container {
-                padding: 30px 15px;
-            }
-            
-            .error, .success {
-                padding: 20px;
-            }
-            
-            .error h2, .success h2 {
-                font-size: 1.25rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="loader"></div>
-        <h1>Verifying Your Payment...</h1>
-        <p>Please wait while we confirm your payment status.</p>
-        <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 10px;">This will only take a moment.</p>
-    </div>
+// netlify/functions/cashfree-verify-payment.js
 
-    <script>
-        // Get order ID from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const orderId = urlParams.get('order_id');
-        
-        console.log('=== PAYMENT VERIFICATION START ===');
-        console.log('Order ID from URL:', orderId);
-        
-        if (!orderId) {
-            // No order ID found
-            console.error('ERROR: No order ID in URL');
-            document.querySelector('.container').innerHTML = `
-                <div class="error">
-                    <h2>⚠️ Invalid Payment Link</h2>
-                    <p>We couldn't find your order information.</p>
-                    <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">
-                        The payment link appears to be incomplete or invalid.
-                    </p>
-                    <a href="/" class="button">Return to Home</a>
-                </div>
-            `;
-        } else {
-            // Start verification process
-            verifyPayment(orderId);
-        }
-        
-        async function verifyPayment(orderId) {
-            try {
-                // Wait 2 seconds for Cashfree to process the payment
-                console.log('Waiting 2 seconds for Cashfree processing...');
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                console.log('Calling verification function...');
-                
-                // Call Netlify function to verify payment
-                const response = await fetch('/.netlify/functions/cashfree-verify-payment', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        order_id: orderId
-                    })
-                });
-                
-                console.log('Response status:', response.status);
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                console.log('Verification response data:', data);
-                console.log('Order Status:', data.order_status);
-                console.log('Payment Status:', data.payment_status);
-                
-                // ✅ CHECK ALL POSSIBLE SUCCESS STATUSES
-                const isPaymentSuccessful = data.success && 
-                    (data.payment_status === 'SUCCESS' || 
-                     data.payment_status === 'PAID' ||
-                     data.order_status === 'PAID' ||
-                     data.order_status === 'SUCCESS');
-                
-                console.log('Is Payment Successful?', isPaymentSuccessful);
-                
-                if (isPaymentSuccessful) {
-                    // ✅ PAYMENT SUCCESSFUL
-                    console.log('✅ PAYMENT VERIFIED SUCCESSFULLY!');
-                    console.log('Redirecting to thank-you page...');
-                    
-                    // Show brief success message before redirect
-                    document.querySelector('.container').innerHTML = `
-                        <div class="success">
-                            <h2>✅ Payment Verified!</h2>
-                            <p>Redirecting you to download page...</p>
-                        </div>
-                    `;
-                    
-                    // Redirect to thank you page after 1 second
-                    setTimeout(() => {
-                        window.location.href = `/thank-you.html?order_id=${orderId}`;
-                    }, 1000);
-                    
-                } else if (data.payment_status === 'PENDING' || data.order_status === 'ACTIVE') {
-                    // ⏳ PAYMENT STILL PENDING
-                    console.log('⏳ Payment is pending, will check again...');
-                    
-                    document.querySelector('.container').innerHTML = `
-                        <div class="loader"></div>
-                        <h1>Payment Processing...</h1>
-                        <p>Your payment is being processed. Please wait.</p>
-                        <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 10px;">
-                            This may take a few more seconds...
-                        </p>
-                    `;
-                    
-                    // Check again after 3 seconds
-                    setTimeout(() => verifyPayment(orderId), 3000);
-                    
-                } else {
-                    // ❌ PAYMENT FAILED OR CANCELED
-                    console.log('❌ Payment failed or canceled');
-                    console.log('Status details:', {
-                        order_status: data.order_status,
-                        payment_status: data.payment_status
-                    });
-                    
-                    // Check if user canceled the payment
-                    const isCanceled = data.payment_status === 'USER_DROPPED' || 
-                                      data.payment_status === 'CANCELLED' ||
-                                      data.payment_status === 'CANCELED' ||
-                                      data.order_status === 'USER_DROPPED';
-                    
-                    document.querySelector('.container').innerHTML = `
-                        <div class="error">
-                            <h2>${isCanceled ? '⚠️ Payment Canceled' : '❌ Payment Failed'}</h2>
-                            <p>${isCanceled 
-                                ? 'You closed the payment window without completing the transaction.' 
-                                : 'We couldn\'t process your payment successfully.'}</p>
-                            <p style="margin-top: 15px; font-size: 0.95rem; opacity: 0.9;">
-                                ${isCanceled
-                                    ? 'No charges were made to your account. You can try again anytime.' 
-                                    : 'This could be due to insufficient funds, bank decline, or network issues.'}
-                            </p>
-                            <a href="/" class="button">Try Payment Again</a>
-                            <p style="margin-top: 15px; font-size: 0.85rem; opacity: 0.7;">
-                                Need help? Contact us at <strong>nexamindai707@gmail.com</strong>
-                            </p>
-                        </div>
-                    `;
-                }
-                
-            } catch (error) {
-                console.error('❌ VERIFICATION ERROR:', error);
-                console.error('Error details:', error.message);
-                
-                // Show error message with support info
-                document.querySelector('.container').innerHTML = `
-                    <div class="error">
-                        <h2>⚠️ Verification Error</h2>
-                        <p>We encountered an issue while verifying your payment status.</p>
-                        <p style="margin-top: 15px; font-size: 0.95rem; opacity: 0.9;">
-                            If you completed the payment and money was deducted, 
-                            don't worry - your payment is safe. Please check your email 
-                            for confirmation or contact our support team.
-                        </p>
-                        <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px;">
-                            <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong>Support Contact:</strong></p>
-                            <p style="font-size: 0.9rem;">📧 Email: <strong>nexamindai707@gmail.com</strong></p>
-                            <p style="font-size: 0.9rem;">💬 WhatsApp: <strong>+91 7703078859</strong></p>
-                        </div>
-                        <p style="margin-top: 15px; font-size: 0.85rem; opacity: 0.7;">
-                            Order ID: <strong>${orderId}</strong>
-                        </p>
-                        <a href="/" class="button">Return to Home</a>
-                    </div>
-                `;
-            }
-        }
-        
-        console.log('=== PAYMENT VERIFICATION SCRIPT LOADED ===');
-    </script>
-</body>
-</html>
+exports.handler = async (event, context) => {
+  // Only allow POST requests
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ error: 'Method not allowed' })
+    };
+  }
+
+  try {
+    const data = JSON.parse(event.body);
+    const orderId = data.order_id;
+    
+    if (!orderId) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          success: false,
+          message: 'Order ID is required'
+        })
+      };
+    }
+    
+    // Cashfree credentials from environment variables
+    const appId = process.env.CASHFREE_APP_ID;
+    const secretKey = process.env.CASHFREE_SECRET_KEY;
+    const environment = process.env.CASHFREE_ENV || 'TEST';
+    
+    // Determine API endpoint based on environment
+    const apiUrl = environment === 'PROD' 
+      ? `https://api.cashfree.com/pg/orders/${orderId}`
+      : `https://sandbox.cashfree.com/pg/orders/${orderId}`;
+    
+    console.log('Verifying payment for order:', orderId);
+    console.log('Environment:', environment);
+    console.log('API URL:', apiUrl);
+    
+    // Call Cashfree API to get order status
+    const response = await fetch(apiUrl, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-client-id': appId,
+        'x-client-secret': secretKey,
+        'x-api-version': '2023-08-01'
+      }
+    });
+    
+    const orderData = await response.json();
+    
+    // ✅ FIXED: Log both order_status and payment_status
+    console.log('Order Status:', orderData.order_status);
+    console.log('Payment Status:', orderData.payment_status);
+    console.log('Full Order Data:', JSON.stringify(orderData, null, 2));
+    
+    if (orderData.order_status) {
+      // ✅ FIXED: Return BOTH order_status and payment_status
+      // This allows payment-verify.html to check either field
+      return {
+        statusCode: 200,
+        body: JSON.stringify({
+          success: true,
+          order_id: orderId,
+          order_status: orderData.order_status,        // ✅ ADDED: Return order_status
+          payment_status: orderData.payment_status,    // ✅ ADDED: Return payment_status
+          order_amount: orderData.order_amount,
+          order_currency: orderData.order_currency,
+          customer_details: orderData.customer_details
+        })
+      };
+    } else {
+      console.error('Failed to get order status:', orderData);
+      
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          success: false,
+          message: 'Failed to verify payment status',
+          error: orderData
+        })
+      };
+    }
+    
+  } catch (error) {
+    console.error('Error verifying payment:', error);
+    
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        success: false,
+        message: 'Internal server error',
+        error: error.message
+      })
+    };
+  }
+};
