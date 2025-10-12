@@ -713,7 +713,28 @@
                     paymentSessionId: data.payment_session_id,
                     returnUrl: window.location.origin + "/payment-verify.html?order_id=" + data.order_id
                 };
-                
+
+                // Send InitiateCheckout to Facebook CAPI with customer data
+fetch('/.netlify/functions/facebook-initiate-checkout', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        event_source_url: window.location.href,
+        fbp: getCookie('_fbp'),
+        fbc: getCookie('_fbc'),
+        email: email,
+        phone: phone
+    })
+})
+.then(response => response.json())
+.then(result => {
+    console.log('✅ InitiateCheckout CAPI with customer data:', result);
+})
+.catch(error => {
+    console.error('❌ InitiateCheckout CAPI Error:', error);
+});
                 cashfree.checkout(checkoutOptions).then((result) => {
                     if (result.error) {
                         console.error('Payment error:', result.error);
