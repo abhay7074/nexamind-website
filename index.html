@@ -926,6 +926,46 @@
         </div>
     </footer>
 
+    <!-- Email Capture Popup - NEW -->
+    <div id="emailPopup" class="email-popup">
+        <div class="email-popup-inner">
+            <div class="email-popup-close" onclick="closeEmailPopup()">×</div>
+            
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="font-size: 3.5rem; margin-bottom: 15px;">🎁</div>
+                <h2 style="color: var(--primary); font-size: 2rem; margin-bottom: 15px; font-weight: 800;">
+                    Almost There! Enter Your Email
+                </h2>
+                <p style="font-size: 1.05rem; color: #666; line-height: 1.6;">
+                    Enter your email to get instant access to the complete AI mastery system
+                </p>
+            </div>
+            
+            <form id="emailCaptureForm" onsubmit="handleEmailSubmit(event)">
+                <div class="email-form-group">
+                    <label for="userEmail">Email Address *</label>
+                    <input 
+                        type="email" 
+                        id="userEmail" 
+                        name="email" 
+                        placeholder="your@email.com" 
+                        required
+                    >
+                </div>
+                
+                <button type="submit" class="email-submit-btn" id="emailSubmitBtn">
+                    Continue to Secure Payment →
+                </button>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <p style="font-size: 0.9rem; color: #999;">
+                        🔒 Your email is 100% secure. We'll send your ebook here.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Exit-Intent Popup - FIXED -->
     <div id="exitPopup" class="exit-popup">
         <div class="exit-popup-inner">
@@ -1012,10 +1052,13 @@
             startCountdown();
         }
 
-        // Payment initialization
+        // Payment initialization - NOW SHOWS EMAIL POPUP FIRST
         function initializePayment() {
-            window.location.href = '/checkout.html';
+            // Show email popup instead of redirecting
+            document.getElementById('emailPopup').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
             
+            // Track InitiateCheckout
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'InitiateCheckout', {
                     content_ids: ['ebook-799'],
@@ -1025,6 +1068,68 @@
                 });
             }
         }
+        
+        // Handle email form submission
+        function handleEmailSubmit(event) {
+            event.preventDefault();
+            
+            const emailInput = document.getElementById('userEmail');
+            const email = emailInput.value.trim();
+            const submitBtn = document.getElementById('emailSubmitBtn');
+            
+            if (!email) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Disable button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+            
+            // Store email in localStorage
+            localStorage.setItem('userEmail', email);
+            
+            // Store email in cookie for checkout page
+            document.cookie = `userEmail=${email}; path=/; max-age=3600`;
+            
+            // Track Lead event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Email Captured',
+                    status: 'submitted'
+                });
+            }
+            
+            // Redirect to checkout with email
+            setTimeout(() => {
+                window.location.href = `/checkout.html?email=${encodeURIComponent(email)}`;
+            }, 500);
+        }
+        
+        // Close email popup
+        function closeEmailPopup() {
+            document.getElementById('emailPopup').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (document.getElementById('emailPopup').style.display === 'flex') {
+                    closeEmailPopup();
+                }
+                if (document.getElementById('exitPopup').style.display === 'flex') {
+                    closeExitPopup();
+                }
+            }
+        });
+        
+        // Close on background click
+        document.getElementById('emailPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeEmailPopup();
+            }
+        });
 
         // Exit Intent Popup - FIXED
         let exitShown = false;
