@@ -1566,10 +1566,15 @@
                                style="width: 100%; padding: 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
                     </div>
                     
-                    <button type="submit" style="width: 100%; padding: 20px; background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; border: none; border-radius: 12px; font-size: 1.2rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(255,0,110,0.3);">
+                    <button type="submit" id="paymentButton" style="width: 100%; padding: 20px; background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; border: none; border-radius: 12px; font-size: 1.2rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(255,0,110,0.3);">
                         Complete Secure Payment - ₹799
                     </button>
                 </form>
+                
+                <div id="loadingSpinner" style="display: none; text-align: center; margin-top: 20px;">
+                    <div style="font-size: 2rem; animation: spin 1s linear infinite;">⏳</div>
+                    <p style="margin-top: 10px; color: #666;">Creating secure payment session...</p>
+                </div>
                 
                 <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 25px; opacity: 0.7;">
                     <div style="text-align: center; font-size: 0.85rem;">
