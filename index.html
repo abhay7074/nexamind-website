@@ -30,6 +30,7 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=800223819266035&ev=PageView&noscript=1"
     /></noscript>
+    <!-- End Facebook Pixel Code -->
     
     <style>
         :root {
@@ -100,6 +101,7 @@
             font-weight: 700;
             transition: all 0.3s;
             box-shadow: 0 4px 15px rgba(251,86,7,0.4);
+            white-space: nowrap;
         }
         
         .cta-header:hover {
@@ -125,6 +127,12 @@
             top: -200px;
             right: -200px;
             border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.3; }
         }
         
         .hero-content {
@@ -136,89 +144,37 @@
         }
         
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 800;
-            line-height: 1.3;
+            line-height: 1.2;
             margin-bottom: 25px;
-            color: white;
-        }
-        
-        /* Countdown Timer */
-        .countdown-box {
-            background: linear-gradient(135deg, var(--accent), #ff4500);
-            color: white;
-            padding: 20px 30px;
-            border-radius: 12px;
-            text-align: center;
-            margin: 25px auto;
-            max-width: 600px;
-            box-shadow: 0 8px 25px rgba(251,86,7,0.4);
-        }
-        
-        .countdown-label {
-            font-size: 1rem;
-            margin: 0 0 8px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        #countdown {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-            font-family: 'Courier New', monospace;
-            letter-spacing: 3px;
-        }
-        
-        .countdown-text {
-            font-size: 0.95rem;
-            margin: 0;
-            opacity: 0.95;
-        }
-        
-        /* 7-Day Guarantee Box */
-        .guarantee-box {
-            background: linear-gradient(135deg, rgba(6,214,160,0.25), rgba(6,214,160,0.15));
-            padding: 25px 30px;
-            border-radius: 12px;
-            border: 2px solid var(--success);
-            margin: 25px auto;
-            max-width: 700px;
-            text-align: center;
-        }
-        
-        .guarantee-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        
-        .guarantee-title {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
-            color: var(--success);
-            font-weight: 700;
-        }
-        
-        .guarantee-text {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: #ffffff;
-            margin: 0;
-            font-weight: 500;
-        }
-        
-        .guarantee-text strong {
-            color: #ffffff;
-            font-weight: 700;
+            animation: fadeInUp 0.8s ease-out;
         }
         
         .hero-subheadline {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             line-height: 1.6;
-            margin: 20px auto;
-            max-width: 800px;
+            margin-bottom: 20px;
             opacity: 0.95;
+            font-weight: 500;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+        
+        .hero-pain {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 30px auto;
+            max-width: 700px;
+            padding: 25px;
+            background: rgba(255,0,110,0.15);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+        
+        .hero-cta {
+            margin-top: 40px;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
         }
         
         .cta-button {
@@ -227,14 +183,13 @@
             color: white;
             padding: 20px 50px;
             border-radius: 12px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
             text-decoration: none;
             box-shadow: 0 8px 25px rgba(255,0,110,0.4);
             transition: all 0.3s;
             border: none;
             cursor: pointer;
-            margin-top: 20px;
         }
         
         .cta-button:hover {
@@ -245,85 +200,19 @@
         .price-tag {
             display: block;
             margin-top: 15px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             opacity: 0.95;
         }
         
-        /* Trust Badges */
-        .trust-badges-box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 35px;
-            flex-wrap: wrap;
-            margin-top: 35px;
-            padding: 30px;
-            background: rgba(6,214,160,0.08);
-            border-radius: 16px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .trust-badge-item {
-            text-align: center;
-        }
-        
-        .trust-badge-number {
-            font-size: 2rem;
-            color: var(--success);
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        
-        .trust-badge-label {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        /* Product Mockup */
-        .product-mockup {
-            margin: 60px auto;
-            max-width: 700px;
-            text-align: center;
-        }
-        
-        .mockup-frame {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 8px;
-            border-radius: 20px;
-            display: inline-block;
-            box-shadow: 0 25px 60px rgba(255,0,110,0.4);
-        }
-        
-        .mockup-frame img {
-            width: 100%;
-            max-width: 650px;
-            border-radius: 16px;
-            display: block;
-        }
-        
-        .mockup-features {
-            display: flex;
-            justify-content: center;
-            gap: 35px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-        
-        .mockup-feature {
-            text-align: center;
-        }
-        
-        .mockup-feature-icon {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-        
-        .mockup-feature-text {
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.9);
-            margin: 0;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         /* Section Styling */
@@ -331,21 +220,24 @@
             padding: 80px 0;
         }
         
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
         .section-title {
             font-size: 2.5rem;
             font-weight: 800;
             color: #1a1a1a;
             margin-bottom: 20px;
-            text-align: center;
         }
         
         .section-subtitle {
             font-size: 1.2rem;
             color: #666;
             max-width: 700px;
-            margin: 0 auto 50px;
+            margin: 0 auto;
             line-height: 1.7;
-            text-align: center;
         }
         
         /* Problem Section */
@@ -355,7 +247,7 @@
         
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -366,6 +258,12 @@
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(255,0,110,0.15);
         }
         
         .problem-card h3 {
@@ -377,13 +275,51 @@
         .problem-card p {
             color: #666;
             line-height: 1.7;
-            margin-bottom: 12px;
+        }
+        
+        /* Solution Section */
+        .solution {
+            background: white;
+        }
+        
+        .solution-intro {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #444;
+            text-align: center;
+        }
+        
+        .solution-intro p {
+            margin-bottom: 20px;
         }
         
         /* Methods Section */
         .methods {
             background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .methods::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(131,56,236,0.2), transparent);
+            bottom: -200px;
+            left: -200px;
+            border-radius: 50%;
+        }
+        
+        .section-title.white {
+            color: white;
+        }
+        
+        .section-subtitle.white {
+            color: rgba(255,255,255,0.9);
         }
         
         .methods-grid {
@@ -391,13 +327,24 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 50px;
+            position: relative;
+            z-index: 1;
         }
         
         .method-card {
             background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
             padding: 35px;
             border-radius: 16px;
             border: 1px solid rgba(255,0,110,0.3);
+            transition: all 0.3s;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255,0,110,0.3);
+            background: rgba(255,255,255,0.15);
+            border-color: var(--primary);
         }
         
         .method-number {
@@ -420,72 +367,299 @@
         
         .method-card p {
             line-height: 1.7;
+            opacity: 0.95;
             margin-bottom: 10px;
         }
         
-        /* Exit Popup - FIXED */
-        .exit-popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 99999;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        
-        .exit-popup-inner {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            max-width: 600px;
-            width: 100%;
-            position: relative;
-            margin: auto;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .exit-close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #666;
-            background: #f0f0f0;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-            z-index: 100000;
-        }
-        
-        .exit-close:hover {
-            background: #e0e0e0;
-            color: #333;
-        }
-        
-        .exit-skip {
+        .method-result {
             margin-top: 20px;
-            cursor: pointer;
-            color: #999;
-            font-size: 0.9rem;
-            text-decoration: underline;
-            display: block;
-            text-align: center;
+            padding: 15px;
+            background: rgba(255,0,110,0.2);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255,0,110,0.3);
         }
         
-        .exit-skip:hover {
+        /* Offer Section */
+        .offer {
+            background: #f8f9fa;
+        }
+        
+        .offer-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .offer-main {
+            background: white;
+            border-radius: 16px;
+            padding: 50px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            margin-bottom: 40px;
+        }
+        
+        .offer-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .offer-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .offer-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        
+        .value-stack {
+            margin: 30px 0;
+        }
+        
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .checkmark {
+            color: #10b981;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .value-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        
+        .value-content p {
             color: #666;
+            line-height: 1.6;
+        }
+        
+        .value-price {
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 5px;
+        }
+        
+        /* Bonus Section */
+        .bonus-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 30px rgba(255,0,110,0.3);
+        }
+        
+        .bonus-banner h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .bonus-category {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: left;
+        }
+        
+        .bonus-category h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .bonus-category ul {
+            list-style: none;
+        }
+        
+        .bonus-category li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        .bonus-category li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+        
+        /* Price Section */
+        .price-section {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            color: white;
+            border-radius: 16px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-section::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,0,110,0.15), transparent);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+        
+        .price-section > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .price-comparison {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .old-price {
+            font-size: 2rem;
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        
+        .arrow {
+            font-size: 2rem;
+        }
+        
+        .new-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-shadow: 0 0 30px rgba(255,0,110,0.5);
+        }
+        
+        .price-subtext {
+            font-size: 1.1rem;
+            margin-top: 15px;
+            opacity: 0.95;
+        }
+        
+        .savings-badge {
+            display: inline-block;
+            background: var(--accent);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 700;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(251,86,7,0.4);
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background: white;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+        
+        .faq-answer {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(131,56,236,0.2), transparent);
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+        }
+        
+        .final-cta > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .final-cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+        
+        .final-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        
+        .urgency-text {
+            font-size: 1rem;
+            margin-top: 25px;
+            opacity: 0.9;
         }
         
         /* Footer */
@@ -518,6 +692,7 @@
         .footer-links a {
             color: rgba(255,255,255,0.8);
             text-decoration: none;
+            transition: color 0.3s;
         }
         
         .footer-links a:hover {
@@ -531,31 +706,125 @@
             color: rgba(255,255,255,0.6);
         }
         
-        /* Mobile Responsive */
+        /* Exit Popup */
+        .exit-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.94);
+            z-index: 999999;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .exit-popup-content {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 24px;
+            max-width: 650px;
+            text-align: center;
+            position: relative;
+            margin: 20px;
+            box-shadow: 0 30px 90px rgba(255,0,110,0.5);
+            animation: slideIn 0.4s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .exit-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+        
+        .exit-close:hover {
+            color: #333;
+        }
+        
+        /* Sticky Mobile CTA */
+        .sticky-mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 15px 20px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+            z-index: 9998;
+            animation: slideUp 0.4s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
+            header {
+                padding: 12px 0;
+            }
+            
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .logo {
+                font-size: 1.25rem;
+            }
+            
+            .tagline {
+                font-size: 0.75rem;
+            }
+            
+            .cta-header {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .hero {
+                padding: 40px 0 60px;
+            }
+            
             .hero h1 {
                 font-size: 1.75rem;
                 line-height: 1.3;
             }
             
-            #countdown {
-                font-size: 2rem;
+            .hero-subheadline {
+                font-size: 1rem;
+                line-height: 1.5;
             }
             
-            .countdown-box {
-                padding: 15px 20px;
-            }
-            
-            .guarantee-box {
-                padding: 20px;
-            }
-            
-            .guarantee-title {
-                font-size: 1.1rem;
-            }
-            
-            .guarantee-text {
+            .hero-pain {
                 font-size: 0.95rem;
+                padding: 20px;
             }
             
             .cta-button {
@@ -564,31 +833,78 @@
                 width: 100%;
             }
             
-            .trust-badges-box {
-                gap: 20px;
-                padding: 20px;
+            .price-tag {
+                font-size: 0.9rem;
             }
             
-            .trust-badge-number {
-                font-size: 1.5rem;
-            }
-            
-            .problem-grid, .methods-grid {
-                grid-template-columns: 1fr;
+            section {
+                padding: 50px 0;
             }
             
             .section-title {
                 font-size: 1.75rem;
+                line-height: 1.3;
             }
             
-            .exit-popup-inner {
-                padding: 30px 20px;
-                max-height: 85vh;
+            .section-subtitle {
+                font-size: 1rem;
             }
             
-            .exit-close {
-                width: 30px;
-                height: 30px;
+            .problem-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .methods-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .price-section {
+                padding: 35px 20px;
+            }
+            
+            .old-price {
+                font-size: 1.5rem;
+            }
+            
+            .new-price {
+                font-size: 2.5rem;
+            }
+            
+            .final-cta h2 {
+                font-size: 1.75rem;
+            }
+            
+            .final-cta p {
+                font-size: 1rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .exit-popup-content {
+                padding: 40px 25px;
+                margin: 15px;
+            }
+            
+            .sticky-mobile-cta {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
                 font-size: 1.5rem;
             }
         }
@@ -615,120 +931,234 @@
                 <h1>How 847 Indian Professionals Cut Their ChatGPT Time from 3 Hours to 15 Minutes—And Got 10X Better Results Starting the Very Next Day</h1>
                 
                 <!-- Countdown Timer -->
-                <div class="countdown-box">
-                    <p class="countdown-label">⚡ LAUNCH PRICING ENDS IN:</p>
-                    <div id="countdown">47:23:15</div>
-                    <p class="countdown-text">
+                <div style="background: linear-gradient(135deg, var(--accent), #ff4500); color: white; padding: 20px 30px; border-radius: 12px; text-align: center; margin: 25px 0; box-shadow: 0 8px 25px rgba(251,86,7,0.4);">
+                    <p style="font-size: 1rem; margin: 0 0 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">⚡ LAUNCH PRICING ENDS IN:</p>
+                    <div id="countdown" style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; font-family: 'Courier New', monospace; letter-spacing: 3px;">47:23:15</div>
+                    <p style="font-size: 0.95rem; margin: 0; opacity: 0.95;">
                         Current Price: ₹799 • After Timer Expires: ₹1,499 (Permanent Increase)
                     </p>
                 </div>
                 
                 <p class="hero-subheadline">In the next 2 minutes, you'll discover why 97% of ChatGPT users get terrible results—hint: it has NOTHING to do with their prompts—and the counterintuitive system that changes everything.</p>
                 
+                <div class="hero-pain">
+                    You know what the worst part is? It's not the wasted time. It's not even the mediocre results. It's the feeling that everyone else figured this out except you. You see posts: "ChatGPT changed my life!" "I automated everything!" And you think: <strong>What am I missing?</strong> Here's the truth: They're using a SYSTEM. Five specific methods. You don't have that system. Yet.
+                </div>
+                
                 <!-- 7-Day Guarantee -->
-                <div class="guarantee-box">
-                    <div class="guarantee-icon">🛡️</div>
-                    <h4 class="guarantee-title">7-Day Results Guarantee</h4>
-                    <p class="guarantee-text">
+                <div style="background: linear-gradient(135deg, rgba(6,214,160,0.15), rgba(6,214,160,0.05)); padding: 25px 30px; border-radius: 12px; border: 2px solid var(--success); margin: 25px 0; text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🛡️</div>
+                    <h4 style="font-size: 1.25rem; margin-bottom: 12px; color: var(--success); font-weight: 700;">7-Day Results Guarantee</h4>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #333; margin: 0;">
                         Apply at least 3 methods from this system. Not seeing better AI results? Show us your work and we'll refund every rupee. <strong>We take the risk, not you.</strong>
                     </p>
                 </div>
                 
-                <button class="cta-button" onclick="initializePayment()">
-                    Yes! Show Me How to Master AI in 30 Days
-                    <span class="price-tag">Complete System - Just ₹799 (One-Time)</span>
-                </button>
+                <div class="hero-cta">
+                    <button class="cta-button" onclick="initializePayment()">
+                        Yes! Show Me How to Master AI in 30 Days
+                        <span class="price-tag">Complete System - Just ₹799 (One-Time)</span>
+                    </button>
+                </div>
                 
                 <!-- Static Trust Badges -->
-                <div class="trust-badges-box">
-                    <div class="trust-badge-item">
-                        <div class="trust-badge-number">847</div>
-                        <div class="trust-badge-label">Professionals Enrolled</div>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 35px; flex-wrap: wrap; margin-top: 35px; padding: 30px; background: rgba(6,214,160,0.08); border-radius: 16px;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; color: var(--success); font-weight: 700; margin-bottom: 5px;">847</div>
+                        <div style="font-size: 0.9rem; color: #666;">Professionals Enrolled</div>
                     </div>
-                    <div class="trust-badge-item">
-                        <div class="trust-badge-number">4.8/5</div>
-                        <div class="trust-badge-label">Average Rating</div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; color: var(--success); font-weight: 700; margin-bottom: 5px;">4.8/5</div>
+                        <div style="font-size: 0.9rem; color: #666;">Average Rating</div>
                     </div>
-                    <div class="trust-badge-item">
-                        <div class="trust-badge-number">7-Day</div>
-                        <div class="trust-badge-label">Money-Back Guarantee</div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; color: var(--success); font-weight: 700; margin-bottom: 5px;">7-Day</div>
+                        <div style="font-size: 0.9rem; color: #666;">Money-Back Guarantee</div>
                     </div>
-                    <div class="trust-badge-item">
-                        <div class="trust-badge-number">2 Min</div>
-                        <div class="trust-badge-label">Instant Download</div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; color: var(--success); font-weight: 700; margin-bottom: 5px;">2 Min</div>
+                        <div style="font-size: 0.9rem; color: #666;">Instant Download</div>
                     </div>
                 </div>
                 
                 <!-- Product Mockup -->
-                <div class="product-mockup">
-                    <div class="mockup-frame">
-                        <img src="images/ebook-mockup.jpg" alt="Advanced Prompt Engineering Mastery Guide">
+                <div style="margin: 60px auto; max-width: 700px; text-align: center; position: relative;">
+                    <div style="background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 8px; border-radius: 20px; display: inline-block; box-shadow: 0 25px 60px rgba(255,0,110,0.4);">
+                        <img src="images/ebook-mockup.jpg" 
+                             alt="Advanced Prompt Engineering Mastery Guide - Digital PDF on Multiple Devices" 
+                             style="width: 100%; max-width: 650px; border-radius: 16px; display: block;">
                     </div>
-                    <div class="mockup-features">
-                        <div class="mockup-feature">
-                            <div class="mockup-feature-icon">📱</div>
-                            <p class="mockup-feature-text">Works on Mobile</p>
+                    
+                    <div style="display: flex; justify-content: center; gap: 35px; flex-wrap: wrap; margin-top: 30px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem; margin-bottom: 5px;">📱</div>
+                            <p style="font-size: 0.95rem; color: rgba(255,255,255,0.9); margin: 0;">Works on Mobile</p>
                         </div>
-                        <div class="mockup-feature">
-                            <div class="mockup-feature-icon">💻</div>
-                            <p class="mockup-feature-text">Works on Desktop</p>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem; margin-bottom: 5px;">💻</div>
+                            <p style="font-size: 0.95rem; color: rgba(255,255,255,0.9); margin: 0;">Works on Desktop</p>
                         </div>
-                        <div class="mockup-feature">
-                            <div class="mockup-feature-icon">📄</div>
-                            <p class="mockup-feature-text">64-Page PDF</p>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem; margin-bottom: 5px;">📄</div>
+                            <p style="font-size: 0.95rem; color: rgba(255,255,255,0.9); margin: 0;">64-Page PDF</p>
                         </div>
-                        <div class="mockup-feature">
-                            <div class="mockup-feature-icon">⚡</div>
-                            <p class="mockup-feature-text">Instant Download</p>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem; margin-bottom: 5px;">⚡</div>
+                            <p style="font-size: 0.95rem; color: rgba(255,255,255,0.9); margin: 0;">Instant Download</p>
                         </div>
                     </div>
+                    
+                    <p style="font-size: 1.05rem; margin-top: 25px; opacity: 0.9; color: rgba(255,255,255,0.95);">
+                        ✓ No apps required • ✓ Download in 2 minutes • ✓ Keep forever
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
+    <!-- Picture This Moment Section -->
+    <section style="background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%); color: white; padding: 80px 0; position: relative; overflow: hidden;">
+        <div style="position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,0,110,0.15), transparent); top: -200px; right: -200px; border-radius: 50%;"></div>
+        <div class="container" style="max-width: 800px; position: relative; z-index: 2;">
+            <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 50px; color: white; font-weight: 800;">
+                Picture This Moment<br>
+                <span style="font-size: 1.5rem; font-weight: 400; opacity: 0.9;">(It's Closer Than You Think)</span>
+            </h2>
+            
+            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); padding: 45px; border-radius: 20px; border: 1px solid rgba(255,0,110,0.3);">
+                <div style="margin-bottom: 35px; padding-bottom: 35px; border-bottom: 1px solid rgba(255,255,255,0.15);">
+                    <div style="font-size: 2rem; margin-bottom: 12px;">📱</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 12px; color: var(--primary);">Tuesday Morning, 10:30 AM</h3>
+                    <p style="font-size: 1.15rem; line-height: 1.8; opacity: 0.95;">
+                        You open ChatGPT with complete confidence. Zero anxiety. You know EXACTLY what will happen next because you've mastered the system.
+                    </p>
+                </div>
+                
+                <div style="margin-bottom: 35px; padding-bottom: 35px; border-bottom: 1px solid rgba(255,255,255,0.15);">
+                    <div style="font-size: 2rem; margin-bottom: 12px;">⚡</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 12px; color: var(--primary);">5 Minutes Later</h3>
+                    <p style="font-size: 1.15rem; line-height: 1.8; opacity: 0.95;">
+                        You have content your client thinks took 8 hours to write. No edits needed. Perfect on the first try. You actually smile reading it.
+                    </p>
+                </div>
+                
+                <div style="margin-bottom: 35px; padding-bottom: 35px; border-bottom: 1px solid rgba(255,255,255,0.15);">
+                    <div style="font-size: 2rem; margin-bottom: 12px;">📧</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 12px; color: var(--primary);">Your Phone Buzzes</h3>
+                    <p style="font-size: 1.15rem; line-height: 1.8; opacity: 0.95;">
+                        "This is EXACTLY what I wanted. You're a genius! When can we start the next project? I'm referring you to my entire network."
+                    </p>
+                </div>
+                
+                <div>
+                    <div style="font-size: 2rem; margin-bottom: 12px;">💻</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 12px; color: var(--primary);">3 PM - You Close Your Laptop</h3>
+                    <p style="font-size: 1.15rem; line-height: 1.8; opacity: 0.95;">
+                        Work done. Quality work. Your competitor? Still struggling with their first draft at 9 PM. You take your family out for dinner.
+                    </p>
+                </div>
+            </div>
+            
+            <p style="font-size: 1.4rem; line-height: 1.6; margin-top: 40px; text-align: center; font-weight: 600; color: var(--primary); text-shadow: 0 0 20px rgba(255,0,110,0.5);">
+                This isn't fantasy.<br>
+                This is Tuesday for people who know the system.
+            </p>
+            
+            <p style="font-size: 1.1rem; margin-top: 25px; text-align: center; opacity: 0.9;">
+                You're just one system away from this being YOUR Tuesday.
+            </p>
+        </div>
+    </section>
+
+    <!-- Problem Section (Emotional) -->
     <section class="problem">
         <div class="container">
-            <h2 class="section-title">Why Your AI Results Are Disappointing</h2>
-            <p class="section-subtitle">The problem isn't your creativity or intelligence. It's that nobody taught you the system behind professional prompts.</p>
+            <div class="section-header">
+                <h2 class="section-title">Why Your AI Results Are Disappointing (And It's Not What You Think)</h2>
+                <p class="section-subtitle">The problem isn't your creativity or intelligence. It's that nobody taught you the system behind professional prompts.</p>
+            </div>
             
             <div class="problem-grid">
                 <div class="problem-card">
                     <h3>😤 "That Sinking Feeling When You Read ChatGPT's Response..."</h3>
                     <p>...and think <strong>"A 10-year-old could've written this better."</strong></p>
-                    <p>The bland, robotic text that has no personality. No punch. Nothing you can use without completely rewriting it.</p>
+                    <p style="margin-top: 12px;">The bland, robotic text that has no personality. No punch. Nothing you can use without completely rewriting it. You wonder: <em>"Is it me? Am I using it wrong? What's wrong with ME?"</em></p>
                 </div>
                 
                 <div class="problem-card">
                     <h3>⏰ "It's 11 PM. You're Still Editing The Same Damn Paragraph."</h3>
                     <p>First draft was garbage. Second attempt slightly better. Third try... still not right.</p>
-                    <p>You're spending <strong>MORE</strong> hours fixing AI garbage than if you'd written it yourself.</p>
+                    <p style="margin-top: 12px;">Your family thinks AI is saving you time. But you're spending <strong>MORE</strong> hours fixing AI garbage than if you'd written it yourself. The irony burns. The frustration builds. The self-doubt creeps in.</p>
                 </div>
                 
                 <div class="problem-card">
                     <h3>🎯 "Showing Your Boss ChatGPT's Output and Getting 'THE LOOK'"</h3>
                     <p>You know the look. The one that says <em>"I thought you were good at this tech stuff."</em></p>
-                    <p>You're supposed to be the "AI expert" but you feel like a fraud.</p>
+                    <p style="margin-top: 12px;">You asked for marketing copy, AI gave you a Wikipedia article. You're supposed to be the "AI expert" but you feel like a fraud. That knot in your stomach won't go away.</p>
                 </div>
                 
                 <div class="problem-card">
                     <h3>📉 "Watching Your Competitor Land YOUR Client"</h3>
-                    <p>They're using the same ChatGPT. But somehow their outputs look <strong>professional</strong> while yours look amateur.</p>
-                    <p>They're taking 2 more clients this month because they're "so fast."</p>
+                    <p>They're using the same ChatGPT. Probably worse prompts than yours. But somehow their outputs look <strong>professional</strong> while yours look amateur.</p>
+                    <p style="margin-top: 12px;">They're taking 2 more clients this month because they're "so fast." You're drowning in revisions. The gap widens every single day. You're falling behind and you know it.</p>
                 </div>
                 
                 <div class="problem-card">
                     <h3>💸 "Another ₹1,500 Wasted on 'The Ultimate Prompt Library'"</h3>
                     <p>You've bought the courses. Watched 47 YouTube tutorials. Downloaded the "secret" prompt templates.</p>
-                    <p>Nothing gives you consistent results you can count on.</p>
+                    <p style="margin-top: 12px;">Nothing gives you consistent results you can count on. Just more random tips that work once and fail the next time. You're drowning in information but starving for a SYSTEM.</p>
                 </div>
                 
                 <div class="problem-card">
-                    <h3>🤯 "Everyone Else Figured This Out Except Me"</h3>
-                    <p>You see the LinkedIn posts: <em>"ChatGPT changed my life!" "I automated everything!"</em></p>
-                    <p>And you think: <strong>What am I missing? What's wrong with me?</strong></p>
+                    <h3>🤯 "That Voice In Your Head: 'Everyone Else Figured This Out Except Me'"</h3>
+                    <p>You see the LinkedIn posts: <em>"ChatGPT changed my life!" "I automated everything!" "Best tool ever!"</em></p>
+                    <p style="margin-top: 12px;">And you think: <strong>What am I missing? What's wrong with me? Why is this so hard?</strong> The imposter syndrome hits hard. You feel stupid. You feel alone. You feel like you're failing at something that should be easy.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discovery Story Section -->
+    <section style="background: white; padding: 80px 0;">
+        <div class="container" style="max-width: 900px;">
+            <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 30px;">Here's What Nobody Tells You About ChatGPT</h2>
+            <p style="font-size: 1.1rem; text-align: center; margin-bottom: 50px; color: #666; max-width: 700px; margin-left: auto; margin-right: auto;">
+                (And why you've been struggling while others succeed)
+            </p>
+            
+            <div style="background: #f8f9fa; padding: 50px; border-radius: 20px; border-left: 6px solid var(--primary);">
+                <p style="font-size: 1.35rem; line-height: 1.9; margin-bottom: 30px; font-weight: 600; color: #1a1a1a;">
+                    The top 1% of ChatGPT users aren't smarter than you.
+                </p>
+                
+                <p style="font-size: 1.35rem; line-height: 1.9; margin-bottom: 30px; font-weight: 600; color: #1a1a1a;">
+                    They don't have special access to better AI models.
+                </p>
+                
+                <p style="font-size: 1.35rem; line-height: 1.9; margin-bottom: 40px; font-weight: 600; color: #1a1a1a;">
+                    They don't know secret prompts you don't.
+                </p>
+                
+                <div style="height: 2px; background: linear-gradient(90deg, var(--primary), transparent); margin: 40px 0;"></div>
+                
+                <p style="font-size: 1.25rem; line-height: 1.9; margin-bottom: 30px; color: #333;">
+                    They discovered something so simple, so overlooked, that when you learn it, <strong style="color: var(--primary);">you'll be angry nobody told you sooner.</strong>
+                </p>
+                
+                <div style="background: rgba(255,0,110,0.1); padding: 35px; border-radius: 16px; margin: 35px 0;">
+                    <p style="font-size: 1.3rem; line-height: 1.9; margin: 0; color: #1a1a1a; font-weight: 600;">
+                        It's the difference between <span style="text-decoration: line-through; opacity: 0.6;">asking ChatGPT questions</span>...<br><br>
+                        ...and <span style="color: var(--primary); font-size: 1.4rem;">DIRECTING it like a seasoned film director guides Oscar-winning actors.</span>
+                    </p>
+                </div>
+                
+                <p style="font-size: 1.2rem; line-height: 1.9; margin-top: 35px; color: #444; text-align: center;">
+                    And it all comes down to <strong style="color: var(--primary); font-size: 1.35rem;">5 specific methods</strong> that take less than 30 minutes each to master.
+                </p>
+                
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 25px; color: #666; text-align: center; font-style: italic;">
+                    Once you see them, you'll use them for every prompt you ever write. They're that fundamental.
+                </p>
             </div>
         </div>
     </section>
@@ -736,60 +1166,610 @@
     <!-- Methods Section -->
     <section class="methods">
         <div class="container">
-            <h2 class="section-title" style="color: white;">The 5 Methods That Separate AI Amateurs from AI Directors</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Master these once, use them forever. Each method solves a specific frustration you're experiencing right now.</p>
+            <div class="section-header">
+                <h2 class="section-title white">The 5 Methods That Separate AI Amateurs from AI Directors</h2>
+                <p class="section-subtitle white">Master these once, use them forever. Each method solves a specific frustration you're experiencing right now.</p>
+            </div>
             
             <div class="methods-grid">
                 <div class="method-card">
                     <div class="method-number">1</div>
                     <h3>The PTCF Framework</h3>
-                    <p>Stop throwing random questions at AI. The PTCF Framework gives you a foolproof structure that works every single time.</p>
-                    <p style="margin-top: 15px; font-weight: 600; color: var(--success);">✓ Result: 50-70% reduction in revision time</p>
+                    <p>Stop throwing random questions at AI and hoping for the best. The PTCF Framework (Persona, Task, Context, Format) gives you a foolproof structure that works every single time.</p>
+                    <p>You'll learn exactly which 4 elements every professional prompt must contain, and how to craft each one in under 2 minutes.</p>
+                    <div class="method-result">
+                        ✓ Result: 50-70% reduction in revision time. First drafts become usable drafts.
+                    </div>
+                    <p style="margin-top: 20px; font-style: italic; opacity: 0.9;"><strong>❤️ How This FEELS:</strong> No more guessing. No more 'trying different prompts.' You'll KNOW your prompt will work before you hit enter. That confidence changes everything.</p>
                 </div>
                 
                 <div class="method-card">
                     <div class="method-number">2</div>
                     <h3>The "Act As" Method</h3>
-                    <p>Transform ChatGPT into a senior marketing strategist, expert copywriter, or seasoned business consultant in seconds.</p>
-                    <p style="margin-top: 15px; font-weight: 600; color: var(--success);">✓ Result: Responses jump to expert-level</p>
+                    <p>Generic AI gives generic answers. But when you activate AI's specialized knowledge through strategic role assignment, everything changes.</p>
+                    <p>Transform ChatGPT into a senior marketing strategist, an expert copywriter, or a seasoned business consultant in seconds.</p>
+                    <div class="method-result">
+                        ✓ Result: Responses jump from amateur to expert-level. Credibility you can actually use.
+                    </div>
+                    <p style="margin-top: 20px; font-style: italic; opacity: 0.9;"><strong>❤️ How This FEELS:</strong> Like having a team of specialists on speed dial. Need marketing advice? Done. Technical writing? Done. Strategy? Done.</p>
                 </div>
                 
                 <div class="method-card">
                     <div class="method-number">3</div>
                     <h3>The "Ask Me Questions" Method</h3>
-                    <p>AI becomes your strategic partner, asking YOU exactly what it needs to deliver exceptional results.</p>
-                    <p style="margin-top: 15px; font-weight: 600; color: var(--success);">✓ Result: Custom-built outputs</p>
+                    <p>You don't know what you don't know. This method flips the script—AI becomes your strategic partner, asking YOU exactly what it needs to deliver exceptional results.</p>
+                    <p>No more guessing what information to include. AI tells you exactly what would make the biggest difference.</p>
+                    <div class="method-result">
+                        ✓ Result: Outputs feel custom-built for your exact situation, not generic templates.
+                    </div>
+                    <p style="margin-top: 20px; font-style: italic; opacity: 0.9;"><strong>❤️ How This FEELS:</strong> Like AI finally "gets" you. No more explaining yourself five times. Just precise, tailored results.</p>
                 </div>
                 
                 <div class="method-card">
                     <div class="method-number">4</div>
                     <h3>The Primer Method</h3>
-                    <p>Learn how to "load" AI with your brand voice, industry knowledge, and specific situation for perfect alignment.</p>
-                    <p style="margin-top: 15px; font-weight: 600; color: var(--success);">✓ Result: AI sounds like YOU</p>
+                    <p>Context is everything. Learn how to "load" AI with exactly the right information—your brand voice, your industry knowledge, your specific situation—so every response aligns perfectly with your needs.</p>
+                    <p>This is how professionals get AI to match their exact style and tone every time.</p>
+                    <div class="method-result">
+                        ✓ Result: AI sounds like YOU, not like a robot. Brand consistency without effort.
+                    </div>
+                    <p style="margin-top: 20px; font-style: italic; opacity: 0.9;"><strong>❤️ How This FEELS:</strong> Reading AI outputs and thinking "Did I write this?" It captures your voice perfectly.</p>
                 </div>
                 
                 <div class="method-card">
                     <div class="method-number">5</div>
                     <h3>The "Break It Down" Method</h3>
-                    <p>Break down any project into manageable pieces that maintain quality throughout. Handle complex projects with surgical precision.</p>
-                    <p style="margin-top: 15px; font-weight: 600; color: var(--success);">✓ Result: Quality never drops</p>
+                    <p>Complex projects used to mean hours of work. Not anymore. Learn the systematic approach to breaking down any project—reports, strategies, complete content systems—into manageable pieces that maintain quality throughout.</p>
+                    <p>This is how professionals create 5,000-word documents that read like senior experts wrote them.</p>
+                    <div class="method-result">
+                        ✓ Result: Handle complex projects with surgical precision. Quality never drops.
+                    </div>
+                    <p style="margin-top: 20px; font-style: italic; opacity: 0.9;"><strong>❤️ How This FEELS:</strong> Tackling big projects without that drowning feeling. Breaking impossible into manageable.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="offer" id="offer">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Here's Everything You Get When You Join Today</h2>
+                <p class="section-subtitle">Not just theory. Not just tips. A complete, systematic approach to AI mastery—plus 700+ ready-made prompts you can use immediately.</p>
+            </div>
             
-            <div style="text-align: center; margin-top: 50px;">
-                <!-- 7-Day Guarantee -->
-                <div class="guarantee-box" style="background: rgba(6,214,160,0.2); border-color: var(--success);">
-                    <div class="guarantee-icon">🛡️</div>
-                    <h4 class="guarantee-title" style="color: white;">7-Day Results Guarantee</h4>
-                    <p class="guarantee-text" style="color: white;">
+            <div class="offer-container">
+                <div class="offer-main">
+                    <div class="offer-header">
+                        <span class="offer-badge">Complete AI Mastery System</span>
+                        <h3 class="offer-title">Advanced Prompt Engineering Mastery</h3>
+                        <p>Your complete 30-day roadmap from AI frustration to AI mastery</p>
+                    </div>
+                    
+                    <div class="value-stack">
+                        <div class="value-item">
+                            <div class="checkmark">✓</div>
+                            <div class="value-content">
+                                <h4>The Complete 64-Page Mastery Guide</h4>
+                                <p>Step-by-step instruction on all 5 methods, with real examples from Indian professionals. Every technique explained in simple language with immediate practice exercises.</p>
+                                <p class="value-price">Value: ₹1,499</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-item">
+                            <div class="checkmark">✓</div>
+                            <div class="value-content">
+                                <h4>Your 30-Day Mastery Roadmap</h4>
+                                <p>Exact daily plan telling you what to practice, how to measure progress, and when you've achieved mastery. No guesswork—just follow the system.</p>
+                                <p class="value-price">Value: ₹999</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-item">
+                            <div class="checkmark">✓</div>
+                            <div class="value-content">
+                                <h4>Template Library for Every Method</h4>
+                                <p>Copy-paste templates for PTCF Framework, Act As roles, context primers, and more. Start getting better results in the next 5 minutes.</p>
+                                <p class="value-price">Value: ₹799</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-item">
+                            <div class="checkmark">✓</div>
+                            <div class="value-content">
+                                <h4>Troubleshooting Guide</h4>
+                                <p>What to do when prompts don't work. How to diagnose problems. How to fix them in 60 seconds. Never get stuck again.</p>
+                                <p class="value-price">Value: ₹499</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-item">
+                            <div class="checkmark">✓</div>
+                            <div class="value-content">
+                                <h4>Instant Mobile & Desktop Access</h4>
+                                <p>Read on your phone during commute. Practice on laptop at work. PDF format works everywhere—no special apps needed.</p>
+                                <p class="value-price">Value: Priceless for busy professionals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bonus Section -->
+                <div class="bonus-banner">
+                    <h3>🎁 PLUS: 700+ Ready-Made Professional Prompts</h3>
+                    <p style="margin-bottom: 25px; font-size: 1.1rem;">These alone are worth more than what you're paying. Use them immediately while you master the methods.</p>
+                    
+                    <div class="bonus-grid">
+                        <div class="bonus-category">
+                            <h4>📱 Social Media Mastery</h4>
+                            <ul>
+                                <li>Instagram Marketing</li>
+                                <li>Facebook Strategy</li>
+                                <li>LinkedIn Professional</li>
+                                <li>Twitter Engagement</li>
+                                <li>TikTok Content</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bonus-category">
+                            <h4>💰 Advertising & Sales</h4>
+                            <ul>
+                                <li>Facebook Ads Copy</li>
+                                <li>Google Ads Mastery</li>
+                                <li>Email Marketing</li>
+                                <li>Sales Funnels</li>
+                                <li>Landing Pages</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bonus-category">
+                            <h4>✍️ Content Creation</h4>
+                            <ul>
+                                <li>YouTube Scripts</li>
+                                <li>Blog Writing</li>
+                                <li>Copywriting</li>
+                                <li>SEO Content</li>
+                                <li>Article Writing</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bonus-category">
+                            <h4>💼 Business Growth</h4>
+                            <ul>
+                                <li>Customer Service</li>
+                                <li>E-commerce</li>
+                                <li>Business Strategy</li>
+                                <li>Marketing Plans</li>
+                                <li>Sales Scripts</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bonus-category">
+                            <h4>🚀 Advanced Tools</h4>
+                            <ul>
+                                <li>ChatGPT Mastery</li>
+                                <li>Excel Automation</li>
+                                <li>Productivity Hacks</li>
+                                <li>Video Marketing</li>
+                                <li>AI Tool Guide</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bonus-category">
+                            <h4>📊 Professional Skills</h4>
+                            <ul>
+                                <li>Prompt Engineering</li>
+                                <li>Data Analysis</li>
+                                <li>Report Writing</li>
+                                <li>Presentation Skills</li>
+                                <li>Research Methods</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 30px; font-size: 1.2rem; font-weight: 700;">Total Bonus Value: ₹4,999</p>
+                </div>
+                
+                <!-- Real Price Comparison -->
+                <section style="background: #f8f9fa; padding: 60px 0;">
+                    <div class="container" style="max-width: 900px;">
+                        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 20px;">Compare Your Options</h2>
+                        <p style="font-size: 1.1rem; text-align: center; color: #666; margin-bottom: 50px;">
+                            What does AI mastery actually cost?
+                        </p>
+                        
+                        <div style="background: white; border-radius: 20px; padding: 50px; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+                            <div style="padding: 25px; border-bottom: 2px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                                <div style="flex: 1; min-width: 200px;">
+                                    <h4 style="font-size: 1.2rem; margin-bottom: 8px; color: #1a1a1a;">ChatGPT Plus Subscription</h4>
+                                    <p style="font-size: 0.95rem; color: #666; margin: 0;">Monthly access to AI (no training included)</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 1.5rem; font-weight: 700; color: #666;">₹1,650/mo</div>
+                                    <div style="font-size: 0.9rem; color: #999;">₹19,800/year</div>
+                                </div>
+                            </div>
+                            
+                            <div style="padding: 25px; border-bottom: 2px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                                <div style="flex: 1; min-width: 200px;">
+                                    <h4 style="font-size: 1.2rem; margin-bottom: 8px; color: #1a1a1a;">Udemy Prompt Engineering Course</h4>
+                                    <p style="font-size: 0.95rem; color: #666; margin: 0;">Theory-heavy, no templates, Western examples</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 1.5rem; font-weight: 700; color: #666;">₹3,499</div>
+                                    <div style="font-size: 0.9rem; color: #999;">One-time</div>
+                                </div>
+                            </div>
+                            
+                            <div style="padding: 25px; border-bottom: 2px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                                <div style="flex: 1; min-width: 200px;">
+                                    <h4 style="font-size: 1.2rem; margin-bottom: 8px; color: #1a1a1a;">Hiring an AI Consultant</h4>
+                                    <p style="font-size: 0.95rem; color: #666; margin: 0;">3-hour session to learn basics</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 1.5rem; font-weight: 700; color: #666;">₹15,000</div>
+                                    <div style="font-size: 0.9rem; color: #999;">₹5,000/hour</div>
+                                </div>
+                            </div>
+                            
+                            <div style="padding: 25px; border-bottom: 2px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                                <div style="flex: 1; min-width: 200px;">
+                                    <h4 style="font-size: 1.2rem; margin-bottom: 8px; color: #1a1a1a;">Trial & Error (Your Time)</h4>
+                                    <p style="font-size: 0.95rem; color: #666; margin: 0;">Wasting 3 hours/day for next 30 days</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 1.5rem; font-weight: 700; color: #666;">₹60,000</div>
+                                    <div style="font-size: 0.9rem; color: #999;">Lost productivity</div>
+                                </div>
+                            </div>
+                            
+                            <div style="padding: 25px; background: linear-gradient(135deg, rgba(255,0,110,0.1), rgba(131,56,236,0.1)); border-radius: 12px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                                <div style="flex: 1; min-width: 200px;">
+                                    <h4 style="font-size: 1.4rem; margin-bottom: 8px; color: var(--primary); font-weight: 700;">Our Complete System</h4>
+                                    <p style="font-size: 1rem; color: #333; margin: 0; font-weight: 600;">
+                                        ✓ 5 Proven Methods<br>
+                                        ✓ 700+ Ready-Made Prompts<br>
+                                        ✓ 30-Day Roadmap<br>
+                                        ✓ Lifetime Access
+                                    </p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary);">₹799</div>
+                                    <div style="font-size: 1rem; color: var(--success); font-weight: 600;">One-time only</div>
+                                </div>
+                            </div>
+                            
+                            <div style="text-align: center; margin-top: 35px; padding: 25px; background: rgba(6,214,160,0.1); border-radius: 12px;">
+                                <p style="font-size: 1.2rem; margin: 0; color: #333; font-weight: 600;">
+                                    If your hourly rate is ₹500, this pays for itself in <strong style="color: var(--primary); font-size: 1.3rem;">90 minutes</strong> of saved time.
+                                </p>
+                                <p style="font-size: 1rem; margin-top: 12px; color: #666;">
+                                    You'll save that in your first day.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 7-Day Guarantee Before CTA -->
+                <div style="background: linear-gradient(135deg, rgba(6,214,160,0.15), rgba(6,214,160,0.05)); padding: 25px 30px; border-radius: 12px; border: 2px solid var(--success); margin: 25px 0; text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🛡️</div>
+                    <h4 style="font-size: 1.25rem; margin-bottom: 12px; color: var(--success); font-weight: 700;">7-Day Results Guarantee</h4>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #333; margin: 0;">
                         Apply at least 3 methods from this system. Not seeing better AI results? Show us your work and we'll refund every rupee. <strong>We take the risk, not you.</strong>
                     </p>
                 </div>
                 
-                <button class="cta-button" onclick="initializePayment()" style="margin-top: 30px;">
-                    Get Instant Access Now for ₹799
-                    <span class="price-tag">⚡ Download in 2 Minutes • 🛡️ 7-Day Guarantee</span>
+                <!-- Price Section -->
+                <div class="price-section">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Total Value of Everything You're Getting:</h3>
+                    
+                    <div class="price-comparison">
+                        <div class="old-price">₹6,796</div>
+                        <div class="arrow">→</div>
+                        <div class="new-price">₹799</div>
+                    </div>
+                    
+                    <div class="savings-badge">You Save: ₹5,997 (88% OFF)</div>
+                    
+                    <p class="price-subtext">One-time payment. Lifetime access. No subscriptions. No hidden fees.</p>
+                    
+                    <div style="margin-top: 40px;">
+                        <button class="cta-button" onclick="initializePayment()">
+                            Get Instant Access Now for ₹799
+                        </button>
+                        <p style="margin-top: 20px; font-size: 0.95rem; opacity: 0.9;">
+                            ✓ Instant download via email<br>
+                            ✓ Pay via UPI, Cards, or Net Banking<br>
+                            ✓ 100% secure Indian payment through Cashfree
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inline Payment Form (Hidden by default) -->
+    <section id="inlinePaymentForm" style="display: none; background: #f8f9fa; padding: 80px 0;">
+        <div class="container" style="max-width: 700px;">
+            <div style="background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+                <h2 style="text-align: center; margin-bottom: 30px; color: var(--primary);">Complete Your Order</h2>
+                
+                <div style="background: rgba(255,0,110,0.08); padding: 25px; border-radius: 12px; margin-bottom: 30px; text-align: center;">
+                    <p style="font-size: 1.1rem; margin-bottom: 10px; color: #333;">You're getting:</p>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: var(--primary);">Advanced Prompt Engineering Mastery</h3>
+                    <p style="font-size: 1rem; color: #666; margin-bottom: 20px;">5 Methods + 700 Prompts + 30-Day Roadmap</p>
+                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary);">₹799</div>
+                    <p style="font-size: 0.9rem; color: var(--success); margin-top: 10px;">✓ One-time payment • ✓ Lifetime access • ✓ 7-day guarantee</p>
+                </div>
+                
+                <!-- Cashfree Payment Button -->
+                <div id="cashfreePaymentForm">
+                    <button onclick="window.location.href='/checkout.html'" style="width: 100%; padding: 20px; background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; border: none; border-radius: 12px; font-size: 1.2rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(255,0,110,0.3);">
+                        Complete Secure Payment - ₹799
+                    </button>
+                </div>
+                
+                <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 25px; opacity: 0.7;">
+                    <div style="text-align: center; font-size: 0.85rem;">
+                        <div style="font-size: 1.5rem;">🔒</div>
+                        <div>Secure Payment</div>
+                    </div>
+                    <div style="text-align: center; font-size: 0.85rem;">
+                        <div style="font-size: 1.5rem;">💳</div>
+                        <div>All Cards</div>
+                    </div>
+                    <div style="text-align: center; font-size: 0.85rem;">
+                        <div style="font-size: 1.5rem;">📱</div>
+                        <div>UPI/Net Banking</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Questions You Might Be Asking Right Now</h2>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Q: I'm not tech-savvy. Will this be too complicated for me?</div>
+                    <div class="faq-answer">Not at all. If you can type a message in WhatsApp, you can use these methods. Everything is explained in simple language with step-by-step examples. No technical jargon, no coding required. Just practical techniques anyone can use immediately.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: I've tried other ChatGPT courses. How is this different?</div>
+                    <div class="faq-answer">Most courses give you random tips and prompt collections. This gives you a SYSTEM—5 proven methods that work together to handle any AI task you'll ever face. Plus, you're learning the thinking behind effective prompts, not just memorizing templates.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Will this work with ChatGPT, Claude, Gemini, and other AI tools?</div>
+                    <div class="faq-answer">Yes! These methods are platform-agnostic. They work with any text-based AI because they're based on how AI actually processes language, not specific to one tool. Master these once, use them everywhere.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: How long will it take to see results?</div>
+                    <div class="faq-answer">You'll see immediate improvement from Day 1. The templates alone will upgrade your results in the next 10 minutes. Full mastery? The 30-day roadmap ensures you're competent by week 2, proficient by week 3, and expert-level by day 30.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Is this just for marketers and content creators?</div>
+                    <div class="faq-answer">No! These methods work for anyone who uses AI: entrepreneurs, consultants, students, professionals, freelancers, business owners. The principles apply whether you're writing emails, creating strategies, analyzing data, or solving problems.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: What if I don't have time to read a 64-page book?</div>
+                    <div class="faq-answer">Each method takes 15-20 minutes to learn. You can read one method per day and be done in a week. Or use the templates immediately and learn the theory gradually. It's designed for busy professionals—you decide the pace.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Is ₹799 a one-time payment or monthly subscription?</div>
+                    <div class="faq-answer">One-time payment. Period. You pay ₹799 once and own everything forever. No recurring charges, no hidden fees, no upsells. Download immediately and access whenever you want, as many times as you want.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Can I access this on my mobile phone?</div>
+                    <div class="faq-answer">Absolutely! It's a PDF that works on any device—phone, tablet, laptop, desktop. Read during your commute, practice at your desk, reference on your phone. Learn anywhere, anytime.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="solution">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Changes When You Master These 5 Methods?</h2>
+                <p class="section-subtitle">Real transformations from Indian professionals who implemented this system</p>
+            </div>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>From Overwhelmed to In Control</h3>
+                    <p style="font-style: italic; margin-bottom: 15px;">"I used to dread content planning. Eight hours of forcing ideas. By the end, mentally exhausted. The feeling? Like I was failing.</p>
+                    <p style="margin-bottom: 15px;">After learning PTCF Framework? 90 minutes, month of content, actually GOOD content. The feeling now? Competence. Control. Confidence.</p>
+                    <p style="font-weight: 600;">That's worth way more than ₹799."</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: var(--primary);">— Priya S., Bangalore</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>From Rejected to Approved First Draft</h3>
+                    <p style="font-style: italic; margin-bottom: 15px;">"Client used to reject my first 2-3 email drafts every time. The embarrassment. The self-doubt. 'Am I even good at this?'</p>
+                    <p style="margin-bottom: 15px;">After the 'Act As' method? First drafts get approved 90% of the time. Clients think I hired a copywriter. I smile and say nothing.</p>
+                    <p style="font-weight: 600;">My confidence is back. Worth every rupee."</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: var(--primary);">— Rahul M., Mumbai</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>From ₹25K → ₹60K Monthly</h3>
+                    <p style="font-style: italic; margin-bottom: 15px;">"I doubled my freelance income because I can take on twice as many clients. What used to take me 2 days now takes 4 hours.</p>
+                    <p style="margin-bottom: 15px;">My hourly rate effectively tripled. I'm working less, earning more, and actually enjoying it.</p>
+                    <p style="font-weight: 600;">Best investment I've made this year."</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: var(--primary);">— Anjali K., Delhi</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>From Frustrated to Confident</h3>
+                    <p style="font-style: italic; margin-bottom: 15px;">"I used to avoid ChatGPT for important work because results were unpredictable. The anxiety before every prompt. The disappointment after.</p>
+                    <p style="margin-bottom: 15px;">Now I trust it for everything—proposals, strategies, presentations. It's like having a senior consultant on call 24/7.</p>
+                    <p style="font-weight: 600;">That feeling of competence? Priceless."</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: var(--primary);">— Vikram R., Pune</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section (Two Paths) -->
+    <section class="final-cta">
+        <div class="container" style="max-width: 900px;">
+            <h2 style="font-size: 3rem; margin-bottom: 50px; font-weight: 800;">Right Now, You're Standing at a Crossroads</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 50px;">
+                <!-- Path 1 -->
+                <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; border: 2px solid rgba(255,0,0,0.3); position: relative;">
+                    <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background: var(--dark); padding: 8px 20px; border-radius: 20px; border: 2px solid rgba(255,0,0,0.5);">
+                        <span style="font-size: 1.2rem; font-weight: 700; color: #ff6b6b;">❌ Path 1</span>
+                    </div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 25px; margin-top: 15px; color: #ff6b6b;">Keep Struggling</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.9; margin-bottom: 20px; opacity: 0.9;">
+                        Close this page. Tell yourself you'll "figure it out eventually." Maybe watch a few more YouTube videos this weekend.
+                    </p>
+                    <div style="height: 1px; background: rgba(255,255,255,0.15); margin: 25px 0;"></div>
+                    <p style="font-size: 1.05rem; line-height: 1.9; margin-bottom: 15px; opacity: 0.9;">
+                        <strong>Tomorrow:</strong> Spend another 3 hours getting mediocre results you have to completely rewrite.
+                    </p>
+                    <p style="font-size: 1.05rem; line-height: 1.9; margin-bottom: 15px; opacity: 0.9;">
+                        <strong>Next Week:</strong> Watch that familiar frustration build as you edit garbage output for the 4th time.
+                    </p>
+                    <p style="font-size: 1.05rem; line-height: 1.9; margin-bottom: 15px; opacity: 0.9;">
+                        <strong>Next Month:</strong> Your colleague gets promoted because they're "so productive with AI." You're still stuck.
+                    </p>
+                    <div style="height: 1px; background: rgba(255,255,255,0.15); margin: 25px 0;"></div>
+                    <p style="font-size: 1.15rem; line-height: 1.9; opacity: 0.95; font-style: italic;">
+                        Keep telling yourself <em>"I'll figure it out eventually"</em> while the gap widens every single day.
+                    </p>
+                </div>
+                
+                <!-- Path 2 -->
+                <div style="background: rgba(6,214,160,0.15); padding: 40px; border-radius: 20px; border: 2px solid var(--success); position: relative;">
+                    <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background: var(--dark); padding: 8px 20px; border-radius: 20px; border: 2px solid var(--success);">
+                        <span style="font-size: 1.2rem; font-weight: 700; color: var(--success);">✅ Path 2</span>
+                    </div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 25px; margin-top: 15px; color: var(--success);">End The Struggle Today</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.9; margin-bottom: 20px; opacity: 0.9;">
+                        Take 30 seconds to change everything. Get the system. Master it in 30 days. Become an AI Director.
+                    </p>
+                    <div style="height: 1px; background: rgba(255,255,255,0.15); margin: 25px 0;"></div>
+                    <p style="font-size: 1.05rem; line-height: 1.9; margin-bottom: 15px; opacity: 0.9;">
+                        <strong>Tonight:</strong> Read Method #1. See the 4-element framework that changes everything.
+                    </p>
+                    <p style="font-size: 1.05rem; line-height: 1.9; margin-bottom: 15px; opacity: 0.9;">
+                        <strong>Tomorrow Morning:</strong> Use the PTCF Framework. Get results so good you'll check twice.
+                    </p>
+                    <p style="font-size: 1.05rem; line-height: 1.9; margin-bottom: 15px; opacity: 0.9;">
+                        <strong>By Week 2:</strong> Cut your ChatGPT time in half. Your stress level drops. Your confidence rises.
+                    </p>
+                    <div style="height: 1px; background: rgba(255,255,255,0.15); margin: 25px 0;"></div>
+                    <p style="font-size: 1.15rem; line-height: 1.9; opacity: 0.95; font-weight: 600; color: var(--success);">
+                        Just competence. Confidence. Control.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Mobile Version -->
+            <div style="display: none;" id="mobilePaths">
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 16px; border: 2px solid rgba(255,0,0,0.3); margin-bottom: 25px;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: #ff6b6b;">❌ Path 1: Keep Struggling</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; opacity: 0.9;">
+                        Tomorrow: 3 more hours wasted<br>
+                        Next week: Same frustration<br>
+                        Next month: Falling further behind
+                    </p>
+                </div>
+                <div style="background: rgba(6,214,160,0.15); padding: 30px; border-radius: 16px; border: 2px solid var(--success);">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--success);">✅ Path 2: Master AI in 30 Days</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; opacity: 0.9;">
+                        Tonight: Learn the system<br>
+                        Tomorrow: Better results<br>
+                        Week 2: Half the time<br>
+                        Day 30: You're the AI expert
+                    </p>
+                </div>
+            </div>
+            
+            <!-- The Reality Check -->
+            <div style="border: 4px solid var(--primary); padding: 50px; border-radius: 20px; margin: 50px 0; background: rgba(255,0,110,0.05);">
+                <p style="font-size: 1.6rem; font-weight: 700; margin-bottom: 25px; text-align: center; line-height: 1.4;">
+                    Let's Be Brutally Honest About The Fee
+                </p>
+                
+                <p style="font-size: 1.25rem; line-height: 1.9; margin-bottom: 20px; text-align: center; opacity: 0.95;">
+                    The fee isn't ₹799.
+                </p>
+                
+                <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 12px; margin: 30px 0;">
+                    <p style="font-size: 1.2rem; line-height: 1.9; margin-bottom: 15px;">
+                        The REAL fee is continuing to lose <strong style="color: var(--primary);">3 hours every day.</strong>
+                    </p>
+                    <p style="font-size: 1.2rem; line-height: 1.9; margin-bottom: 15px;">
+                        The REAL fee is watching competitors fly past you while you're stuck in revision hell.
+                    </p>
+                    <p style="font-size: 1.2rem; line-height: 1.9;">
+                        The REAL fee is that daily frustration eating away at your confidence.
+                    </p>
+                </div>
+                
+                <p style="font-size: 1.5rem; font-weight: 700; margin-top: 35px; text-align: center; color: var(--primary); line-height: 1.5;">
+                    ₹799 isn't a cost.<br>
+                    It's the END of a cost you're already paying every single day.
+                </p>
+            </div>
+            
+            <!-- 7-Day Guarantee Before Final CTA -->
+            <div style="background: linear-gradient(135deg, rgba(6,214,160,0.15), rgba(6,214,160,0.05)); padding: 25px 30px; border-radius: 12px; border: 2px solid var(--success); margin: 25px 0; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">🛡️</div>
+                <h4 style="font-size: 1.25rem; margin-bottom: 12px; color: var(--success); font-weight: 700;">7-Day Results Guarantee</h4>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: #333; margin: 0;">
+                    Apply at least 3 methods from this system. Not seeing better AI results? Show us your work and we'll refund every rupee. <strong>We take the risk, not you.</strong>
+                </p>
+            </div>
+            
+            <!-- Final CTA Button -->
+            <div style="text-align: center; margin: 50px 0;">
+                <button class="cta-button" onclick="initializePayment()" style="width: 100%; max-width: 650px; margin: 0 auto; font-size: 1.4rem; padding: 25px 40px;">
+                    End My AI Frustration Now - Get Instant Access
+                    <span class="price-tag" style="font-size: 1.1rem; margin-top: 12px;">
+                        ✅ Just ₹799 One-Time • 🛡️ 7-Day Guarantee • ⚡ Download in 2 Minutes
+                    </span>
                 </button>
+                <p style="font-size: 0.95rem; margin-top: 20px; opacity: 0.8;">
+                    Join 847 professionals who already made the decision
+                </p>
+            </div>
+            
+            <!-- P.S. -->
+            <div style="margin-top: 60px; padding-top: 50px; border-top: 2px solid rgba(255,255,255,0.15);">
+                <p style="font-size: 1.4rem; font-weight: 700; margin-bottom: 30px; text-align: center; color: var(--primary);">
+                    P.S. - One Year From Now, Where Will You Be?
+                </p>
+                <div style="max-width: 750px; margin: 0 auto;">
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 25px; text-align: center;">
+                        Either you'll be a master AI Director earning 2X what you make today, confidently handling any AI task that comes your way, respected by colleagues who ask YOU for advice...
+                    </p>
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 25px; text-align: center;">
+                        Or you'll still be reading landing pages like this one, still struggling with ChatGPT, still wishing you'd started sooner, watching others succeed with the exact methods you could've mastered.
+                    </p>
+                    <p style="font-size: 1.4rem; font-weight: 700; margin-top: 35px; text-align: center; color: var(--primary);">
+                        Which story do you want to tell?
+                    </p>
+                    <p style="font-size: 1.1rem; margin-top: 30px; text-align: center; opacity: 0.9; font-style: italic;">
+                        The only wrong decision is no decision.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -812,6 +1792,7 @@
                         <li><a href="privacy-policy.html">Privacy Policy</a></li>
                         <li><a href="disclaimer.html">Disclaimer</a></li>
                         <li><a href="refund-policy.html">Refund Policy</a></li>
+                        <li><a href="facebook-disclaimer.html">Facebook Disclaimer</a></li>
                     </ul>
                 </div>
                 
@@ -819,68 +1800,86 @@
                     <h3>Support</h3>
                     <ul class="footer-links">
                         <li>Email: <a href="mailto:nexamindai707@gmail.com">nexamindai707@gmail.com</a></li>
-                        <li>WhatsApp: <a href="https://wa.me/917703078859">+91 7703078859</a></li>
+                        <li>WhatsApp: <a href="https://wa.me/917703078859" target="_blank">+91 7703078859</a></li>
                         <li>Response time: Within 24 hours</li>
                     </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+                        Digital product. No refunds after 7 days. Results may vary based on implementation. For educational purposes only.
+                    </p>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2024 NexaMind. All rights reserved.</p>
-                <p style="margin-top: 10px; font-size: 0.85rem;">Made with ❤️ for Indian professionals</p>
+                <p style="margin-top: 10px; font-size: 0.85rem;">Made with ❤️ for Indian professionals ready to master AI</p>
             </div>
         </div>
     </footer>
 
-    <!-- Exit-Intent Popup - FIXED -->
+    <!-- Exit-Intent Popup -->
     <div id="exitPopup" class="exit-popup">
-        <div class="exit-popup-inner">
-            <div class="exit-close" onclick="closeExitPopup()" title="Close">×</div>
-            
-            <div style="text-align: center;">
-                <div style="font-size: 3.5rem; margin-bottom: 20px;">⏰</div>
-                <h2 style="color: var(--primary); font-size: 1.8rem; margin-bottom: 20px; font-weight: 800;">
-                    Wait! Don't Leave Without This...
-                </h2>
-                <p style="font-size: 1.1rem; margin-bottom: 15px; color: #1a1a1a;">
-                    <strong>847 Indian professionals</strong> have already transformed their AI skills.
-                </p>
-                <p style="font-size: 1rem; margin-bottom: 25px; color: #666;">
-                    You're one click away from never struggling with ChatGPT again.<br>
-                    Get the complete system for just <strong style="color: var(--primary);">₹799</strong>
-                </p>
-                
-                <div style="background: rgba(255,0,110,0.08); padding: 20px; border-radius: 12px; margin-bottom: 25px;">
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; text-align: center;">
-                        <div>
-                            <div style="font-size: 1.5rem; margin-bottom: 5px;">🛡️</div>
-                            <div style="font-size: 0.85rem; font-weight: 600;">7-Day Guarantee</div>
-                        </div>
-                        <div>
-                            <div style="font-size: 1.5rem; margin-bottom: 5px;">⚡</div>
-                            <div style="font-size: 0.85rem; font-weight: 600;">Instant Download</div>
-                        </div>
-                        <div>
-                            <div style="font-size: 1.5rem; margin-bottom: 5px;">✓</div>
-                            <div style="font-size: 0.85rem; font-weight: 600;">700+ Prompts</div>
-                        </div>
+        <div class="exit-popup-content">
+            <div class="exit-close" onclick="closeExitPopup()">×</div>
+            <div style="font-size: 4rem; margin-bottom: 20px;">⏰</div>
+            <h2 style="color: var(--primary); font-size: 2.2rem; margin-bottom: 25px; font-weight: 800; line-height: 1.3;">
+                Wait! Don't Leave Without This...
+            </h2>
+            <p style="font-size: 1.25rem; margin-bottom: 15px; color: #1a1a1a; line-height: 1.6;">
+                <strong>847 Indian professionals</strong> have already transformed their AI skills.
+            </p>
+            <p style="font-size: 1.15rem; margin-bottom: 30px; color: #666; line-height: 1.7;">
+                You're one click away from never struggling with ChatGPT again.<br>
+                Get the complete system for just <strong style="color: var(--primary); font-size: 1.4rem;">₹799</strong> (one-time payment)
+            </p>
+            <div style="background: rgba(255,0,110,0.08); padding: 25px; border-radius: 16px; margin-bottom: 30px; border: 2px dashed var(--primary);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; text-align: center;">
+                    <div>
+                        <div style="font-size: 1.5rem; margin-bottom: 5px;">🛡️</div>
+                        <div style="font-size: 0.9rem; font-weight: 600;">7-Day Guarantee</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 1.5rem; margin-bottom: 5px;">⚡</div>
+                        <div style="font-size: 0.9rem; font-weight: 600;">Instant Download</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 1.5rem; margin-bottom: 5px;">✓</div>
+                        <div style="font-size: 0.9rem; font-weight: 600;">700+ Prompts</div>
                     </div>
                 </div>
-                
-                <button class="cta-button" onclick="initializePayment(); closeExitPopup();" style="width: 100%; font-size: 1.1rem; padding: 18px;">
-                    Yes, I Want This Now - Just ₹799
-                </button>
-                
-                <p class="exit-skip" onclick="closeExitPopup()">
-                    No thanks, I'll keep struggling with AI on my own
-                </p>
             </div>
+            <button class="cta-button" onclick="initializePayment(); closeExitPopup();" style="width: 100%; max-width: 450px; margin-bottom: 20px; font-size: 1.2rem; padding: 20px;">
+                Yes, I Want This Now - Just ₹799
+            </button>
+            <p style="margin-top: 25px; cursor: pointer; color: #999; font-size: 0.95rem; text-decoration: underline;" onclick="closeExitPopup()">
+                No thanks, I'll keep struggling with AI on my own
+            </p>
+            <p style="font-size: 0.85rem; color: #999; margin-top: 20px;">
+                ⏰ Price increases to ₹1,499 soon • This popup won't show again
+            </p>
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Sticky Mobile CTA Bar -->
+    <div id="stickyFooterCTA" class="sticky-mobile-cta">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px; max-width: 1200px; margin: 0 auto;">
+            <div style="flex: 1;">
+                <p style="font-size: 1rem; font-weight: 700; color: white; margin: 0 0 3px;">Master AI in 30 Days</p>
+                <p style="font-size: 0.85rem; color: rgba(255,255,255,0.9); margin: 0;">Just ₹799 • 7-Day Guarantee</p>
+            </div>
+            <button onclick="initializePayment()" style="padding: 12px 25px; background: white; color: var(--primary); border: none; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; white-space: nowrap; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                Get Access Now →
+            </button>
+        </div>
+    </div>
+
+    <!-- Cashfree SDK -->
     <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
     
+    <!-- Main Scripts -->
     <script>
         // Countdown Timer
         function startCountdown() {
@@ -920,7 +1919,8 @@
 
         // Payment initialization
         function initializePayment() {
-            window.location.href = '/checkout.html';
+            document.getElementById('inlinePaymentForm').style.display = 'block';
+            document.getElementById('inlinePaymentForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
             
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'InitiateCheckout', {
@@ -932,18 +1932,16 @@
             }
         }
 
-        // Exit Intent Popup - FIXED
+        // Exit Intent Popup
         let exitShown = false;
         let exitAttempts = 0;
 
-        // Desktop: Mouse leaving viewport
         document.addEventListener('mouseout', function(e) {
             if (!exitShown && e.clientY < 50 && e.relatedTarget == null && e.toElement == null) {
                 showExitPopup();
             }
         });
 
-        // Mobile: Scroll to top
         let lastScrollTop = 0;
         let scrollUpCount = 0;
         window.addEventListener('scroll', function() {
@@ -963,7 +1961,6 @@
             lastScrollTop = scrollTop;
         });
 
-        // Time-based trigger (45 seconds)
         setTimeout(function() {
             if (!exitShown) {
                 document.addEventListener('mousemove', function triggerOnMovement() {
@@ -976,46 +1973,53 @@
         }, 45000);
 
         function showExitPopup() {
-            if (exitAttempts >= 1) return; // Only show once
-            
-            const popup = document.getElementById('exitPopup');
-            popup.style.display = 'flex';
+            if (exitAttempts >= 1) return;
+            document.getElementById('exitPopup').style.display = 'flex';
             exitShown = true;
             exitAttempts++;
             document.body.style.overflow = 'hidden';
             
             if (typeof fbq !== 'undefined') {
-                fbq('trackCustom', 'ExitIntent');
+                fbq('track', 'ExitIntent');
             }
             
             sessionStorage.setItem('exitPopupShown', 'true');
         }
 
         function closeExitPopup() {
-            const popup = document.getElementById('exitPopup');
-            popup.style.display = 'none';
+            document.getElementById('exitPopup').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        // Check if already shown
         if (sessionStorage.getItem('exitPopupShown')) {
             exitShown = true;
             exitAttempts = 1;
         }
 
-        // Close popup on ESC key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && document.getElementById('exitPopup').style.display === 'flex') {
-                closeExitPopup();
+        // Sticky Mobile CTA
+        let stickyShown = false;
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const stickyBar = document.getElementById('stickyFooterCTA');
+            
+            if (scrollPosition > 800 && !stickyShown && window.innerWidth <= 768) {
+                stickyBar.style.display = 'block';
+                stickyShown = true;
+            }
+            
+            const distanceFromBottom = document.body.scrollHeight - window.scrollY - window.innerHeight;
+            if (distanceFromBottom < 600) {
+                stickyBar.style.display = 'none';
+            } else if (stickyShown && scrollPosition > 800 && window.innerWidth <= 768) {
+                stickyBar.style.display = 'block';
             }
         });
 
-        // Close popup on background click
-        document.getElementById('exitPopup').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeExitPopup();
-            }
-        });
+        // Mobile Two Paths Display
+        if (window.innerWidth <= 768) {
+            document.getElementById('mobilePaths').style.display = 'block';
+            document.querySelector('[style*="grid-template-columns: 1fr 1fr"]').style.display = 'none';
+        }
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1031,7 +2035,7 @@
             });
         });
 
-        // Facebook Pixel - 90% Scroll
+        // Facebook Pixel - Advanced Tracking
         let scrolled90 = false;
         window.addEventListener('scroll', function() {
             const scrollPercent = (window.scrollY + window.innerHeight) / document.body.offsetHeight * 100;
@@ -1044,7 +2048,7 @@
         });
 
         // Enhanced Facebook Tracking
-        let scrollDepths = [25, 50, 75];
+        let scrollDepths = [25, 50, 75, 90];
         let trackedDepths = [];
         
         window.addEventListener('scroll', function() {
@@ -1071,6 +2075,9 @@
             if (timeOnPage === 120 && typeof fbq !== 'undefined') {
                 fbq('trackCustom', 'Engaged2Minutes');
             }
+            if (timeOnPage === 300 && typeof fbq !== 'undefined') {
+                fbq('trackCustom', 'Engaged5Minutes');
+            }
         }, 30000);
 
         // Track CTA clicks
@@ -1087,6 +2094,31 @@
                         });
                     }
                 });
+            });
+        });
+
+        // Fade-in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.problem-card, .method-card, .value-item, .faq-item');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(el);
             });
         });
     </script>
@@ -1158,8 +2190,12 @@
                 console.error('❌ InitiateCheckout CAPI Error:', error);
             });
             
-            // Redirect to checkout
-            window.location.href = '/checkout.html';
+            if (originalInit) {
+                originalInit();
+            } else {
+                document.getElementById('inlinePaymentForm').style.display = 'block';
+                document.getElementById('inlinePaymentForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         };
 
         // Lead Event with CAPI
