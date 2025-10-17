@@ -1,6 +1,9 @@
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 const path = require('path');
+const nodemailer = require('nodemailer');
+const fs = require('fs');
+const path = require('path');
 
 exports.handler = async (event, context) => {
   // Only allow POST requests
@@ -123,9 +126,15 @@ exports.handler = async (event, context) => {
         </html>
       `,
       // We'll add the PDF attachment in next step - for now, just send without it
-      text: `Hi ${customerName || 'there'}!\n\nThank you for purchasing the Advanced Prompt Engineering Mastery guide!\n\nYour complete AI mastery system should be attached to this email as a PDF.\n\nWhat's Inside:\n✅ 5 Proven Methods to Master AI\n✅ 64-Page Complete Guide\n✅ 700+ Ready-Made Prompts\n✅ 30-Day Mastery Roadmap\n\nOrder ID: ${orderId || 'N/A'}\n\nNeed help? Reply to this email anytime!\n\nTo Your AI Success,\nTeam NexaMind\n\nThink Ahead with AI™`
+     text: `Hi ${customerName || 'there'}!\n\nThank you...Think Ahead with AI™`,
+      attachments: [
+        {
+          filename: 'NexaMind-Complete-Package-with-Bonus.rar',
+          path: path.join(__dirname, '../../assets/Complete package with bonus.rar'),
+          contentType: 'application/x-rar-compressed'
+        }
+      ]
     };
-
     // Send email
     const info = await transporter.sendMail(mailOptions);
 
