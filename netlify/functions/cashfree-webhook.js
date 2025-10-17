@@ -64,8 +64,20 @@ exports.handler = async (event, context) => {
         phone: customerPhone
       });
       
-      // TODO: Send email with ebook download link
-      // You can integrate with email service here (SendGrid, AWS SES, etc.)
+      // Send ebook email automatically
+if (customerEmail) {
+  try {
+    await sendEbookEmail({
+      customerEmail: customerEmail,
+      customerName: paymentData.customer_details?.customer_name || customerEmail.split('@')[0],
+      orderId: orderId
+    });
+    console.log('Ebook email sent successfully to:', customerEmail);
+  } catch (emailError) {
+    console.error('Failed to send ebook email:', emailError);
+    // Don't fail the webhook if email fails - we still record the payment
+  }
+}
       
       return {
         statusCode: 200,
@@ -159,5 +171,39 @@ async function sendToFacebookCAPI(orderData) {
     
   } catch (error) {
     console.error('Facebook CAPI Error:', error);
+  }
+}
+
+// Function to send ebook email
+async function sendEbookEmail(orderData) {
+  try {
+    // Call the email function
+    const response = await fetch(
+      'https://trynexamind.com/.netlify/functions/send-ebook-email',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          customerEmail: orderData.customerEmail,
+          customerName: orderData.customerName,
+          orderId: orderData.orderId
+        })
+      }
+    );
+    
+    const result = await response.json();
+    
+    if (!response.ok) {
+      throw new Error(result.error || 'Failed to send email');
+    }
+    
+    console.log('Email sent successfully:', result);
+    return result;
+    
+  } catch (error) {
+    console.error('Error calling email function:', error);
+    throw error;
   }
 }
