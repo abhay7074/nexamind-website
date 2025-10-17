@@ -90,9 +90,25 @@ exports.handler = async (event, context) => {
               </div>
               
               <p style="font-size: 16px; margin: 20px 0;">
-                <strong>Order ID:</strong> ${orderId || 'N/A'}<br>
-                <strong>Download:</strong> See PDF attachment below ⬇️
-              </p>
+  <strong>Order ID:</strong> ${orderId || 'N/A'}
+</p>
+
+<div style="text-align: center; margin: 30px 0;">
+  <a href="https://trynexamind.com/thank-you.html" 
+     style="display: inline-block; background: linear-gradient(135deg, #FF006E, #FB5607); color: white; padding: 18px 40px; text-decoration: none; border-radius: 10px; font-size: 18px; font-weight: bold; box-shadow: 0 4px 15px rgba(255,0,110,0.4);">
+    📦 Download Your Complete Package Now
+  </a>
+</div>
+
+<p style="font-size: 14px; text-align: center; color: #666; margin: 20px 0;">
+  Or copy this link: <a href="https://trynexamind.com/thank-you.html" style="color: #FF006E;">https://trynexamind.com/thank-you.html</a>
+</p>
+
+<div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 5px;">
+  <p style="margin: 0; font-size: 14px; color: #856404;">
+    <strong>💡 Bookmark this page!</strong> You can return anytime to download your ebook package. This link never expires.
+  </p>
+</div>
               
               <div style="background: #e7f3ff; border-left: 4px solid #2196F3; padding: 15px; margin: 20px 0; border-radius: 5px;">
                 <p style="margin: 0; font-size: 14px;">
@@ -123,15 +139,7 @@ exports.handler = async (event, context) => {
         </html>
       `,
       // We'll add the PDF attachment in next step - for now, just send without it
-     text: `Hi ${customerName || 'there'}!\n\nThank you...Think Ahead with AI™`,
-      attachments: [
-        {
-          filename: 'NexaMind-Complete-Package-with-Bonus.rar',
-          path: path.join(__dirname, '../../assets/Complete package with bonus.rar'),
-          contentType: 'application/x-rar-compressed'
-        }
-      ]
-    };
+     text: `Hi ${customerName || 'there'}!...Think Ahead with AI™`
     // Send email
     const info = await transporter.sendMail(mailOptions);
 
