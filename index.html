@@ -2011,28 +2011,110 @@
             }).catch(error => console.error('CAPI Error:', error));
         }
 
-        // Process payment with email
-        function proceedToPayment(event) {
-            event.preventDefault();
-            const email = document.getElementById('customerEmail').value;
-            
-            // Store email for later use
-            localStorage.setItem('customerEmail', email);
-            
-            // Track with enhanced data
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'InitiateCheckout', {
-                    content_ids: ['ebook-799'],
-                    content_type: 'product',
-                    value: 799.00,
-                    currency: 'INR',
-                    user_email: email
-                });
-            }
-            
-            // Redirect to Cashfree checkout
-            window.location.href = '/checkout.html?email=' + encodeURIComponent(email);
+// Process payment with email
+async function proceedToPayment(event) {
+    event.preventDefault();
+    const email = document.getElementById('customerEmail').value;
+    
+    if (!email) {
+        alert('Please enter your email address');
+        return;
+    }
+    
+    // Show loading state
+    const submitButton = document.getElementById('paymentButton');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const originalButtonText = submitButton.innerHTML;
+    
+    submitButton.disabled = true;
+    submitButton.innerHTML = 'Creating Payment Session...';
+    loadingSpinner.style.display = 'block';
+    
+    try {
+        // Store email for later use
+        localStorage.setItem('customerEmail', email);
+        
+        // Track with enhanced data
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'InitiateCheckout', {
+                content_ids: ['ebook-799'],
+                content_type: 'product',
+                value: 799.00,
+                currency: 'INR',
+                user_email: email
+            });
         }
+        
+        // Track with CAPI
+        await fetch('/.netlify/functions/facebook-initiate-checkout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                event_source_url: window.location.href,
+                fbp: getCookie('_fbp'),
+                fbc: getCookie('_fbc'),
+                email: email,
+                phone: null
+            })
+        }).catch(error => console.error('CAPI Error:', error));
+        
+        // Create Cashfree order
+        const response = await fetch('/.netlify/functions/cashfree-create-order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                customerEmail: email,
+                customerName: email.split('@')[0],
+                customerPhone: '0000000000'
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (!response.ok) {
+            throw new Error(data.error || 'Failed to create payment order');
+        }
+        
+        if (!data.payment_session_id) {
+            throw new Error('Payment session ID not received');
+        }
+        
+        // Initialize Cashfree checkout
+        const cashfree = Cashfree({
+            mode: "production"
+        });
+        
+        const checkoutOptions = {
+            paymentSessionId: data.payment_session_id,
+            returnUrl: `https://trynexamind.com/payment-verify.html?order_id=${data.order_id}`,
+        };
+        
+        // Open Cashfree payment popup
+        cashfree.checkout(checkoutOptions).then(function(result) {
+            if (result.error) {
+                console.error('Payment error:', result.error);
+                alert('Payment failed. Please try again.');
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
+                loadingSpinner.style.display = 'none';
+            }
+            if (result.redirect) {
+                console.log('Payment redirect');
+            }
+        });
+        
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error creating payment: ' + error.message);
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonText;
+        loadingSpinner.style.display = 'none';
+    }
+}
 
         // Exit Intent Popup
         let exitShown = false;
