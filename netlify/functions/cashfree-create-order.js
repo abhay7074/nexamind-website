@@ -33,9 +33,9 @@ exports.handler = async (event, context) => {
       order_currency: 'INR',
       customer_details: {
         customer_id: customerId,
-        customer_phone: data.customer_phone || '9999999999',
-        customer_email: data.customer_email || 'customer@example.com',
-        customer_name: data.customer_name || 'Customer'
+        customer_phone: data.customerPhone || '9999999999',
+        customer_email: data.customerEmail || 'customer@example.com',
+        customer_name: data.customerName || 'Customer'
       },
       order_meta: {
         return_url: `${event.headers.origin}/payment-verify.html?order_id=${orderId}`,
@@ -45,6 +45,7 @@ exports.handler = async (event, context) => {
     };
     
     console.log('Creating order:', orderId);
+    console.log('Customer email:', data.customerEmail);
     
     // Call Cashfree API
     const response = await fetch(apiUrl, {
