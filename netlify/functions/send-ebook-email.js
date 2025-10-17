@@ -1,9 +1,6 @@
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 const path = require('path');
-const nodemailer = require('nodemailer');
-const fs = require('fs');
-const path = require('path');
 
 exports.handler = async (event, context) => {
   // Only allow POST requests
