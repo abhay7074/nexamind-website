@@ -1,0 +1,8 @@
+{
+  "name": "nexamind-website",
+  "version": "1.0.0",
+  "description": "NexaMind AI Mastery Platform",
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  }
+}
