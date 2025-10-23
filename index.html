@@ -2521,9 +2521,22 @@ async function proceedToPayment(event) {
 
         // Sticky Mobile CTA
         let stickyShown = false;
+        let stickyClosedTime = null;
+        
         window.addEventListener('scroll', function() {
             const scrollPosition = window.scrollY;
             const stickyBar = document.getElementById('stickyFooterCTA');
+            
+            // Check if 20 seconds have passed since closing
+            if (stickyClosedTime !== null) {
+                const currentTime = new Date().getTime();
+                const timeSinceClosed = (currentTime - stickyClosedTime) / 1000; // in seconds
+                
+                if (timeSinceClosed < 20) {
+                    // Still within 20 second cooldown period
+                    return;
+                }
+            }
             
             if (scrollPosition > 800 && !stickyShown && window.innerWidth <= 768) {
                 stickyBar.style.display = 'block';
@@ -2538,11 +2551,16 @@ async function proceedToPayment(event) {
             }
         });
 
-        // Close Sticky Footer function
+        // Close Sticky Footer function with 20 second delay
         function closeStickyFooter() {
             document.getElementById('stickyFooterCTA').style.display = 'none';
             stickyShown = false;
-            sessionStorage.setItem('stickyFooterClosed', 'true');
+            stickyClosedTime = new Date().getTime(); // Record the time when closed
+            
+            // After 20 seconds, allow it to show again
+            setTimeout(function() {
+                stickyClosedTime = null;
+            }, 20000); // 20 seconds = 20000 milliseconds
         }
 
         // Check if user previously closed the sticky footer
