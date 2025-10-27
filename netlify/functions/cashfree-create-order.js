@@ -29,7 +29,7 @@ exports.handler = async (event, context) => {
     // Order payload
     const orderPayload = {
       order_id: orderId,
-      order_amount: 799.00,
+      order_amount: 397.00,
       order_currency: 'INR',
       customer_details: {
         customer_id: customerId,
