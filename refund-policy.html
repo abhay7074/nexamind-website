@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Policy - NexaMind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #FF006E;
+            --secondary: #8338EC;
+            --accent: #FB5607;
+            --success: #06D6A0;
+            --dark: #0F0F1E;
+            --dark-2: #1A1A2E;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(255,0,110,0.3);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .tagline {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+        
+        .back-home {
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        
+        .back-home:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .last-updated {
+            background: linear-gradient(135deg, rgba(255,0,110,0.1), rgba(131,56,236,0.1));
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .section h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .section p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .section ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .section li {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .important-box {
+            background: linear-gradient(135deg, rgba(255,0,110,0.08), rgba(131,56,236,0.08));
+            border-left: 4px solid var(--primary);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .important-box strong {
+            color: var(--primary);
+        }
+        
+        .alert-box {
+            background: linear-gradient(135deg, rgba(251,86,7,0.1), rgba(255,120,73,0.1));
+            border: 2px solid var(--accent);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .alert-box h3 {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .alert-box p {
+            font-size: 1.15rem;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, var(--dark), var(--dark-2));
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .contact-box a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px 20px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div>
+                <a href="index.html" class="logo">NexaMind</a>
+                <div class="tagline">Think Ahead with AI™</div>
+            </div>
+            <a href="index.html" class="back-home">Back to Home</a>
+        </div>
+    </header>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Refund Policy</h1>
+        <p>Our policy on refunds, exchanges, and cancellations</p>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="last-updated">
+            Last Updated: January 2025
+        </div>
+        
+        <!-- No Refund Policy Alert -->
+        <div class="alert-box">
+            <h3>⚠️ NO REFUNDS POLICY</h3>
+            <p>All sales of digital products are final. We do not offer refunds, exchanges, or cancellations under any circumstances.</p>
+        </div>
+        
+        <!-- Policy Overview -->
+        <div class="section">
+            <h2>1. Policy Overview</h2>
+            
+            <p>Due to the digital nature of our product ("Advanced Prompt Engineering Mastery" eBook) and the instant delivery upon purchase, <strong>all sales are final and non-refundable.</strong></p>
+            
+            <p>By completing your purchase, you acknowledge and explicitly agree to this no-refund policy.</p>
+            
+            <div class="important-box">
+                <p><strong>This means:</strong> Once you complete payment and receive access to the download link, your purchase is final. No refunds will be issued for any reason, including but not limited to change of mind, buyer's remorse, or dissatisfaction with the product.</p>
+            </div>
+        </div>
+        
+        <!-- Why No Refunds -->
+        <div class="section">
+            <h2>2. Why This Policy Exists</h2>
+            
+            <h3>2.1 Nature of Digital Products</h3>
+            <p>The "Advanced Prompt Engineering Mastery" eBook is a digital information product that:</p>
+            
+            <ul>
+                <li>Is delivered instantly via download link upon payment</li>
+                <li>Can be immediately accessed, saved, and used</li>
+                <li>Cannot be "returned" once accessed</li>
+                <li>Represents intellectual property that cannot be "un-consumed"</li>
+            </ul>
+            
+            <h3>2.2 Industry Standard</h3>
+            <p>No-refund policies are standard practice for digital information products, online courses, eBooks, and educational materials due to their instant delivery and non-returnable nature.</p>
+            
+            <h3>2.3 Fair Pricing</h3>
+            <p>We've priced our product at ₹799 (significantly below market value of ₹6,796) specifically to minimize risk and make it accessible. This affordable pricing reflects our commitment to making AI mastery available to everyone while maintaining a sustainable no-refund policy.</p>
+        </div>
+        
+        <!-- What We Do Instead -->
+        <div class="section">
+            <h2>3. Our Commitment to Your Success</h2>
+            
+            <p>While we cannot offer refunds, we are committed to your satisfaction and success:</p>
+            
+            <h3>3.1 Transparent Product Information</h3>
+            <p>Our sales page clearly describes:</p>
+            <ul>
+                <li>Exactly what's included in the product</li>
+                <li>What methods you'll learn</li>
+                <li>What results you can expect with consistent practice</li>
+                <li>Who the product is designed for</li>
+                <li>What the product is NOT (no false promises)</li>
+            </ul>
+            
+            <h3>3.2 Quality Assurance</h3>
+            <p>We've invested thousands of hours creating and refining this product to ensure it delivers genuine value. The methods taught are battle-tested and proven to work when properly applied.</p>
+            
+            <h3>3.3 Customer Support</h3>
+            <p>We provide responsive customer support for:</p>
+            <ul>
+                <li>Technical issues accessing your download</li>
+                <li>Questions about implementing the methods</li>
+                <li>Clarification on any content in the eBook</li>
+                <li>General guidance on getting started</li>
+            </ul>
+        </div>
+        
+        <!-- Exceptions -->
+        <div class="section">
+            <h2>4. No Exceptions Policy</h2>
+            
+            <p>We do not make exceptions to our no-refund policy for any reason, including but not limited to:</p>
+            
+            <ul>
+                <li><strong>Change of mind</strong> - "I changed my mind" or "I no longer want this"</li>
+                <li><strong>Buyer's remorse</strong> - "I shouldn't have purchased this"</li>
+                <li><strong>Dissatisfaction</strong> - "This didn't meet my expectations"</li>
+                <li><strong>Lack of results</strong> - "This didn't work for me" (results require implementation)</li>
+                <li><strong>Personal circumstances</strong> - Financial difficulties, emergencies, etc.</li>
+                <li><strong>Technical issues on your end</strong> - Device compatibility, internet problems, etc.</li>
+                <li><strong>Duplicate purchases</strong> - Accidentally purchasing multiple times</li>
+                <li><strong>Unauthorized purchases</strong> - Claims of unauthorized use of payment method</li>
+            </ul>
+            
+            <div class="important-box">
+                <p><strong>Please read this carefully:</strong> By completing your purchase, you accept full responsibility for your decision and waive any right to request a refund, chargeback, or dispute the transaction.</p>
+            </div>
+        </div>
+        
+        <!-- Technical Issues -->
+        <div class="section">
+            <h2>5. Technical Issues and Support</h2>
+            
+            <h3>5.1 Download Problems</h3>
+            <p>If you experience technical difficulties accessing your download:</p>
+            
+            <ul>
+                <li>Contact us immediately at nexamindai707@gmail.com or WhatsApp +91 7703078859</li>
+                <li>We will help resolve the issue within 24 hours</li>
+                <li>We may provide alternative download methods</li>
+                <li>We will ensure you receive your purchased product</li>
+            </ul>
+            
+            <p><strong>This is NOT a refund situation.</strong> Technical access issues will be resolved through support, not refunds.</p>
+            
+            <h3>5.2 File Compatibility</h3>
+            <p>The eBook is provided as a standard PDF file that works on all devices. If you cannot open the PDF:</p>
+            
+            <ul>
+                <li>Ensure you have a PDF reader installed (free options: Adobe Reader, Google Drive, Apple Books)</li>
+                <li>Try opening on a different device</li>
+                <li>Contact support for assistance</li>
+            </ul>
+            
+            <p>File format incompatibility is not grounds for a refund, as PDFs are universally compatible.</p>
+        </div>
+        
+        <!-- Chargebacks -->
+        <div class="section">
+            <h2>6. Chargebacks and Disputes</h2>
+            
+            <h3>6.1 Chargeback Policy</h3>
+            <p>Filing a chargeback or payment dispute for a valid purchase is considered fraud and will result in:</p>
+            
+            <ul>
+                <li>Immediate termination of access (if applicable)</li>
+                <li>Ban from future purchases</li>
+                <li>Reporting to payment processor</li>
+                <li>Potential legal action for fraud</li>
+            </ul>
+            
+            <h3>6.2 Dispute Resolution</h3>
+            <p>If you have any concerns or issues with your purchase:</p>
+            
+            <ol>
+                <li><strong>Contact us first</strong> before initiating any chargeback or dispute</li>
+                <li>Email nexamindai707@gmail.com with your concern</li>
+                <li>We will respond within 24 hours to address your issue</li>
+                <li>Most issues can be resolved through direct communication</li>
+            </ol>
+            
+            <div class="important-box">
+                <p><strong>Important:</strong> Chargebacks for delivered digital products are considered fraudulent. We maintain detailed records of all purchases and deliveries.</p>
+            </div>
+        </div>
+        
+        <!-- Consumer Rights -->
+        <div class="section">
+            <h2>7. Consumer Rights and Legal Compliance</h2>
+            
+            <h3>7.1 Indian Consumer Law</h3>
+            <p>Under Indian consumer protection laws, digital information products delivered instantly are generally exempt from standard return/refund provisions that apply to physical goods.</p>
+            
+            <h3>7.2 Clear Disclosure</h3>
+            <p>We comply with all applicable laws by:</p>
+            
+            <ul>
+                <li>Clearly disclosing our no-refund policy before purchase</li>
+                <li>Requiring explicit acceptance of terms at checkout</li>
+                <li>Providing accurate product descriptions</li>
+                <li>Delivering the product as described</li>
+                <li>Offering customer support for legitimate issues</li>
+            </ul>
+            
+            <h3>7.3 Acceptance</h3>
+            <p>By clicking "Pay Now" or completing your purchase, you acknowledge that:</p>
+            
+            <ul>
+                <li>You have read and understood this Refund Policy</li>
+                <li>You agree to the no-refund terms</li>
+                <li>You waive any right to request a refund</li>
+                <li>Your purchase is final and binding</li>
+            </ul>
+        </div>
+        
+        <!-- Fraudulent Activity -->
+        <div class="section">
+            <h2>8. Fraudulent Activity</h2>
+            
+            <p>We take fraudulent purchases and abuse seriously. Any attempt to:</p>
+            
+            <ul>
+                <li>Purchase with stolen payment information</li>
+                <li>File false chargebacks for received products</li>
+                <li>Use multiple accounts to circumvent policies</li>
+                <li>Make false claims about product delivery</li>
+            </ul>
+            
+            <p>Will result in immediate action including reporting to authorities and payment processors.</p>
+        </div>
+        
+        <!-- Before You Buy -->
+        <div class="section">
+            <h2>9. Before You Purchase - Important Checklist</h2>
+            
+            <p>Before completing your purchase, please ensure:</p>
+            
+            <div class="important-box">
+                <ul style="margin: 0;">
+                    <li>✓ You have read the complete product description</li>
+                    <li>✓ You understand what's included and what's not</li>
+                    <li>✓ You have reviewed testimonials and examples</li>
+                    <li>✓ You understand this is an educational product requiring practice</li>
+                    <li>✓ You accept the ₹799 price is non-refundable</li>
+                    <li>✓ You have a working email address and internet access</li>
+                    <li>✓ You can open PDF files on your device</li>
+                    <li>✓ You are making this purchase willingly</li>
+                    <li>✓ You accept full responsibility for this decision</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- How to Maximize Value -->
+        <div class="section">
+            <h2>10. How to Maximize Your Investment</h2>
+            
+            <p>Since this purchase is final, here's how to get the most value:</p>
+            
+            <h3>10.1 Download Immediately</h3>
+            <p>Save the PDF to your device right after purchase. Bookmark the thank-you page for easy access.</p>
+            
+            <h3>10.2 Start with Chapter 1</h3>
+            <p>Begin with the PTCF Framework - it's the foundation. Don't skip ahead.</p>
+            
+            <h3>10.3 Practice Daily</h3>
+            <p>Follow the 30-day roadmap. Consistent practice is how you achieve mastery.</p>
+            
+            <h3>10.4 Use the Templates</h3>
+            <p>Start with the ready-made templates for immediate wins while you learn the theory.</p>
+            
+            <h3>10.5 Ask for Help</h3>
+            <p>If anything is unclear, contact support. We're here to ensure you succeed.</p>
+        </div>
+        
+        <!-- Contact for Issues -->
+        <div class="section">
+            <h2>11. Contact Information</h2>
+            
+            <p>For legitimate technical issues, questions, or support:</p>
+            
+            <p><strong>Email:</strong> nexamindai707@gmail.com<br>
+            <strong>WhatsApp:</strong> +91 7703078859<br>
+            <strong>Response Time:</strong> Within 24 hours</p>
+            
+            <p><strong>Please note:</strong> Contacting support will not result in a refund. We can help with technical issues, answer questions, and provide guidance, but we cannot and will not issue refunds.</p>
+        </div>
+        
+        <!-- Policy Changes -->
+        <div class="section">
+            <h2>12. Changes to This Policy</h2>
+            
+            <p>We reserve the right to modify this Refund Policy at any time. Changes will be effective immediately upon posting to our website.</p>
+            
+            <p>However, policy changes will not apply retroactively to purchases made before the modification. Your purchase is governed by the policy in effect at the time of purchase.</p>
+        </div>
+        
+        <!-- Final Note -->
+        <div class="contact-box">
+            <h3>Final Note: Make an Informed Decision</h3>
+            <p style="margin: 20px 0;">We want you to be completely confident in your purchase. Take your time to review all information on our sales page, read this refund policy carefully, and only proceed if you're certain this product is right for you.</p>
+            
+            <p style="margin: 20px 0;">At ₹799 for a complete AI mastery system (valued at ₹6,796), this represents exceptional value. But it's still an investment, and we respect that.</p>
+            
+            <p style="margin: 20px 0; font-size: 1.1rem; font-weight: 600;">Questions before purchasing?</p>
+            <p>
+                📧 Email: <a href="mailto:nexamindai707@gmail.com">nexamindai707@gmail.com</a><br>
+                💬 WhatsApp: <a href="https://wa.me/917703078859" target="_blank">+91 7703078859</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.95rem; opacity: 0.9;">We're happy to answer questions BEFORE you buy!</p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="disclaimer.html">Disclaimer</a>
+                <a href="refund-policy.html">Refund Policy</a>
+                <a href="facebook-disclaimer.html">Facebook Disclaimer</a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 NexaMind. All rights reserved.</p>
+                <p style="margin-top: 10px;">Think Ahead with AI™</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
